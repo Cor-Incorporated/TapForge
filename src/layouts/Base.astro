@@ -40,7 +40,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang={lang}>
   <head>
     <!-- favicon -->
     <link rel="shortcut icon" href={siteConfig.favicon} />
@@ -94,7 +94,7 @@ const {
     <!-- SEO Keywords -->
     <meta
       name="keywords"
-      content="NFCデジタル名刺,AI名刺管理,多言語名刺,ペーパーレス名刺,フリーランス向けデジタル名刺,アプリ不要名刺,TapForge"
+      content="TapForge,NFCデジタル名刺,AI名刺管理,多言語名刺,ペーパーレス名刺,フリーランス向けデジタル名刺,アプリ不要名刺,デジタル名刺,NFC名刺,AI名刺,ビジネス名刺,海外案件,フリーランス支援"
     />
 
     <ClientRouter />
@@ -147,12 +147,47 @@ const {
       content={`${siteConfig.base_url}${image ? image : "/images/favicon.ico"}`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TapForge" />
+    <meta name="twitter:creator" content="@CorJP" />
 
     <!-- Google Analytics 4 (placeholder) -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
 
     <!-- Hotjar (placeholder) -->
     <!-- <script>(function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r)})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');</script> -->
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TapForge",
+      "description": "AI駆動の次世代NFCデジタル名刺。アプリ不要、月額無料で世界と繋がる。フリーランサーの海外案件獲得を支援。",
+      "url": "https://tapforge.cor-jp.com",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY",
+        "description": "月額無料プラン"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Cor.株式会社",
+        "url": "https://cor-jp.com"
+      },
+      "featureList": [
+        "NFCタップで名刺交換",
+        "AI駆動の名刺管理",
+        "多言語対応（日本語、英語、中国語、スペイン語）",
+        "アプリ不要",
+        "月額無料",
+        "フリーランス支援"
+      ],
+      "screenshot": "https://tapforge.cor-jp.com/images/hero-demo.png"
+    }
+    </script>
   </head>
   <body>
     <TwSizeIndicator />

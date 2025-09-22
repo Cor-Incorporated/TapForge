@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Disallow: /api/*
+
+# TapForge SEO Optimization
+Sitemap: https://tapforge.cor-jp.com/sitemap-index.xml

@@ -1,14 +1,14 @@
 {
   "site": {
-    "title": "Bookworm Light Astro | Blog Template",
-    "base_url": "https://boltsite-by-cor-inc.pages.dev",
+    "title": "TapForge - NFCデジタル名刺で世界と繋がる",
+    "base_url": "https://tapforge.cor-jp.com",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
+    "favicon": "/images/favicon.ico",
+    "logo": "/images/favicon.png",
     "logo_width": "200",
     "logo_height": "34",
-    "logo_text": "Bookworm Light"
+    "logo_text": "TapForge"
   },
 
   "settings": {
@@ -17,19 +17,19 @@
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "Bookworm Light Astro Blog Template"
+    "meta_author": "Cor.株式会社",
+    "meta_image": "/images/favicon.png",
+    "meta_description": "TapForge: アプリ不要、AIで名刺をデジタル化。月額無料で世界と繋がる次世代名刺。フリーランサーの海外案件獲得を支援。"
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2025 a theme by [Themefisher](https://themefisher.com)"
+    "copyright": "Copyright © 2025 [Cor.株式会社](https://cor-jp.com/)"
   },
 
   "contactinfo": {
-    "address": "355 S Grand Ave <br/> Los Angeles, CA 90071",
-    "email": "info@bookworm.org",
-    "phone": "+800 567 1234"
+    "address": "東京都渋谷区 <br/> 日本",
+    "email": "info@cor-jp.com",
+    "phone": "+81-3-1234-5678"
   }
 }
