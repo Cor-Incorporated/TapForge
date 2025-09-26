@@ -196,16 +196,130 @@ const t = translations[lang].faq;
             </p>
           </div>
         </details>
+
+        <!-- FAQ Item 6: 月額制について -->
+        <details class="group bg-gray-50 rounded-lg">
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-100 transition-colors"
+          >
+            <h3 class="text-lg font-semibold text-gray-900">
+              {lang === "ja" ? "なぜ月額制になったのですか？" :
+               lang === "en" ? "Why did you switch to a subscription model?" :
+               lang === "zh" ? "为什么改为订阅制？" :
+               lang === "es" ? "¿Por qué cambiaron a un modelo de suscripción?" :
+               lang === "ko" ? "왜 월정액제로 변경되었나요?" :
+               "なぜ月額制になったのですか？"}
+            </h3>
+            <svg
+              class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              {lang === "ja" ? "常に最新の機能とセキュリティを提供し、継続的にサービスを改善するためです。月額制により、新機能の開発やサポート体制の充実が可能になります。" :
+               lang === "en" ? "To continuously provide the latest features and security updates, and to improve our service constantly. The subscription model enables us to develop new features and enhance support." :
+               lang === "zh" ? "为了持续提供最新功能和安全更新，并不断改进我们的服务。订阅模式使我们能够开发新功能并增强支持。" :
+               lang === "es" ? "Para proporcionar continuamente las últimas características y actualizaciones de seguridad, y mejorar constantemente nuestro servicio." :
+               lang === "ko" ? "최신 기능과 보안을 지속적으로 제공하고 서비스를 계속 개선하기 위해서입니다." :
+               "常に最新の機能とセキュリティを提供し、継続的にサービスを改善するためです。"}
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 7: 早期アクセスと通常料金の違い -->
+        <details class="group bg-gray-50 rounded-lg">
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-100 transition-colors"
+          >
+            <h3 class="text-lg font-semibold text-gray-900">
+              {lang === "ja" ? "早期アクセスと通常料金の違いは？" :
+               lang === "en" ? "What's the difference between early access and regular pricing?" :
+               lang === "zh" ? "早期访问和常规定价有什么区别？" :
+               lang === "es" ? "¿Cuál es la diferencia entre acceso anticipado y precio regular?" :
+               lang === "ko" ? "조기 액세스와 일반 요금의 차이는 무엇인가요?" :
+               "早期アクセスと通常料金の違いは？"}
+            </h3>
+            <svg
+              class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              {lang === "ja" ? "早期アクセスは永続的に月額500円でご利用いただけます。通常料金は700円スタートで、段階的に割引され、13ヶ月目以降は500円になります。早期アクセスは限定100名様のみの特別プログラムです。" :
+               lang === "en" ? "Early access members enjoy a permanent rate of ¥500/month. Regular pricing starts at ¥700 and gradually decreases to ¥500 after 13 months. Early access is limited to 100 members only." :
+               lang === "zh" ? "早期访问会员可享受永久的500日元/月费率。常规定价从700日元开始，13个月后逐渐降至500日元。早期访问仅限100名会员。" :
+               lang === "es" ? "Los miembros de acceso anticipado disfrutan de una tarifa permanente de ¥500/mes. El precio regular comienza en ¥700 y disminuye gradualmente a ¥500 después de 13 meses." :
+               lang === "ko" ? "조기 액세스는 영구적으로 월 500엔으로 이용할 수 있습니다. 일반 요금은 700엔부터 시작하여 단계적으로 할인되어 13개월째부터 500엔이 됩니다." :
+               "早期アクセスは永続的に月額500円でご利用いただけます。"}
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 8: 解約について -->
+        <details class="group bg-gray-50 rounded-lg">
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-100 transition-colors"
+          >
+            <h3 class="text-lg font-semibold text-gray-900">
+              {lang === "ja" ? "解約はいつでもできますか？" :
+               lang === "en" ? "Can I cancel anytime?" :
+               lang === "zh" ? "我可以随时取消吗？" :
+               lang === "es" ? "¿Puedo cancelar en cualquier momento?" :
+               lang === "ko" ? "언제든지 해약할 수 있나요?" :
+               "解約はいつでもできますか？"}
+            </h3>
+            <svg
+              class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              {lang === "ja" ? "早期アクセスは3ヶ月の最低契約期間後、通常プランは3ヶ月ごとの更新時に解約可能です。解約後もNFCカードは継続してご利用いただけますが、オンライン機能は停止します。" :
+               lang === "en" ? "Early access requires a 3-month minimum contract, then you can cancel anytime. Regular plans can be cancelled at 3-month renewal periods. Your NFC card remains functional after cancellation, but online features will be disabled." :
+               lang === "zh" ? "早期访问需要3个月的最低合同，之后您可以随时取消。常规计划可在3个月更新期间取消。取消后您的NFC卡仍可使用，但在线功能将被禁用。" :
+               lang === "es" ? "El acceso anticipado requiere un contrato mínimo de 3 meses. Los planes regulares se pueden cancelar en períodos de renovación de 3 meses." :
+               lang === "ko" ? "조기 액세스는 3개월 최소 계약 기간 후, 일반 플랜은 3개월마다 갱신 시 해약 가능합니다." :
+               "早期アクセスは3ヶ月の最低契約期間後、解約可能です。"}
+            </p>
+          </div>
+        </details>
       </div>
     </div>
 
     <!-- Additional Help -->
     <div class="mt-12 text-center">
       <div class="bg-blue-50 rounded-xl p-8 max-w-2xl mx-auto">
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">
-          {t.additionalHelp.title}
+        <h3 class="text-xl font-semibold text-gray-900 mb-4" id="additional-help-title">
+          さらに詳しく知りたい方は
         </h3>
-        <p class="text-gray-600 mb-6">{t.additionalHelp.description}</p>
+        <p class="text-gray-600 mb-6" id="additional-help-description">お気軽にお問い合わせください</p>
         <a
           href="https://cor-jp.com/contact/"
           target="_blank"
@@ -225,7 +339,7 @@ const t = translations[lang].faq;
               d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
             ></path>
           </svg>
-          {t.additionalHelp.button}
+          <span id="additional-help-button-text">お問い合わせ</span>
         </a>
       </div>
     </div>
@@ -241,6 +355,19 @@ const t = translations[lang].faq;
     const currentLang = urlLang || storedLang || "ja";
 
     updateFAQContent(currentLang);
+    
+    // Force Korean translation if needed
+    if (currentLang === 'ko') {
+      setTimeout(() => {
+        forceKoreanFAQTranslation();
+      }, 100);
+      setTimeout(() => {
+        forceKoreanFAQTranslation();
+      }, 500);
+      setTimeout(() => {
+        forceKoreanFAQTranslation();
+      }, 1000);
+    }
   });
 
   function updateFAQContent(lang: string) {
@@ -391,6 +518,42 @@ const t = translations[lang].faq;
           button: "Contáctanos",
         },
       },
+      ko: {
+        title: "자주 묻는 질문",
+        subtitle: "고객님들께서 자주 문의하시는 질문에 답변드립니다",
+        items: [
+          {
+            question: "모든 스마트폰에서 NFC를 사용할 수 있나요?",
+            answer:
+              "95%의 스마트폰에서 호환됩니다. iPhone 7 이후, Android NFC 지원 기종에서 이용하실 수 있습니다.\n구체적인 지원 기종에 대해서는 각 스마트폰 제조사의 공식 사이트를 확인해 주세요.",
+          },
+          {
+            question: "명함 읽기 정확도는?",
+            answer:
+              "AI 명함 촬영·VCard 변환 정확도는 95%입니다. 지속적인 개선을 통해 더욱 정확도 향상을 목표로 하고 있습니다.\n인식에 실패한 경우, 수동으로 수정도 가능합니다.",
+          },
+          {
+            question: "디자인 변경은 직접 할 수 있나요?",
+            answer:
+              "관리 화면에서 무제한으로 디자인 변경이 가능합니다.\n라이트 컬러(흰색·라이트 블루·베이지) 3종류에서 선택할 수 있으며, 텍스트나 연락처 정보도 쉽게 업데이트할 수 있습니다.",
+          },
+          {
+            question: "다국어 지원 사용법을 알려주세요",
+            answer:
+              "4개국어(일본어·영어·중국어·스페인어)로 직접 전환할 수 있습니다.\n프로필 화면에서 표시 언어를 선택할 수 있으므로, 상대방의 스마트폰 언어 설정과 관계없이 원하는 언어로 이용하실 수 있습니다.",
+          },
+          {
+            question: "오프라인에서도 사용할 수 있나요?",
+            answer:
+              "현재는 온라인 환경에서의 이용을 권장하고 있습니다.\n오프라인 기능은 향후 검토 중입니다. 앱 불필요의 장점을 살려 온라인 환경에서의 안정적인 서비스 제공을 우선하고 있습니다.",
+          },
+        ],
+        additionalHelp: {
+          title: "기타 문의사항은 언제든지 문의해 주세요",
+          description: "전문 스태프가 정성스럽게 답변드리겠습니다",
+          button: "문의하기",
+        },
+      },
     };
 
     const t = (translations as any)[lang] || translations["ja"];
@@ -415,25 +578,94 @@ const t = translations[lang].faq;
         }
         const answerElement = item.querySelector("p");
         if (answerElement) {
-          answerElement.innerHTML = t.items[index].answer
-            .split("\n")
-            .join("<br>");
+          // Split answers by newline and replace with line breaks
+          const answerText = t.items[index].answer;
+          answerElement.textContent = answerText;
         }
       }
     });
 
-    // Update additional help section
-    const helpTitleElement = document.querySelector("#faq .mt-12 h3");
+    // Update additional help section with proper IDs
+    const helpTitleElement = document.getElementById('additional-help-title');
     if (helpTitleElement) {
       helpTitleElement.textContent = t.additionalHelp.title;
     }
-    const helpDescElement = document.querySelector("#faq .mt-12 p");
+    const helpDescElement = document.getElementById('additional-help-description');
     if (helpDescElement) {
       helpDescElement.textContent = t.additionalHelp.description;
     }
-    const helpButtonElement = document.querySelector("#faq .mt-12 a");
+    const helpButtonElement = document.getElementById('additional-help-button-text');
     if (helpButtonElement) {
       helpButtonElement.textContent = t.additionalHelp.button;
+    }
+  }
+
+  function forceKoreanFAQTranslation() {
+    // Force updating FAQ content to Korean
+    
+    // Force update title and subtitle
+    const titleElement = document.querySelector('#faq h2');
+    if (titleElement) {
+      titleElement.textContent = '자주 묻는 질문';
+      // Updated FAQ title to Korean
+    }
+    
+    const subtitleElement = document.querySelector('#faq p');
+    if (subtitleElement) {
+      subtitleElement.textContent = '고객님들께서 자주 문의하시는 질문에 답변드립니다';
+      // Updated FAQ subtitle to Korean
+    }
+    
+    // Force update FAQ items
+    const faqItems = document.querySelectorAll('#faq details');
+    const koreanQuestions = [
+      '모든 스마트폰에서 NFC를 사용할 수 있나요?',
+      '명함 읽기 정확도는?',
+      '디자인 변경은 직접 할 수 있나요?',
+      '다국어 지원 사용법을 알려주세요',
+      '오프라인에서도 사용할 수 있나요?'
+    ];
+    const koreanAnswers = [
+      '95%의 스마트폰에서 호환됩니다. iPhone 7 이후, Android NFC 지원 기종에서 이용하실 수 있습니다.\n구체적인 지원 기종에 대해서는 각 스마트폰 제조사의 공식 사이트를 확인해 주세요.',
+      'AI 명함 촬영·VCard 변환 정확도는 95%입니다. 지속적인 개선을 통해 더욱 정확도 향상을 목표로 하고 있습니다.\n인식에 실패한 경우, 수동으로 수정도 가능합니다.',
+      '관리 화면에서 무제한으로 디자인 변경이 가능합니다.\n라이트 컬러(흰색·라이트 블루·베이지) 3종류에서 선택할 수 있으며, 텍스트나 연락처 정보도 쉽게 업데이트할 수 있습니다.',
+      '4개국어(일본어·영어·중국어·스페인어)로 직접 전환할 수 있습니다.\n프로필 화면에서 표시 언어를 선택할 수 있으므로, 상대방의 스마트폰 언어 설정과 관계없이 원하는 언어로 이용하실 수 있습니다.',
+      '현재는 온라인 환경에서의 이용을 권장하고 있습니다.\n오프라인 기능은 향후 검토 중입니다. 앱 불필요의 장점을 살려 온라인 환경에서의 안정적인 서비스 제공을 우선하고 있습니다.'
+    ];
+    
+    faqItems.forEach((item, index) => {
+      if (koreanQuestions[index] && koreanAnswers[index]) {
+        const questionElement = item.querySelector('h3');
+        if (questionElement) {
+          questionElement.textContent = koreanQuestions[index];
+          // Updated FAQ question to Korean
+        }
+        
+        const answerElement = item.querySelector('p');
+        if (answerElement) {
+          // Split answers by newline for proper display
+          answerElement.textContent = koreanAnswers[index];
+        }
+      }
+    });
+    
+    // Force update additional help section with proper IDs
+    const helpTitleElement = document.getElementById('additional-help-title');
+    if (helpTitleElement) {
+      helpTitleElement.textContent = '기타 문의사항은 언제든지 문의해 주세요';
+      // Updated FAQ help title to Korean
+    }
+
+    const helpDescElement = document.getElementById('additional-help-description');
+    if (helpDescElement) {
+      helpDescElement.textContent = '전문 스태프가 정성스럽게 답변드리겠습니다';
+      // Updated FAQ help description to Korean
+    }
+
+    const helpButtonElement = document.getElementById('additional-help-button-text');
+    if (helpButtonElement) {
+      helpButtonElement.textContent = '문의하기';
+      // Updated FAQ help button to Korean
     }
   }
 </script>

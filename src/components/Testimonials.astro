@@ -74,7 +74,7 @@ const t = translations[lang].testimonials;
         </div>
 
         <blockquote class="text-gray-700 leading-relaxed">
-          「{t.items[0].message}」
+          「{t.items[0].content}」
         </blockquote>
 
         <div class="mt-4 flex flex-wrap gap-2">
@@ -185,6 +185,19 @@ const t = translations[lang].testimonials;
     const currentLang = urlLang || storedLang || "ja";
 
     updateTestimonialsContent(currentLang);
+    
+    // Force Korean translation if needed
+    if (currentLang === 'ko') {
+      setTimeout(() => {
+        forceKoreanTestimonialsTranslation();
+      }, 100);
+      setTimeout(() => {
+        forceKoreanTestimonialsTranslation();
+      }, 500);
+      setTimeout(() => {
+        forceKoreanTestimonialsTranslation();
+      }, 1000);
+    }
   });
 
   function updateTestimonialsContent(lang: string) {
@@ -277,6 +290,27 @@ const t = translations[lang].testimonials;
         ],
         note: "Estas voces son hipotéticas. Planeamos seleccionar 5 reseñas reales de 50 participantes de prueba y reemplazarlas.",
       },
+      ko: {
+        title: "고객 후기",
+        subtitle: "실제로 이용하고 계신 분들의 후기",
+        items: [
+          {
+            name: "스즈키님",
+            role: "웹 디자이너",
+            message:
+              "종이 명함 정리가 5분 만에 완료! 영어 프로필로 해외 프로젝트가 늘었습니다. AI 명함 촬영 정확도도 높고, VCard 변환도 매끄럽습니다. 프리랜서에게 정말 편리한 서비스입니다.",
+            tags: ["효율화", "해외 프로젝트", "AI 정확도"],
+          },
+          {
+            name: "다나카님",
+            role: "IT 컨설턴트",
+            message:
+              "앱 불필요로 간단합니다. 클라이언트에게 좋은 인상을 주고 있습니다. 다국어 지원으로 해외 클라이언트와의 소통도 매끄러워졌습니다. 비용 대비 효과도 뛰어납니다.",
+            tags: ["간편 조작", "좋은 인상", "비용 효율"],
+          },
+        ],
+        note: "이러한 후기는 가상의 것입니다. 트라이얼 참가자 50명 중에서 5개의 실제 리뷰를 선별하여 교체할 예정입니다.",
+      },
     };
 
     const t = (translations as any)[lang] || translations["ja"];
@@ -355,6 +389,88 @@ const t = translations[lang].testimonials;
     const noteElement = document.querySelector("#testimonials .mt-12 p");
     if (noteElement) {
       noteElement.textContent = `※ ${t.note}`;
+    }
+  }
+
+  function forceKoreanTestimonialsTranslation() {
+    // Debug output removed
+    
+    // Force update title and subtitle
+    const titleElement = document.querySelector('#testimonials h2');
+    if (titleElement) {
+      titleElement.textContent = '고객 후기';
+      // Debug output removed
+    }
+    
+    const subtitleElement = document.querySelector('#testimonials p');
+    if (subtitleElement) {
+      subtitleElement.textContent = '실제로 이용하고 계신 분들의 후기';
+      // Debug output removed
+    }
+    
+    // Force update testimonial 1
+    const testimonial1Name = document.querySelector('#testimonials .grid > div:first-child h3');
+    if (testimonial1Name) {
+      testimonial1Name.textContent = '스즈키님';
+      // Debug output removed
+    }
+    
+    const testimonial1Role = document.querySelector('#testimonials .grid > div:first-child p');
+    if (testimonial1Role) {
+      testimonial1Role.textContent = '웹 디자이너';
+      // Debug output removed
+    }
+    
+    const testimonial1Message = document.querySelector('#testimonials .grid > div:first-child .text-gray-700');
+    if (testimonial1Message) {
+      testimonial1Message.textContent = '종이 명함 정리가 5분 만에 완료! 영어 프로필로 해외 프로젝트가 늘었습니다. AI 명함 촬영 정확도도 높고, VCard 변환도 매끄럽습니다. 프리랜서에게 정말 편리한 서비스입니다.';
+      // Debug output removed
+    }
+    
+    // Force update testimonial 1 tags
+    const testimonial1Tags = document.querySelectorAll('#testimonials .grid > div:first-child .bg-blue-100, #testimonials .grid > div:first-child .bg-purple-100, #testimonials .grid > div:first-child .bg-green-100');
+    const testimonial1TagTexts = ['효율화', '해외 프로젝트', 'AI 정확도'];
+    testimonial1Tags.forEach((tag, index) => {
+      if (tag && testimonial1TagTexts[index]) {
+        tag.textContent = testimonial1TagTexts[index];
+        // Debug output removed
+      }
+    });
+    
+    // Force update testimonial 2
+    const testimonial2Name = document.querySelector('#testimonials .grid > div:last-child h3');
+    if (testimonial2Name) {
+      testimonial2Name.textContent = '다나카님';
+      // Debug output removed
+    }
+    
+    const testimonial2Role = document.querySelector('#testimonials .grid > div:last-child p');
+    if (testimonial2Role) {
+      testimonial2Role.textContent = 'IT 컨설턴트';
+      // Debug output removed
+    }
+    
+    const testimonial2Message = document.querySelector('#testimonials .grid > div:last-child .text-gray-700');
+    if (testimonial2Message) {
+      testimonial2Message.textContent = '앱 불필요로 간단합니다. 클라이언트에게 좋은 인상을 주고 있습니다. 다국어 지원으로 해외 클라이언트와의 소통도 매끄러워졌습니다. 비용 대비 효과도 뛰어납니다.';
+      // Debug output removed
+    }
+    
+    // Force update testimonial 2 tags
+    const testimonial2Tags = document.querySelectorAll('#testimonials .grid > div:last-child .bg-blue-100, #testimonials .grid > div:last-child .bg-purple-100, #testimonials .grid > div:last-child .bg-green-100');
+    const testimonial2TagTexts = ['간편 조작', '좋은 인상', '비용 효율'];
+    testimonial2Tags.forEach((tag, index) => {
+      if (tag && testimonial2TagTexts[index]) {
+        tag.textContent = testimonial2TagTexts[index];
+        // Debug output removed
+      }
+    });
+    
+    // Force update note
+    const noteElement = document.querySelector('#testimonials .text-sm.text-gray-500');
+    if (noteElement) {
+      noteElement.textContent = '이러한 후기는 가상의 것입니다. 트라이얼 참가자 50명 중에서 5개의 실제 리뷰를 선별하여 교체할 예정입니다.';
+      // Debug output removed
     }
   }
 </script>

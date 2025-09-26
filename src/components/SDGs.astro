@@ -281,6 +281,19 @@
 
     // Update SDGs content based on language
     updateSDGsContent(currentLang);
+    
+    // Force Korean translation if needed
+    if (currentLang === 'ko') {
+      setTimeout(() => {
+        forceKoreanSDGsTranslation();
+      }, 100);
+      setTimeout(() => {
+        forceKoreanSDGsTranslation();
+      }, 500);
+      setTimeout(() => {
+        forceKoreanSDGsTranslation();
+      }, 1000);
+    }
   });
 
   function updateSDGsContent(lang: string) {
@@ -323,6 +336,46 @@
             },
           },
           summary: "持続可能なビジネス活動で、地球環境とビジネス成長を両立",
+        },
+      },
+      ko: {
+        title: "SDGs 기여",
+        subtitle: "환경과 커리어의 양립",
+        goals: {
+          goal12: {
+            title: "책임감 있는 소비와 생산",
+            items: ["페이퍼리스화", "연간 300장의 종이 절약", "지속가능한 소비"],
+          },
+          goal10: {
+            title: "국가 내·국가 간 불평등 해소",
+            items: ["4개국어 지원", "국제 프로젝트 불평등 해소", "언어 장벽 해소"],
+          },
+          goal17: {
+            title: "목표를 위한 파트너십",
+            items: [
+              "명함 교환을 통한 공동 창조",
+              "글로벌 연결",
+              "기술 혁신 공유",
+            ],
+          },
+        },
+        environmental: {
+          title: "환경 고려",
+          metrics: {
+            paperReduction: {
+              value: "300장",
+              description: "연간 절약되는 종이 수",
+            },
+            paperless: {
+              value: "100%",
+              description: "페이퍼리스화 실현",
+            },
+            updates: {
+              value: "∞",
+              description: "업데이트 가능한 디지털 명함",
+            },
+          },
+          summary: "지속가능한 비즈니스 활동으로 지구 환경과 비즈니스 성장을 양립",
         },
       },
       en: {
@@ -563,6 +616,108 @@
     const envSummaryElement = document.getElementById("environmental-summary");
     if (envSummaryElement) {
       envSummaryElement.textContent = t.environmental.summary;
+    }
+  }
+
+  function forceKoreanSDGsTranslation() {
+    // Debug output removed
+    
+    // Force update main title and subtitle
+    const titleElement = document.getElementById('sdgs-title');
+    if (titleElement) {
+      titleElement.textContent = 'SDGs 기여';
+      // Debug output removed
+    }
+    
+    const subtitleElement = document.getElementById('sdgs-subtitle');
+    if (subtitleElement) {
+      subtitleElement.textContent = '환경과 커리어의 양립';
+      // Debug output removed
+    }
+    
+    // Force update SDG goals
+    const goal12Title = document.getElementById('sdg-12-title');
+    if (goal12Title) {
+      goal12Title.textContent = '책임감 있는 소비와 생산';
+      // Debug output removed
+    }
+    
+    const goal10Title = document.getElementById('sdg-10-title');
+    if (goal10Title) {
+      goal10Title.textContent = '국가 내·국가 간 불평등 해소';
+      // Debug output removed
+    }
+    
+    const goal17Title = document.getElementById('sdg-17-title');
+    if (goal17Title) {
+      goal17Title.textContent = '목표를 위한 파트너십';
+      // Debug output removed
+    }
+    
+    // Force update SDG items
+    const sdg12Items = ['페이퍼리스화', '연간 300장의 종이 절약', '지속가능한 소비'];
+    const sdg10Items = ['4개국어 지원', '국제 프로젝트 불평등 해소', '언어 장벽 해소'];
+    const sdg17Items = ['명함 교환을 통한 공동 창조', '글로벌 연결', '기술 혁신 공유'];
+    
+    sdg12Items.forEach((item, index) => {
+      const element = document.getElementById(`sdg-12-item-${index + 1}`);
+      if (element) {
+        element.textContent = item;
+        // Debug output removed
+      }
+    });
+    
+    sdg10Items.forEach((item, index) => {
+      const element = document.getElementById(`sdg-10-item-${index + 1}`);
+      if (element) {
+        element.textContent = item;
+        // Debug output removed
+      }
+    });
+    
+    sdg17Items.forEach((item, index) => {
+      const element = document.getElementById(`sdg-17-item-${index + 1}`);
+      if (element) {
+        element.textContent = item;
+        // Debug output removed
+      }
+    });
+    
+    // Force update environmental section
+    const envTitle = document.getElementById('environmental-title');
+    if (envTitle) {
+      envTitle.textContent = '환경 고려';
+      // Debug output removed
+    }
+    
+    const paperReductionValue = document.getElementById('env-paper-reduction-value');
+    if (paperReductionValue) {
+      paperReductionValue.textContent = '300장';
+      // Debug output removed
+    }
+    
+    const paperReductionDesc = document.getElementById('env-paper-reduction-desc');
+    if (paperReductionDesc) {
+      paperReductionDesc.textContent = '연간 절약되는 종이 수';
+      // Debug output removed
+    }
+    
+    const paperlessDesc = document.getElementById('env-paperless-desc');
+    if (paperlessDesc) {
+      paperlessDesc.textContent = '페이퍼리스화 실현';
+      // Debug output removed
+    }
+    
+    const updatesDesc = document.getElementById('env-updates-desc');
+    if (updatesDesc) {
+      updatesDesc.textContent = '업데이트 가능한 디지털 명함';
+      // Debug output removed
+    }
+    
+    const envSummary = document.getElementById('environmental-summary');
+    if (envSummary) {
+      envSummary.textContent = '지속가능한 비즈니스 활동으로 지구 환경과 비즈니스 성장을 양립';
+      // Debug output removed
     }
   }
 </script>

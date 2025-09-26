@@ -1,5 +1,5 @@
 ---
-import { features, pricingPlans } from "../config/features";
+import { features, pricingPlans, regularPricingPlans } from "../config/features";
 ---
 
 <section id="features" class="py-20 bg-white">
@@ -63,49 +63,121 @@ import { features, pricingPlans } from "../config/features";
 
     <!-- Pricing Information -->
     <div
-      class="mt-16 bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8"
+      class="mt-16 bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8"
     >
       <div class="text-center">
-        <h3 class="text-2xl font-bold text-gray-900 mb-4" id="pricing-title">
+        <h3 class="text-2xl font-bold text-gray-900 mb-2" id="pricing-title">
           料金体系（税込）
         </h3>
-        <div
-          class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-          id="pricing-grid"
-        >
-          {
-            pricingPlans.map((plan, index) => (
-              <div class="bg-white rounded-lg p-6 shadow-sm">
-                <h4
-                  class="font-semibold text-gray-900 mb-2"
-                  id={`plan-${index}-title`}
-                >
-                  {plan.title}
-                </h4>
-                <div
-                  class={`text-2xl font-bold ${plan.priceColor} mb-2`}
-                  id={`plan-${index}-price`}
-                >
-                  {plan.price}
-                </div>
-                <p
-                  class="text-sm text-gray-600"
-                  id={`plan-${index}-description`}
-                >
-                  {plan.description}
-                </p>
-              </div>
-            ))
-          }
+
+        <!-- Early Access Counter -->
+        <div class="mb-6 inline-block bg-red-100 rounded-full px-6 py-2">
+          <span class="text-red-600 font-bold text-lg">
+            【早期アクセスプログラム】残り<span id="remaining-slots">100</span>名
+          </span>
         </div>
-        <p
-          class="text-lg font-semibold text-gray-700 mt-6"
-          id="pricing-tagline"
-        >
-          業界最安値で技術を民主化
-        </p>
+
+        <!-- Early Access Pricing -->
+        <div class="mb-8">
+          <h4 class="text-xl font-bold text-red-600 mb-4">早期アクセス特別価格</h4>
+          <div
+            class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            id="early-pricing-grid"
+          >
+            {
+              pricingPlans.map((plan, index) => (
+                <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-200">
+                  <h4
+                    class="font-semibold text-gray-900 mb-2"
+                    id={`early-plan-${index}-title`}
+                  >
+                    {plan.title}
+                  </h4>
+                  <div
+                    class={`text-2xl font-bold ${plan.priceColor} mb-2`}
+                    id={`early-plan-${index}-price`}
+                  >
+                    {plan.price}
+                  </div>
+                  <p
+                    class="text-sm text-gray-600"
+                    id={`early-plan-${index}-description`}
+                  >
+                    {plan.description}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Regular Pricing -->
+        <div class="pt-8 border-t border-gray-300">
+          <h4 class="text-lg font-bold text-gray-600 mb-4">通常料金（早期アクセス終了後）</h4>
+          <div
+            class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto opacity-75"
+            id="regular-pricing-grid"
+          >
+            {
+              regularPricingPlans.map((plan, index) => (
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                  <h4
+                    class="font-semibold text-gray-700 mb-2 text-sm"
+                    id={`regular-plan-${index}-title`}
+                  >
+                    {plan.title}
+                  </h4>
+                  <div
+                    class={`text-xl font-bold ${plan.priceColor} mb-2`}
+                    id={`regular-plan-${index}-price`}
+                  >
+                    {plan.price}
+                  </div>
+                  <p
+                    class="text-xs text-gray-500"
+                    id={`regular-plan-${index}-description`}
+                  >
+                    {plan.description}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Value Proposition -->
+        <div class="mt-8 bg-yellow-50 rounded-xl p-4">
+          <p class="text-lg font-bold text-yellow-800" id="early-access-benefits-title">
+            🎯 早期アクセス3大特典
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mt-3 text-sm">
+            <span class="text-yellow-700" id="benefit-1">✓ 永続的に月額500円</span>
+            <span class="text-yellow-700" id="benefit-2">✓ 新機能への優先アクセス</span>
+            <span class="text-yellow-700" id="benefit-3">✓ サービス改善への参加特典</span>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Early Access Counter Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Simulate remaining slots (you can replace this with actual backend data)
+        const totalSlots = 100;
+        const usedSlots = Math.floor(Math.random() * 30); // Simulate 0-30 slots taken
+        const remainingSlots = totalSlots - usedSlots;
+
+        const slotElement = document.getElementById("remaining-slots");
+        if (slotElement) {
+          slotElement.textContent = remainingSlots.toString();
+
+          // Add urgency styling if slots are running low
+          if (remainingSlots < 20) {
+            slotElement.parentElement?.classList.add("animate-pulse");
+          }
+        }
+      });
+    </script>
 
     <!-- Demo Video Section -->
     <div class="mt-16 text-center">
@@ -180,10 +252,19 @@ import { features, pricingPlans } from "../config/features";
         ],
         pricing: {
           title: "料金体系（税込）",
-          plans: [
-            { title: "初期費用", price: "¥3,000", description: "1枚目" },
+          earlyAccess: "【早期アクセスプログラム】残り",
+          slots: "100",
+          earlyAccessTitle: "早期アクセス特別価格",
+          earlyPlans: [
+            { title: "【早期アクセス】初期費用", price: "¥0", description: "初期費用無料" },
+            { title: "【早期アクセス】月額料金", price: "¥500/アカウント", description: "初月NFCカード1枚含む・100名限定" },
+            { title: "追加カード", price: "¥500", description: "2枚目以降" },
+          ],
+          regularTitle: "通常料金（早期アクセス終了後）",
+          regularPlans: [
+            { title: "通常料金 初期費用", price: "¥0", description: "初期費用無料" },
+            { title: "通常料金 月額", price: "¥700~/アカウント", description: "段階的割引制（¥700→¥600→¥500）" },
             { title: "追加カード", price: "¥600", description: "2枚目以降" },
-            { title: "月額料金", price: "¥0", description: "完全無料" },
           ],
           tagline: "業界最安値で技術を民主化",
         },
@@ -191,6 +272,12 @@ import { features, pricingPlans } from "../config/features";
           title: "デモ動画",
           description: "AI名刺撮影デモ動画",
           note: "（YouTubeリンク予定）",
+        },
+        benefits: {
+          title: "🎯 早期アクセス3大特典",
+          benefit1: "✓ 永続的に月額500円",
+          benefit2: "✓ 新機能への優先アクセス",
+          benefit3: "✓ サービス改善への参加特典"
         },
       },
       en: {
@@ -221,22 +308,19 @@ import { features, pricingPlans } from "../config/features";
         ],
         pricing: {
           title: "Pricing (Tax Included)",
-          plans: [
-            {
-              title: "Initial Cost",
-              price: "¥3,000",
-              description: "First card",
-            },
-            {
-              title: "Additional Cards",
-              price: "¥600",
-              description: "2nd card onwards",
-            },
-            {
-              title: "Monthly Fee",
-              price: "¥0",
-              description: "Completely free",
-            },
+          earlyAccess: "[Early Access Program] Remaining",
+          slots: "100",
+          earlyAccessTitle: "Early Access Special Pricing",
+          earlyPlans: [
+            { title: "[Early Access] Initial Cost", price: "¥0", description: "No initial fee" },
+            { title: "[Early Access] Monthly Fee", price: "¥500/account", description: "First month includes 1 NFC card • Limited to 100 people" },
+            { title: "Additional Cards", price: "¥500", description: "From 2nd card" },
+          ],
+          regularTitle: "Regular Pricing (After Early Access)",
+          regularPlans: [
+            { title: "Regular Initial Cost", price: "¥0", description: "No initial fee" },
+            { title: "Regular Monthly Fee", price: "¥700~/account", description: "Tiered discount (¥700→¥600→¥500)" },
+            { title: "Additional Cards", price: "¥600", description: "From 2nd card" },
           ],
           tagline: "Democratizing technology at industry's lowest price",
         },
@@ -244,6 +328,12 @@ import { features, pricingPlans } from "../config/features";
           title: "Demo Video",
           description: "AI Business Card Scanning Demo Video",
           note: "(YouTube link coming soon)",
+        },
+        benefits: {
+          title: "🎯 3 Early Access Benefits",
+          benefit1: "✓ Permanent ¥500/month",
+          benefit2: "✓ Priority access to new features",
+          benefit3: "✓ Service improvement participation rewards"
         },
       },
       zh: {
@@ -270,10 +360,19 @@ import { features, pricingPlans } from "../config/features";
         ],
         pricing: {
           title: "价格体系（含税）",
-          plans: [
-            { title: "初始费用", price: "¥3,000", description: "第1张" },
-            { title: "追加卡片", price: "¥600", description: "第2张起" },
-            { title: "月费", price: "¥0", description: "完全免费" },
+          earlyAccess: "【早期访问计划】剩余",
+          slots: "100",
+          earlyAccessTitle: "早期访问特别价格",
+          earlyPlans: [
+            { title: "【早期访问】初始费用", price: "¥0", description: "无初始费用" },
+            { title: "【早期访问】月费", price: "¥500/账户", description: "首月含1张NFC卡•限100人" },
+            { title: "追加卡片", price: "¥500", description: "从第2张" },
+          ],
+          regularTitle: "常规价格（早期访问后）",
+          regularPlans: [
+            { title: "常规初始费用", price: "¥0", description: "无初始费用" },
+            { title: "常规月费", price: "¥700~/账户", description: "阶梯折扣（¥700→¥600→¥500）" },
+            { title: "追加卡片", price: "¥600", description: "从第2张" },
           ],
           tagline: "以行业最低价格普及技术",
         },
@@ -281,6 +380,66 @@ import { features, pricingPlans } from "../config/features";
           title: "演示视频",
           description: "AI名片扫描演示视频",
           note: "（YouTube链接即将推出）",
+        },
+        benefits: {
+          title: "🎯 3大早期访问福利",
+          benefit1: "✓ 永久月费¥500",
+          benefit2: "✓ 优先体验新功能",
+          benefit3: "✓ 服务改进参与奖励"
+        },
+      },
+      ko: {
+        title: "TapForge 특징",
+        subtitle: "최신 기술로 명함 교환 혁신",
+        features: [
+          {
+            title: "AI 명함 촬영·VCard 변환",
+            description:
+              "종이 명함을 AI로 데이터화 (정확도 95%), VCard로 스마트폰에 저장",
+          },
+          {
+            title: "다국어 지원",
+            description:
+              "일본어, 영어, 중국어(간체), 스페인어 4개국어로 자동 전환",
+          },
+          {
+            title: "앱 불필요",
+            description:
+              "NFC 탭으로 즉시 프로필 표시 (온라인 환경)",
+          },
+          {
+            title: "페이퍼리스",
+            description: "SDGs 목표 12에 기여, 완전 페이퍼리스로 환경 고려",
+          },
+        ],
+        pricing: {
+          title: "요금 체계 (세금 포함)",
+          earlyAccess: "[조기 액세스 프로그램] 남은",
+          slots: "100",
+          earlyAccessTitle: "조기 액세스 특별 가격",
+          earlyPlans: [
+            { title: "[조기 액세스] 초기 비용", price: "¥0", description: "초기 비용 무료" },
+            { title: "[조기 액세스] 월액 요금", price: "¥500/계정", description: "첫 달 NFC 카드 1장 포함 • 100명 한정" },
+            { title: "추가 카드", price: "¥500", description: "2번째 카드부터" },
+          ],
+          regularTitle: "정규 요금 (조기 액세스 후)",
+          regularPlans: [
+            { title: "정규 초기 비용", price: "¥0", description: "초기 비용 무료" },
+            { title: "정규 월액", price: "¥700~/계정", description: "단계적 할인제(¥700→¥600→¥500)" },
+            { title: "추가 카드", price: "¥600", description: "2번째 카드부터" },
+          ],
+          tagline: "업계 최저가로 기술 민주화",
+        },
+        demo: {
+          title: "데모 영상",
+          description: "AI 명함 촬영 데모 영상",
+          note: "(YouTube 링크 예정)",
+        },
+        benefits: {
+          title: "🎯 조기 액세스 3대 혜택",
+          benefit1: "✓ 영구적으로 월액 ¥500",
+          benefit2: "✓ 신기능 우선 액세스",
+          benefit3: "✓ 서비스 개선 참여 특전"
         },
       },
       es: {
@@ -311,30 +470,32 @@ import { features, pricingPlans } from "../config/features";
         ],
         pricing: {
           title: "Precios (Impuestos Incluidos)",
-          plans: [
-            {
-              title: "Costo Inicial",
-              price: "¥3,000",
-              description: "Primera tarjeta",
-            },
-            {
-              title: "Tarjetas Adicionales",
-              price: "¥600",
-              description: "2da tarjeta en adelante",
-            },
-            {
-              title: "Tarifa Mensual",
-              price: "¥0",
-              description: "Completamente gratis",
-            },
+          earlyAccess: "[Programa de Acceso Anticipado] Quedan",
+          slots: "100",
+          earlyAccessTitle: "Precio Especial de Acceso Anticipado",
+          earlyPlans: [
+            { title: "[Acceso Anticipado] Costo Inicial", price: "¥0", description: "Sin tarifa inicial" },
+            { title: "[Acceso Anticipado] Tarifa Mensual", price: "¥500/cuenta", description: "El primer mes incluye 1 tarjeta NFC • Limitado a 100 personas" },
+            { title: "Tarjetas Adicionales", price: "¥500", description: "Desde la 2da tarjeta" },
           ],
-          tagline:
-            "Democratizando la tecnología al precio más bajo de la industria",
+          regularTitle: "Precio Regular (Después del Acceso Anticipado)",
+          regularPlans: [
+            { title: "Costo Inicial Regular", price: "¥0", description: "Sin tarifa inicial" },
+            { title: "Tarifa Mensual Regular", price: "¥700~/cuenta", description: "Descuento escalonado (¥700→¥600→¥500)" },
+            { title: "Tarjetas Adicionales", price: "¥600", description: "Desde la 2da tarjeta" },
+          ],
+          tagline: "Democratizando la tecnología al precio más bajo de la industria",
         },
         demo: {
           title: "Video Demo",
           description: "Video Demo de Escaneo de Tarjeta con IA",
           note: "(Enlace de YouTube próximamente)",
+        },
+        benefits: {
+          title: "🎯 3 Beneficios de Acceso Anticipado",
+          benefit1: "✓ ¥500/mes permanentemente",
+          benefit2: "✓ Acceso prioritario a nuevas funciones",
+          benefit3: "✓ Recompensas por participación en mejoras"
         },
       },
     };
@@ -371,19 +532,67 @@ import { features, pricingPlans } from "../config/features";
       pricingTitleElement.textContent = t.pricing.title;
     }
 
-    for (let i = 0; i < t.pricing.plans.length; i++) {
-      const titleElement = document.getElementById(`plan-${i}-title`);
-      const priceElement = document.getElementById(`plan-${i}-price`);
-      const descElement = document.getElementById(`plan-${i}-description`);
+    // Update early access counter
+    const earlyAccessCounterElement = document.querySelector('.text-red-600.font-bold.text-lg');
+    if (earlyAccessCounterElement) {
+      // Clear existing content
+      earlyAccessCounterElement.textContent = '';
+
+      // Add text and span
+      const earlyText = document.createTextNode(t.pricing.earlyAccess);
+      const slotsSpan = document.createElement('span');
+      slotsSpan.id = 'remaining-slots';
+      slotsSpan.textContent = t.pricing.slots;
+      const suffixText = document.createTextNode('名');
+
+      earlyAccessCounterElement.appendChild(earlyText);
+      earlyAccessCounterElement.appendChild(slotsSpan);
+      earlyAccessCounterElement.appendChild(suffixText);
+    }
+
+    // Update early access title
+    const earlyAccessTitleElement = document.querySelector('.text-xl.font-bold.text-red-600');
+    if (earlyAccessTitleElement) {
+      earlyAccessTitleElement.textContent = t.pricing.earlyAccessTitle;
+    }
+
+    // Update early access pricing plans
+    for (let i = 0; i < t.pricing.earlyPlans.length; i++) {
+      const titleElement = document.getElementById(`early-plan-${i}-title`);
+      const priceElement = document.getElementById(`early-plan-${i}-price`);
+      const descElement = document.getElementById(`early-plan-${i}-description`);
 
       if (titleElement) {
-        titleElement.textContent = t.pricing.plans[i].title;
+        titleElement.textContent = t.pricing.earlyPlans[i].title;
       }
       if (priceElement) {
-        priceElement.textContent = t.pricing.plans[i].price;
+        priceElement.textContent = t.pricing.earlyPlans[i].price;
       }
       if (descElement) {
-        descElement.textContent = t.pricing.plans[i].description;
+        descElement.textContent = t.pricing.earlyPlans[i].description;
+      }
+    }
+
+    // Update regular pricing title
+    const regularTitleElement = document.querySelector('.text-lg.font-bold.text-gray-600');
+    if (regularTitleElement) {
+      regularTitleElement.textContent = t.pricing.regularTitle;
+    }
+
+    // Update regular pricing plans
+    for (let i = 0; i < t.pricing.regularPlans.length; i++) {
+      const titleElement = document.getElementById(`regular-plan-${i}-title`);
+      const priceElement = document.getElementById(`regular-plan-${i}-price`);
+      const descElement = document.getElementById(`regular-plan-${i}-description`);
+
+      if (titleElement) {
+        titleElement.textContent = t.pricing.regularPlans[i].title;
+      }
+      if (priceElement) {
+        priceElement.textContent = t.pricing.regularPlans[i].price;
+      }
+      if (descElement) {
+        descElement.textContent = t.pricing.regularPlans[i].description;
       }
     }
 
@@ -406,6 +615,27 @@ import { features, pricingPlans } from "../config/features";
     const demoNoteElement = document.getElementById("demo-note");
     if (demoNoteElement) {
       demoNoteElement.textContent = t.demo.note;
+    }
+
+    // Update benefits section
+    const benefitsTitleElement = document.getElementById("early-access-benefits-title");
+    if (benefitsTitleElement) {
+      benefitsTitleElement.textContent = t.benefits.title;
+    }
+
+    const benefit1Element = document.getElementById("benefit-1");
+    if (benefit1Element) {
+      benefit1Element.textContent = t.benefits.benefit1;
+    }
+
+    const benefit2Element = document.getElementById("benefit-2");
+    if (benefit2Element) {
+      benefit2Element.textContent = t.benefits.benefit2;
+    }
+
+    const benefit3Element = document.getElementById("benefit-3");
+    if (benefit3Element) {
+      benefit3Element.textContent = t.benefits.benefit3;
     }
   }
 </script>

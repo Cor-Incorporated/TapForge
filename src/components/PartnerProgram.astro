@@ -229,6 +229,19 @@ const t = translations[lang].partnerProgram;
     const storedLang = localStorage.getItem("preferred-language");
     const currentLang = urlLang || storedLang || "ja";
     updatePartnerProgramContent(currentLang);
+    
+    // Force Korean translation if needed
+    if (currentLang === 'ko') {
+      setTimeout(() => {
+        forceKoreanPartnerProgramTranslation();
+      }, 100);
+      setTimeout(() => {
+        forceKoreanPartnerProgramTranslation();
+      }, 500);
+      setTimeout(() => {
+        forceKoreanPartnerProgramTranslation();
+      }, 1000);
+    }
   });
 
   function updatePartnerProgramContent(lang: string) {
@@ -350,6 +363,35 @@ const t = translations[lang].partnerProgram;
         additionalInfo:
           "Este programa se basa en el contenido del sitio web oficial (cor-jp.com)",
       },
+      ko: {
+        title: "공동 창조 파트너 우대 제도",
+        subtitle: "장기적인 파트너십에 기반한 특별 가격",
+        heading: "Cor.주식회사의 다른 서비스를 이용 중인 고객님께",
+        description:
+          "Cor.주식회사의 다른 서비스를 이용 중인 고객에게는 장기적인 파트너십에 기반하여 특별 가격으로 제공합니다.",
+        contactNote: "자세한 내용은 문의해 주세요.",
+        benefits: {
+          specialPrice: {
+            title: "특별 가격 제공",
+            description: "기존 고객 전용 우대 가격",
+          },
+          prioritySupport: {
+            title: "우선 지원",
+            description: "전담 담당자 지원",
+          },
+          customization: {
+            title: "맞춤형 지원",
+            description: "고객 니즈에 맞춘 조정",
+          },
+          longTermPartnership: {
+            title: "장기 파트너십",
+            description: "지속적인 관계 구축",
+          },
+        },
+        ctaButton: "문의하기",
+        additionalInfo:
+          "이 제도는 공식 사이트(cor-jp.com)의 내용에 기반합니다",
+      },
     };
 
     const t = (translations as any)[lang] || translations["ja"];
@@ -456,6 +498,83 @@ const t = translations[lang].partnerProgram;
     );
     if (additionalInfoElement) {
       additionalInfoElement.textContent = t.additionalInfo;
+    }
+  }
+
+  function forceKoreanPartnerProgramTranslation() {
+    // Debug output removed
+    
+    // Force update main title and subtitle
+    const titleElement = document.getElementById('partner-program-title');
+    if (titleElement) {
+      titleElement.textContent = '공동 창조 파트너 우대 제도';
+      // Debug output removed
+    }
+    
+    const subtitleElement = document.getElementById('partner-program-subtitle');
+    if (subtitleElement) {
+      subtitleElement.textContent = '장기적인 파트너십에 기반한 특별 가격';
+      // Debug output removed
+    }
+    
+    // Force update heading
+    const headingElement = document.getElementById('partner-program-heading');
+    if (headingElement) {
+      headingElement.textContent = 'Cor.주식회사의 다른 서비스를 이용 중인 고객님께';
+      // Debug output removed
+    }
+    
+    // Force update description
+    const descriptionElement = document.getElementById('partner-program-description');
+    if (descriptionElement) {
+      descriptionElement.textContent = 'Cor.주식회사의 다른 서비스를 이용 중인 고객에게는 장기적인 파트너십에 기반하여 특별 가격으로 제공합니다.';
+      // Debug output removed
+    }
+    
+    // Force update contact note
+    const contactNoteElement = document.getElementById('partner-program-contact-note');
+    if (contactNoteElement) {
+      contactNoteElement.textContent = '자세한 내용은 문의해 주세요.';
+      // Debug output removed
+    }
+    
+    // Force update benefits
+    const benefitTitles = ['특별 가격 제공', '우선 지원', '맞춤형 지원', '장기 파트너십'];
+    const benefitDescriptions = [
+      '기존 고객 전용 우대 가격',
+      '전담 담당자 지원',
+      '고객 니즈에 맞춘 조정',
+      '지속적인 관계 구축'
+    ];
+    
+    benefitTitles.forEach((title, index) => {
+      const element = document.getElementById(`benefit-${index + 1}-title`);
+      if (element) {
+        element.textContent = title;
+        // Debug output removed
+      }
+    });
+    
+    benefitDescriptions.forEach((description, index) => {
+      const element = document.getElementById(`benefit-${index + 1}-description`);
+      if (element) {
+        element.textContent = description;
+        // Debug output removed
+      }
+    });
+    
+    // Force update CTA button
+    const ctaButton = document.getElementById('partner-program-cta');
+    if (ctaButton) {
+      ctaButton.textContent = '문의하기';
+      // Debug output removed
+    }
+    
+    // Force update additional info
+    const additionalInfoElement = document.getElementById('partner-program-additional-info');
+    if (additionalInfoElement) {
+      additionalInfoElement.textContent = '이 제도는 공식 사이트(cor-jp.com)의 내용에 기반합니다';
+      // Debug output removed
     }
   }
 </script>

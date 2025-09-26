@@ -91,18 +91,16 @@ const t = translations[lang].footer;
           </li>
           <li>
             <a
-              href="/privacy"
-              class="text-gray-300 hover:text-white transition-colors footer-legal-link"
-              id="privacy-link"
+              href={`/privacy${lang !== "ja" ? `?lang=${lang}` : ""}`}
+              class="text-gray-300 hover:text-white transition-colors"
             >
               {t.legal.privacy}
             </a>
           </li>
           <li>
             <a
-              href="/terms"
-              class="text-gray-300 hover:text-white transition-colors footer-legal-link"
-              id="terms-link"
+              href={`/terms${lang !== "ja" ? `?lang=${lang}` : ""}`}
+              class="text-gray-300 hover:text-white transition-colors"
             >
               {t.legal.terms}
             </a>
@@ -123,39 +121,183 @@ const t = translations[lang].footer;
 </footer>
 
 <script>
-  import {
-    getCurrentLanguage,
-    setupSmoothScroll,
-    initializeOnDOMReady,
-    setupLanguageChangeListeners,
-    updateLinksWithLanguage,
-  } from "../../lib/languageUtils";
-  import { translations } from "../../lib/i18n";
+  // Smooth scroll functionality for anchor links
+  document.addEventListener("DOMContentLoaded", function () {
+    const smoothScrollLinks = document.querySelectorAll(".smooth-scroll");
 
-  // Footer initialization function
-  function initializeFooter() {
-    const currentLang = getCurrentLanguage();
+    smoothScrollLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
 
-    // Setup smooth scroll functionality
-    setupSmoothScroll();
+        const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute(
+          "href",
+        );
+        if (targetId && targetId.startsWith("#")) {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }
+      });
+    });
 
-    // Update footer content and links
+    // Footer language switching
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get("lang");
+    const storedLang = localStorage.getItem("preferred-language");
+    const currentLang = urlLang || storedLang || "ja";
+
     updateFooterContent(currentLang);
-    updateFooterLinks(currentLang);
-  }
-
-  // Initialize on DOM ready with utility function
-  initializeOnDOMReady(initializeFooter);
+    
+    // Force Korean translation if needed
+    if (currentLang === 'ko') {
+      setTimeout(() => {
+        forceKoreanFooterTranslation();
+      }, 100);
+      setTimeout(() => {
+        forceKoreanFooterTranslation();
+      }, 500);
+      setTimeout(() => {
+        forceKoreanFooterTranslation();
+      }, 1000);
+    }
+  });
 
   function updateFooterContent(lang: string) {
-    const t = (translations as any)[lang]?.footer || translations["ja"].footer;
+    const translations = {
+      ja: {
+        description:
+          "NFCデジタル名刺で世界と繋がる。AI駆動の次世代名刺であなたのビジネスを加速。",
+        tagline: "未来を先取る、スマートな出会いをすべての人へ",
+        quickLinks: {
+          title: "クイックリンク",
+          features: "特徴",
+          pricing: "料金",
+          testimonials: "お客様の声",
+          faq: "FAQ",
+        },
+        contact: {
+          title: "お問い合わせ",
+          company: "Cor.株式会社",
+          trial: "無料トライアル",
+          privacy: "プライバシーポリシー",
+          terms: "利用規約",
+        },
+        copyright: "© 2025 TapForge by Cor.株式会社. All rights reserved.",
+        legal: {
+          privacy: "プライバシーポリシー",
+          terms: "利用規約",
+        },
+      },
+      en: {
+        description:
+          "Connect with the world through NFC digital business cards. Accelerate your business with AI-powered next-generation business cards.",
+        tagline: "Pioneering the future, smart encounters for everyone",
+        quickLinks: {
+          title: "Quick Links",
+          features: "Features",
+          pricing: "Pricing",
+          testimonials: "Testimonials",
+          faq: "FAQ",
+        },
+        contact: {
+          title: "Contact",
+          company: "Cor. Co., Ltd.",
+          trial: "Free Trial",
+          privacy: "Privacy Policy",
+          terms: "Terms of Service",
+        },
+        copyright: "© 2025 TapForge by Cor. Co., Ltd. All rights reserved.",
+        legal: {
+          privacy: "Privacy Policy",
+          terms: "Terms of Service",
+        },
+      },
+      zh: {
+        description:
+          "通过NFC数字名片连接世界。AI驱动的下一代名片加速您的业务。",
+        tagline: "开创未来，为每个人提供智能相遇",
+        quickLinks: {
+          title: "快速链接",
+          features: "特点",
+          pricing: "价格",
+          testimonials: "客户评价",
+          faq: "常见问题",
+        },
+        contact: {
+          title: "联系我们",
+          company: "Cor.株式会社",
+          trial: "免费试用",
+          privacy: "隐私政策",
+          terms: "服务条款",
+        },
+        copyright: "© 2025 TapForge by Cor.株式会社. 版权所有。",
+        legal: {
+          privacy: "隐私政策",
+          terms: "服务条款",
+        },
+      },
+      es: {
+        description:
+          "Conecta con el mundo a través de tarjetas de presentación digitales NFC. Acelera tu negocio con tarjetas de presentación de próxima generación impulsadas por IA.",
+        tagline: "Pioneros del futuro, encuentros inteligentes para todos",
+        quickLinks: {
+          title: "Enlaces Rápidos",
+          features: "Características",
+          pricing: "Precios",
+          testimonials: "Testimonios",
+          faq: "Preguntas Frecuentes",
+        },
+        contact: {
+          title: "Contacto",
+          company: "Cor. Co., Ltd.",
+          trial: "Prueba Gratuita",
+          privacy: "Política de Privacidad",
+          terms: "Términos de Servicio",
+        },
+        copyright:
+          "© 2025 TapForge by Cor. Co., Ltd. Todos los derechos reservados.",
+        legal: {
+          privacy: "Política de Privacidad",
+          terms: "Términos de Servicio",
+        },
+      },
+      ko: {
+        description:
+          "NFC 디지털 명함으로 세계와 연결되세요. AI 기반 차세대 명함으로 비즈니스를 가속화하세요.",
+        tagline: "미래를 선도하는, 모든 사람을 위한 스마트한 만남",
+        quickLinks: {
+          title: "빠른 링크",
+          features: "특징",
+          pricing: "요금",
+          testimonials: "고객 후기",
+          faq: "자주 묻는 질문",
+        },
+        contact: {
+          title: "문의하기",
+          company: "Cor.주식회사",
+          trial: "무료 트라이얼",
+          privacy: "개인정보처리방침",
+          terms: "이용약관",
+        },
+        copyright: "© 2025 TapForge by Cor.주식회사. All rights reserved.",
+        legal: {
+          privacy: "개인정보처리방침",
+          terms: "이용약관",
+        },
+      },
+    };
 
-    // Try to update elements using selectors
+    const t = (translations as any)[lang] || translations["ja"];
+
+    // Update description and tagline
     const descriptionElement = document.querySelector("footer .text-gray-300");
     if (descriptionElement) {
       descriptionElement.textContent = t.description;
     }
-
     const taglineElement = document.querySelector(
       "footer .text-sm.text-gray-400",
     );
@@ -168,7 +310,6 @@ const t = translations[lang].footer;
     if (quickLinksTitle) {
       quickLinksTitle.textContent = t.quickLinks.title;
     }
-
     const quickLinksItems = document.querySelectorAll("footer .space-y-2 a");
     if (quickLinksItems.length >= 4) {
       quickLinksItems[0].textContent = t.quickLinks.features;
@@ -182,15 +323,14 @@ const t = translations[lang].footer;
     if (contactTitle) {
       contactTitle.textContent = t.contact.title;
     }
-
     const contactItems = document
       .querySelectorAll("footer .space-y-2")[1]
       ?.querySelectorAll("a");
     if (contactItems && contactItems.length >= 4) {
       contactItems[0].textContent = t.contact.company;
       contactItems[1].textContent = t.contact.trial;
-      contactItems[2].textContent = t.legal.privacy;
-      contactItems[3].textContent = t.legal.terms;
+      contactItems[2].textContent = t.contact.privacy;
+      contactItems[3].textContent = t.contact.terms;
     }
 
     // Update copyright
@@ -202,14 +342,55 @@ const t = translations[lang].footer;
     }
   }
 
-  function updateFooterLinks(lang: string) {
-    // Update legal links with language parameter
-    updateLinksWithLanguage(lang as any, ["#privacy-link", "#terms-link"]);
+  function forceKoreanFooterTranslation() {
+    // Debug output removed
+    
+    // Force update description
+    const descriptionElement = document.querySelector('footer .text-gray-300');
+    if (descriptionElement) {
+      descriptionElement.textContent = 'NFC 디지털 명함으로 세계와 연결되세요. AI 기반 차세대 명함으로 비즈니스를 가속화하세요.';
+      // Debug output removed
+    }
+    
+    // Force update tagline
+    const taglineElement = document.querySelector('footer .text-sm.text-gray-400');
+    if (taglineElement) {
+      taglineElement.textContent = '미래를 선도하는, 모든 사람을 위한 스마트한 만남';
+      // Debug output removed
+    }
+    
+    // Force update quick links title
+    const quickLinksTitle = document.querySelector('footer h3');
+    if (quickLinksTitle) {
+      quickLinksTitle.textContent = '빠른 링크';
+      // Debug output removed
+    }
+    
+    // Force update quick links
+    const quickLinks = document.querySelectorAll('footer ul:first-of-type a');
+    const koreanQuickLinks = ['특징', '요금', '고객 후기', '자주 묻는 질문'];
+    quickLinks.forEach((link, index) => {
+      if (link && koreanQuickLinks[index]) {
+        link.textContent = koreanQuickLinks[index];
+        // Debug output removed
+      }
+    });
+    
+    // Force update contact links
+    const contactLinks = document.querySelectorAll('footer ul:last-of-type a');
+    const koreanContactLinks = ['Cor.주식회사', '무료 트라이얼', '개인정보처리방침', '이용약관'];
+    contactLinks.forEach((link, index) => {
+      if (link && koreanContactLinks[index]) {
+        link.textContent = koreanContactLinks[index];
+        // Debug output removed
+      }
+    });
+    
+    // Force update copyright
+    const copyrightElement = document.querySelector('footer .text-gray-400.text-sm');
+    if (copyrightElement) {
+      copyrightElement.textContent = '© 2025 TapForge by Cor.주식회사. All rights reserved.';
+      // Debug output removed
+    }
   }
-
-  // Setup language change listeners
-  setupLanguageChangeListeners((newLang) => {
-    updateFooterContent(newLang);
-    updateFooterLinks(newLang);
-  });
 </script>

@@ -5,7 +5,16 @@ interface Props {
   currentLang?: Language;
 }
 
-const { currentLang = "ja" } = Astro.props;
+// Get current language from URL parameter
+const url = new URL(Astro.request.url);
+const langParam = url.searchParams.get('lang') as Language;
+const { currentLang = langParam || "ja" } = Astro.props;
+
+// Debug output removed
+// Debug output removed
+// Debug output removed
+// Debug output removed
+// Debug output removed
 ---
 
 <style>
@@ -39,7 +48,7 @@ const { currentLang = "ja" } = Astro.props;
       id="language-menu-button"
       aria-expanded="false"
       aria-haspopup="true"
-      onclick="console.log('Button clicked via onclick'); toggleLanguageMenu();"
+      onclick="// Debug output removed"
     >
       <!-- 地球儀アイコン -->
       <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
@@ -47,7 +56,7 @@ const { currentLang = "ja" } = Astro.props;
       </svg>
       
       <!-- 言語テキスト -->
-      <span class="text-gray-700 font-medium">
+      <span class="text-gray-700 font-medium" id="current-language-text">
         {languages[currentLang]}
       </span>
       
@@ -86,13 +95,14 @@ const { currentLang = "ja" } = Astro.props;
             }`}
             role="menuitem"
             tabindex="-1"
-            onclick={`console.log('Language ${code} clicked'); switchLanguage('${code}'); return false;`}
+            onclick={`// Debug output removed return false;`}
           >
             <!-- 国旗アイコン -->
             <span class="mr-3 text-lg">
               {code === "ja" && "🇯🇵"}
               {code === "en" && "🇺🇸"}
               {code === "zh" && "🇨🇳"}
+              {code === "ko" && "🇰🇷"}
               {code === "es" && "🇪🇸"}
             </span>
             <!-- 言語名 -->
@@ -105,41 +115,33 @@ const { currentLang = "ja" } = Astro.props;
 </div>
 
 <script>
-  // Extend window interface
-  declare global {
-    interface Window {
-      switchLanguage: (langCode: string) => void;
-      toggleLanguageMenu: () => void;
-    }
-  }
-
   // Global function for language switching
-  window.switchLanguage = function(langCode: string) {
-    console.log("Switching to language:", langCode);
-
+  window.switchLanguage = function(langCode) {
+    // Debug output removed
+    
     // Store language preference in localStorage
     localStorage.setItem('preferred-language', langCode);
-
-    // Dispatch custom event for immediate UI updates
-    window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang: langCode } }));
-
+    
     // Force page reload with new language parameter
-    const currentUrl = new URL(window.location.href);
+    const currentUrl = new URL(window.location);
     currentUrl.searchParams.set('lang', langCode);
-
+    
+    // Force reload with cache busting
+    currentUrl.searchParams.set('t', Date.now());
+    
     // Use window.location.replace to avoid back button issues
     window.location.replace(currentUrl.toString());
   };
 
   // Global function for onclick handler
-  window.toggleLanguageMenu = function(this: any) {
-    console.log("toggleLanguageMenu called");
+  window.toggleLanguageMenu = function() {
+    // Debug output removed
     const button = document.getElementById("language-menu-button");
     const menu = document.getElementById("language-menu");
     const arrow = document.getElementById("dropdown-arrow");
 
     if (!button || !menu || !arrow) {
-      console.error("Language switcher elements not found");
+      // Language switcher elements not found
       return;
     }
 
@@ -159,7 +161,7 @@ const { currentLang = "ja" } = Astro.props;
       button.setAttribute("aria-expanded", "true");
     }
     
-    console.log("Menu toggled, isOpen:", !isOpen);
+    // Debug output removed
   };
 
   // Simple and reliable language switcher
@@ -169,23 +171,23 @@ const { currentLang = "ja" } = Astro.props;
     const arrow = document.getElementById("dropdown-arrow");
 
     if (!button || !menu || !arrow) {
-      console.error("Language switcher elements not found");
+      // Language switcher elements not found
       return;
     }
 
-    console.log("Language switcher initialized successfully");
+    // Debug output removed
 
     // Button click handler
     button.addEventListener("click", function(e) {
       e.preventDefault();
       e.stopPropagation();
-      console.log("Button clicked via addEventListener");
+      // Debug output removed
       window.toggleLanguageMenu();
     });
 
     // Close menu when clicking outside
     document.addEventListener("click", function(e) {
-      if (!button.contains(e.target as Node) && !menu.contains(e.target as Node)) {
+      if (!button.contains(e.target) && !menu.contains(e.target)) {
         menu.classList.remove("opacity-100", "visible");
         menu.classList.add("opacity-0", "invisible");
         arrow.classList.remove("rotate-180");
@@ -206,13 +208,13 @@ const { currentLang = "ja" } = Astro.props;
     // Add click handlers to language links
     const languageLinks = menu.querySelectorAll('a[href*="lang="]');
     languageLinks.forEach(link => {
-      link.addEventListener("click", function(this: HTMLAnchorElement, e) {
+      link.addEventListener("click", function(e) {
         e.preventDefault();
         const href = this.getAttribute("href");
-        const langMatch = href?.match(/lang=([^&]+)/);
+        const langMatch = href.match(/lang=([^&]+)/);
         if (langMatch) {
           const langCode = langMatch[1];
-          console.log("Language link clicked:", langCode);
+          // Debug output removed
           window.switchLanguage(langCode);
         }
       });
@@ -230,4 +232,39 @@ const { currentLang = "ja" } = Astro.props;
   setTimeout(initLanguageSwitcher, 100);
   setTimeout(initLanguageSwitcher, 500);
   setTimeout(initLanguageSwitcher, 1000);
+
+  // Update language text based on URL parameter
+  function updateLanguageText() {
+    const url = new URL(window.location);
+    const langParam = url.searchParams.get('lang');
+    const languageText = document.getElementById('current-language-text');
+    
+    // Debug output removed
+    
+    if (languageText && langParam) {
+      const languageNames = {
+        'ja': '日本語',
+        'en': 'English', 
+        'zh': '中文',
+        'ko': '한국어',
+        'es': 'Español'
+      };
+      
+      if (languageNames[langParam]) {
+        languageText.textContent = languageNames[langParam];
+        // Debug output removed
+      }
+    }
+  }
+
+  // Update language text on page load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", updateLanguageText);
+  } else {
+    updateLanguageText();
+  }
+  
+  // Also update after a short delay
+  setTimeout(updateLanguageText, 100);
+  setTimeout(updateLanguageText, 500);
 </script>

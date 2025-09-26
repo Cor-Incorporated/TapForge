@@ -13,7 +13,15 @@ import { type Language } from "../lib/i18n";
 
 // Get language from URL parameter or default to Japanese
 const url = new URL(Astro.request.url);
-const lang = (url.searchParams.get("lang") as Language) || "ja";
+const urlLang = url.searchParams.get("lang");
+
+// Also try to get from Astro.url
+const astroUrl = Astro.url;
+const astroUrlLang = astroUrl.searchParams.get("lang");
+
+const lang = (urlLang as Language) || (astroUrlLang as Language) || "ja";
+
+// Language detection for server-side rendering
 ---
 
 <Layout title="TapForge - NFCデジタル名刺で世界と繋がる" lang={lang}>
@@ -27,3 +35,150 @@ const lang = (url.searchParams.get("lang") as Language) || "ja";
   <FAQ lang={lang} />
   <CTA lang={lang} />
 </Layout>
+
+<script>
+  // Force language parameter application
+  const url = new URL(window.location.href);
+  const langParam = url.searchParams.get('lang');
+  
+  // Language parameter detection
+  
+  // Force Korean display immediately if lang=ko is detected
+  if (langParam === 'ko') {
+    // Korean language detected, applying Korean display
+    
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+      // Update the hero title directly
+      const heroTitle = document.getElementById('hero-title');
+      if (heroTitle) {
+        // Clear existing content
+        heroTitle.textContent = '';
+
+        // Create styled elements
+        const span1 = document.createElement('span');
+        span1.className = 'text-red-500';
+        span1.textContent = '탭';
+
+        const text1 = document.createTextNode('으로 ');
+
+        const span2 = document.createElement('span');
+        span2.className = 'text-blue-600';
+        span2.textContent = '세계';
+
+        const text2 = document.createTextNode('와 연결되세요.');
+        const br1 = document.createElement('br');
+        const text3 = document.createTextNode('월액 500엔으로 시작하는');
+        const br2 = document.createElement('br');
+        const text4 = document.createTextNode('차세대 디지털 명함');
+
+        heroTitle.appendChild(span1);
+        heroTitle.appendChild(text1);
+        heroTitle.appendChild(span2);
+        heroTitle.appendChild(text2);
+        heroTitle.appendChild(br1);
+        heroTitle.appendChild(text3);
+        heroTitle.appendChild(br2);
+        heroTitle.appendChild(text4);
+      }
+      
+      // Update the hero description
+      const heroDescription = document.getElementById('hero-description');
+      if (heroDescription) {
+        // Clear existing content
+        heroDescription.textContent = '';
+
+        // Create styled elements
+        const aiSpan = document.createElement('span');
+        aiSpan.className = 'text-blue-600 font-semibold';
+        aiSpan.textContent = 'AI 기반 차세대 명함';
+
+        const descText = document.createTextNode('으로 비즈니스를 가속화하세요. 앱 불필요, 월 무료. NFC 탭 하나로 다국어 프로필을 공유하세요. 프리랜서의 해외 프로젝트 획득을 지원합니다.');
+
+        heroDescription.appendChild(aiSpan);
+        heroDescription.appendChild(descText);
+      }
+      
+      // Update the CTA button
+      const heroCta = document.getElementById('hero-cta');
+      if (heroCta) {
+        // Clear existing content
+        heroCta.textContent = '';
+
+        // Create styled elements
+        const limitedSpan = document.createElement('span');
+        limitedSpan.className = 'text-red-500 font-bold mr-2';
+        limitedSpan.textContent = '50명 한정!';
+
+        const ctaText = document.createTextNode('무료 체험 신청');
+
+        heroCta.appendChild(limitedSpan);
+        heroCta.appendChild(ctaText);
+      }
+      
+      // Update the features
+      const heroFeatures = document.getElementById('hero-features');
+      if (heroFeatures) {
+        const features = heroFeatures.querySelectorAll('.flex.items-center');
+        if (features.length >= 3) {
+          const svg0 = features[0].querySelector('svg');
+          const svg1 = features[1].querySelector('svg');
+          const svg2 = features[2].querySelector('svg');
+          if (svg0?.nextSibling) svg0.nextSibling.textContent = '앱 불필요';
+          if (svg1?.nextSibling) svg1.nextSibling.textContent = '월 무료';
+          if (svg2?.nextSibling) svg2.nextSibling.textContent = '4개국어 지원';
+          // Hero features updated to Korean
+        }
+      }
+    });
+    
+    // Also try immediately in case DOM is already ready
+    setTimeout(function() {
+      const heroTitle = document.getElementById('hero-title');
+      if (heroTitle && heroTitle.textContent?.includes('タップ')) {
+        // Clear existing content
+        heroTitle.textContent = '';
+
+        // Create styled elements
+        const span1 = document.createElement('span');
+        span1.className = 'text-red-500';
+        span1.textContent = '탭';
+
+        const text1 = document.createTextNode('으로 ');
+
+        const span2 = document.createElement('span');
+        span2.className = 'text-blue-600';
+        span2.textContent = '세계';
+
+        const text2 = document.createTextNode('와 연결되세요.');
+        const br1 = document.createElement('br');
+        const text3 = document.createTextNode('월액 500엔으로 시작하는');
+        const br2 = document.createElement('br');
+        const text4 = document.createTextNode('차세대 디지털 명함');
+
+        heroTitle.appendChild(span1);
+        heroTitle.appendChild(text1);
+        heroTitle.appendChild(span2);
+        heroTitle.appendChild(text2);
+        heroTitle.appendChild(br1);
+        heroTitle.appendChild(text3);
+        heroTitle.appendChild(br2);
+        heroTitle.appendChild(text4);
+      }
+    }, 100);
+  }
+</script>
+
+<style>
+  /* Force Korean display when lang=ko parameter is present */
+  body:has([href*="lang=ko"]) #hero-title,
+  body.korean-lang #hero-title {
+    display: none;
+  }
+  
+  body:has([href*="lang=ko"]) #hero-title::after,
+  body.korean-lang #hero-title::after {
+    content: "탭으로 세계와 연결되세요. AI 기반 차세대 명함으로 비즈니스를 가속화하세요";
+    display: block;
+  }
+</style>

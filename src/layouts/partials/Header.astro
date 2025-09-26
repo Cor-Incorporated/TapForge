@@ -10,16 +10,16 @@ const currentLang: Language = urlLang || "ja";
 
 // TapForge navigation menu with i18n
 const main = [
-  { name: getTranslation(currentLang, "nav.home"), url: "/" },
-  { name: getTranslation(currentLang, "nav.features"), url: "#features" },
-  { name: getTranslation(currentLang, "nav.pricing"), url: "#pricing" },
+  { name: currentLang === "ko" ? "홈" : getTranslation(currentLang, "nav.home"), url: "/" },
+  { name: currentLang === "ko" ? "특징" : getTranslation(currentLang, "nav.features"), url: "#features" },
+  { name: currentLang === "ko" ? "가격" : getTranslation(currentLang, "nav.pricing"), url: "#pricing" },
   {
-    name: getTranslation(currentLang, "nav.testimonials"),
+    name: currentLang === "ko" ? "후기" : getTranslation(currentLang, "nav.testimonials"),
     url: "#testimonials",
   },
-  { name: getTranslation(currentLang, "nav.faq"), url: "#faq" },
+  { name: currentLang === "ko" ? "FAQ" : getTranslation(currentLang, "nav.faq"), url: "#faq" },
   {
-    name: getTranslation(currentLang, "nav.contact"),
+    name: currentLang === "ko" ? "문의" : getTranslation(currentLang, "nav.contact"),
     url: "https://cor-jp.com/contact/",
   },
 ];
@@ -101,36 +101,181 @@ const main = [
 </header>
 
 <script>
-  import {
-    getCurrentLanguage,
-    updateLanguageDisplay,
-    updatePageContent,
-    setupSmoothScroll,
-    initializeOnDOMReady,
-    setupLanguageChangeListeners,
-  } from "../../lib/languageUtils";
-  import { translations } from "../../lib/i18n";
-
-  // Header initialization function
-  function initializeHeader() {
-    const currentLang = getCurrentLanguage();
+  // Language switching functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get current language from URL or localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get("lang");
+    const storedLang = localStorage.getItem("preferred-language");
+    const currentLang = urlLang || storedLang || "ja";
 
     // Update language switcher display
     updateLanguageDisplay(currentLang);
 
     // Update page content based on language
-    updatePageContent(currentLang, translations);
+    updatePageContent(currentLang);
+    
+    // Force Korean translation if needed
+    if (currentLang === 'ko') {
+      setTimeout(() => {
+        forceKoreanHeaderTranslation();
+      }, 100);
+      setTimeout(() => {
+        forceKoreanHeaderTranslation();
+      }, 500);
+      setTimeout(() => {
+        forceKoreanHeaderTranslation();
+      }, 1000);
+    }
+  });
 
-    // Setup smooth scroll functionality
-    setupSmoothScroll();
+  function updateLanguageDisplay(lang: string) {
+    const languageButton = document.querySelector("#language-menu-button span");
+    if (languageButton) {
+      const languageNames = {
+        ja: "日本語",
+        en: "English",
+        zh: "中文",
+        es: "Español",
+      };
+      languageButton.textContent = (languageNames as any)[lang] || "日本語";
+    }
+
+    // Update language menu active state
+    const languageMenu = document.querySelector("#language-menu");
+    if (languageMenu) {
+      const menuItems = languageMenu.querySelectorAll("a");
+      menuItems.forEach((item) => {
+        const href = item.getAttribute("href");
+        const langMatch = href?.match(/lang=([^&]+)/);
+        if (langMatch) {
+          const itemLang = langMatch[1];
+          if (itemLang === lang) {
+            item.classList.add(
+              "bg-blue-50",
+              "text-blue-700",
+              "border-r-2",
+              "border-blue-500",
+            );
+            item.classList.remove("text-gray-700", "hover:bg-gray-50");
+          } else {
+            item.classList.remove(
+              "bg-blue-50",
+              "text-blue-700",
+              "border-r-2",
+              "border-blue-500",
+            );
+            item.classList.add("text-gray-700", "hover:bg-gray-50");
+          }
+        }
+      });
+    }
   }
 
-  // Initialize on DOM ready with utility function
-  initializeOnDOMReady(initializeHeader);
+  function updatePageContent(lang: string) {
+    // Update navigation menu
+    const navItems = document.querySelectorAll(".nav-link");
+    const translations = {
+      ja: {
+        home: "ホーム",
+        features: "特徴",
+        pricing: "料金",
+        testimonials: "レビュー",
+        faq: "FAQ",
+        contact: "お問い合わせ",
+      },
+      en: {
+        home: "Home",
+        features: "Features",
+        pricing: "Pricing",
+        testimonials: "Reviews",
+        faq: "FAQ",
+        contact: "Contact",
+      },
+      zh: {
+        home: "首页",
+        features: "特点",
+        pricing: "价格",
+        testimonials: "评价",
+        faq: "FAQ",
+        contact: "联系",
+      },
+      es: {
+        home: "Inicio",
+        features: "Características",
+        pricing: "Precios",
+        testimonials: "Testimonios",
+        faq: "FAQ",
+        contact: "Contacto",
+      },
+    };
 
-  // Setup language change listeners
-  setupLanguageChangeListeners((newLang) => {
-    updateLanguageDisplay(newLang);
-    updatePageContent(newLang, translations);
+    const t = (translations as any)[lang] || translations["ja"];
+
+    navItems.forEach((item, index) => {
+      const keys = [
+        "home",
+        "features",
+        "pricing",
+        "testimonials",
+        "faq",
+        "contact",
+      ];
+      if (keys[index]) {
+        item.textContent = t[keys[index]];
+      }
+    });
+  }
+
+  // Smooth scroll functionality for anchor links
+  const smoothScrollLinks = document.querySelectorAll(".smooth-scroll");
+
+  smoothScrollLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute(
+        "href",
+      );
+      if (targetId && targetId.startsWith("#")) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    });
   });
+
+  function forceKoreanHeaderTranslation() {
+    // Debug output removed
+    
+    // Force update navigation links
+    const navLinks = document.querySelectorAll('#nav-menu .nav-link');
+    const koreanNavLinks = ['홈', '특징', '가격', '후기', 'FAQ', '문의'];
+    
+    navLinks.forEach((link, index) => {
+      if (link && koreanNavLinks[index]) {
+        link.textContent = koreanNavLinks[index];
+        // Debug output removed
+      }
+    });
+    
+    // Force update language switcher display
+    const languageButton = document.querySelector('#language-menu-button span');
+    if (languageButton) {
+      languageButton.textContent = '한국어';
+      // Debug output removed
+    }
+    
+    // Force update search title and aria-label
+    const searchLink = document.querySelector('a[href="/search"]');
+    if (searchLink) {
+      searchLink.setAttribute('title', '검색');
+      searchLink.setAttribute('aria-label', '검색');
+      // Debug output removed
+    }
+  }
 </script>

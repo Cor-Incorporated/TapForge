@@ -1,70 +1,17 @@
 ---
+import { benefits } from "../config/features";
 import { translations, type Language } from "../lib/i18n";
 
 // Get current language from URL parameter
 const url = new URL(Astro.request.url);
 const lang = (url.searchParams.get('lang') as Language) || 'ja';
+const currentLang = lang;
 const t = translations[lang].benefits;
 
-// Define icon configurations (static across all languages)
-const iconConfigs = {
-  costReduction: {
-    metricColor: "text-green-600",
-    icon: {
-      bgColor: "bg-green-100",
-      iconColor: "text-green-600",
-      svgPath: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
-    },
-  },
-  timeEfficiency: {
-    metricColor: "text-blue-600",
-    icon: {
-      bgColor: "bg-blue-100",
-      iconColor: "text-blue-600",
-      svgPath: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
-    },
-  },
-  businessGrowth: {
-    metricColor: "text-purple-600",
-    icon: {
-      bgColor: "bg-purple-100",
-      iconColor: "text-purple-600",
-      svgPath: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
-    },
-  },
-  environmental: {
-    metricColor: "text-orange-600",
-    icon: {
-      bgColor: "bg-orange-100",
-      iconColor: "text-orange-600",
-      svgPath: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z",
-    },
-  },
-};
-
-// Create benefits array from translations
-const benefits = [
-  {
-    id: "cost-reduction",
-    ...t.items.costReduction,
-    ...iconConfigs.costReduction,
-  },
-  {
-    id: "time-efficiency",
-    ...t.items.timeEfficiency,
-    ...iconConfigs.timeEfficiency,
-  },
-  {
-    id: "business-growth",
-    ...t.items.businessGrowth,
-    ...iconConfigs.businessGrowth,
-  },
-  {
-    id: "environmental",
-    ...t.items.environmental,
-    ...iconConfigs.environmental,
-  },
-];
+// Data validation
+if (!t || !t.items || !benefits) {
+  throw new Error('Benefits data is missing or invalid');
+}
 ---
 
 <section id="pricing" class="py-20 bg-gray-50">
@@ -151,7 +98,7 @@ const benefits = [
       <div class="relative px-8 py-8 bg-gradient-to-r from-gray-50/80 to-gray-100/80 border-b border-gray-200/50">
         <div class="text-center">
           <h3 class="text-3xl font-black bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-2" id="comparison-title">
-            {t.comparison.title}
+            詳細比較
           </h3>
           <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
         </div>
@@ -163,30 +110,31 @@ const benefits = [
             <tr>
               <th
                 class="px-6 py-4 text-left text-sm font-semibold text-gray-900"
-                id="table-header-item">{t.comparison.headers.item}</th
+                id="table-header-item">項目</th
               >
               <th
                 class="px-6 py-4 text-center text-sm font-semibold text-gray-900"
-                id="table-header-traditional">{t.comparison.headers.traditional}</th
+                id="table-header-traditional">従来の紙名刺＋管理アプリ</th
               >
               <th
                 class="px-6 py-4 text-center text-sm font-semibold text-gray-900"
-                id="table-header-tapforge">{t.comparison.headers.tapforge}</th
+                id="table-header-tapforge">TapForge</th
               >
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-100">
             <tr class="hover:bg-gray-50/50 transition-colors">
               <td class="px-6 py-6 text-sm font-semibold text-gray-800" id="row-annual-cost"
-                >{t.comparison.rows.annualCost.item}</td
+                >{currentLang === "ko" ? "연간 비용" : "年間コスト"}</td
               >
               <td class="px-6 py-6 text-sm text-gray-500 text-center">
                 <div class="relative inline-flex items-center justify-center w-full max-w-[200px]">
                   <div class="relative bg-gray-100 rounded-2xl p-4 shadow-lg border border-gray-200 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-gray-500 rounded-full"></div>
-                      <span id="traditional-annual-cost" class="text-xl font-bold text-gray-700">{t.comparison.rows.annualCost.traditional}</span>
+                      <span class="text-xl font-bold text-gray-700">¥11,000</span>
                     </div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="annual-cost-traditional-note">紙名刺+管理アプリ</div>
                   </div>
                 </div>
               </td>
@@ -195,24 +143,25 @@ const benefits = [
                   <div class="relative bg-white rounded-2xl p-4 shadow-lg border border-red-100 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
-                      <span id="tapforge-annual-cost" class="text-xl font-bold text-red-600">{t.comparison.rows.annualCost.tapforge}</span>
+                      <span class="text-xl font-bold text-red-600">¥6,000</span>
                     </div>
-                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="annual-cost-note">{t.comparison.rows.annualCost.tapforgeNote}</div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="annual-cost-note">早期アクセス（月額¥500×12）</div>
                   </div>
                 </div>
               </td>
             </tr>
             <tr class="bg-gray-50/30 hover:bg-gray-50/50 transition-colors">
               <td class="px-6 py-6 text-sm font-semibold text-gray-800" id="row-organization-time"
-                >{t.comparison.rows.organizationTime.item}</td
+                >{currentLang === "ko" ? "정리 시간" : "整理時間"}</td
               >
               <td class="px-6 py-6 text-sm text-gray-500 text-center">
                 <div class="relative inline-flex items-center justify-center w-full max-w-[200px]">
                   <div class="relative bg-gray-100 rounded-2xl p-4 shadow-lg border border-gray-200 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-gray-500 rounded-full"></div>
-                      <span id="traditional-organization-time" class="text-xl font-bold text-gray-700">{t.comparison.rows.organizationTime.traditional}</span>
+                      <span class="text-xl font-bold text-gray-700" id="organization-time-traditional">30分</span>
                     </div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="organization-time-traditional-unit">/50枚</div>
                   </div>
                 </div>
               </td>
@@ -221,24 +170,25 @@ const benefits = [
                   <div class="relative bg-white rounded-2xl p-4 shadow-lg border border-orange-100 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-orange-500 rounded-full animate-pulse"></div>
-                      <span id="tapforge-organization-time" class="text-xl font-bold text-orange-600">{t.comparison.rows.organizationTime.tapforge}</span>
+                      <span class="text-xl font-bold text-orange-600" id="organization-time-tapforge">5分</span>
                     </div>
-                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="organization-time-note">{t.comparison.rows.organizationTime.tapforgeNote}</div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="organization-time-note">/50枚</div>
                   </div>
                 </div>
               </td>
             </tr>
             <tr class="hover:bg-gray-50/50 transition-colors">
               <td class="px-6 py-6 text-sm font-semibold text-gray-800" id="row-follow-up-rate"
-                >{t.comparison.rows.followUpRate.item}</td
+                >{currentLang === "ko" ? "팔로우율" : "フォロー率"}</td
               >
               <td class="px-6 py-6 text-sm text-gray-500 text-center">
                 <div class="relative inline-flex items-center justify-center w-full max-w-[200px]">
                   <div class="relative bg-gray-100 rounded-2xl p-4 shadow-lg border border-gray-200 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-gray-500 rounded-full"></div>
-                      <span id="traditional-follow-up-rate" class="text-xl font-bold text-gray-700">{t.comparison.rows.followUpRate.traditional}</span>
+                      <span class="text-xl font-bold text-gray-700" id="follow-rate-traditional">15%</span>
                     </div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center">{currentLang === "ko" ? "팔로우율" : "フォロー率"}</div>
                   </div>
                 </div>
               </td>
@@ -247,23 +197,25 @@ const benefits = [
                   <div class="relative bg-white rounded-2xl p-4 shadow-lg border border-purple-100 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-purple-500 rounded-full animate-pulse"></div>
-                      <span id="tapforge-follow-up-rate" class="text-xl font-bold text-purple-600">{t.comparison.rows.followUpRate.tapforge}</span>
+                      <span class="text-xl font-bold text-purple-600" id="follow-rate-tapforge">40%</span>
                     </div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center">{currentLang === "ko" ? "팔로우율" : "フォロー率"}</div>
                   </div>
                 </div>
               </td>
             </tr>
             <tr class="bg-gray-50/30 hover:bg-gray-50/50 transition-colors">
               <td class="px-6 py-6 text-sm font-semibold text-gray-800" id="row-multilingual"
-                >{t.comparison.rows.multilingual.item}</td
+                >{currentLang === "ko" ? "다국어 지원" : "多言語対応"}</td
               >
               <td class="px-6 py-6 text-sm text-gray-500 text-center">
                 <div class="relative inline-flex items-center justify-center w-full max-w-[200px]">
                   <div class="relative bg-gray-100 rounded-2xl p-4 shadow-lg border border-gray-200 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-gray-500 rounded-full"></div>
-                      <span id="traditional-multilingual" class="text-xl font-bold text-gray-700">{t.comparison.rows.multilingual.traditional}</span>
+                      <span class="text-xl font-bold text-gray-700" id="multilingual-traditional">なし</span>
                     </div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="multilingual-traditional-label">多言語対応</div>
                   </div>
                 </div>
               </td>
@@ -272,24 +224,25 @@ const benefits = [
                   <div class="relative bg-white rounded-2xl p-4 shadow-lg border border-blue-100 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
-                      <span id="tapforge-multilingual" class="text-xl font-bold text-blue-600">{t.comparison.rows.multilingual.tapforge}</span>
+                      <span class="text-xl font-bold text-blue-600" id="multilingual-tapforge">4言語</span>
                     </div>
-                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="multilingual-note">{t.comparison.rows.multilingual.tapforgeNote}</div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="multilingual-note">対応</div>
                   </div>
                 </div>
               </td>
             </tr>
             <tr class="hover:bg-gray-50/50 transition-colors">
               <td class="px-6 py-6 text-sm font-semibold text-gray-800" id="row-environmental-impact"
-                >{t.comparison.rows.environmentalImpact.item}</td
+                >{currentLang === "ko" ? "환경 부담" : "環境負荷"}</td
               >
               <td class="px-6 py-6 text-sm text-gray-500 text-center">
                 <div class="relative inline-flex items-center justify-center w-full max-w-[200px]">
                   <div class="relative bg-gray-100 rounded-2xl p-4 shadow-lg border border-gray-200 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-gray-500 rounded-full"></div>
-                      <span id="traditional-environmental-impact" class="text-xl font-bold text-gray-700">{t.comparison.rows.environmentalImpact.traditional}</span>
+                      <span class="text-xl font-bold text-gray-700" id="environmental-traditional">高</span>
                     </div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center">{currentLang === "ko" ? "（종이 사용）" : "（紙使用）"}</div>
                   </div>
                 </div>
               </td>
@@ -298,24 +251,25 @@ const benefits = [
                   <div class="relative bg-white rounded-2xl p-4 shadow-lg border border-green-100 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
-                      <span id="tapforge-environmental-impact" class="text-xl font-bold text-green-600">{t.comparison.rows.environmentalImpact.tapforge}</span>
+                      <span class="text-xl font-bold text-green-600" id="environmental-tapforge">ゼロ</span>
                     </div>
-                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="environmental-impact-note">{t.comparison.rows.environmentalImpact.tapforgeNote}</div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="environmental-impact-note">{currentLang === "ko" ? "（페이퍼리스）" : "（ペーパーレス）"}</div>
                   </div>
                 </div>
               </td>
             </tr>
             <tr class="bg-gray-50/30 hover:bg-gray-50/50 transition-colors">
               <td class="px-6 py-6 text-sm font-semibold text-gray-800" id="row-update-ease"
-                >{t.comparison.rows.updateEase.item}</td
+                >{currentLang === "ko" ? "업데이트 용이성" : "更新の容易さ"}</td
               >
               <td class="px-6 py-6 text-sm text-gray-500 text-center">
                 <div class="relative inline-flex items-center justify-center w-full max-w-[200px]">
                   <div class="relative bg-gray-100 rounded-2xl p-4 shadow-lg border border-gray-200 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-gray-500 rounded-full"></div>
-                      <span id="traditional-update-ease" class="text-xl font-bold text-gray-700">{t.comparison.rows.updateEase.traditional}</span>
+                      <span class="text-xl font-bold text-gray-700" id="update-ease-traditional">再印刷</span>
                     </div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center">{currentLang === "ko" ? "가 필요" : "が必要"}</div>
                   </div>
                 </div>
               </td>
@@ -324,9 +278,9 @@ const benefits = [
                   <div class="relative bg-white rounded-2xl p-4 shadow-lg border border-indigo-100 w-full h-20 flex flex-col justify-center">
                     <div class="flex items-center justify-center space-x-2">
                       <div class="w-4 h-4 bg-indigo-500 rounded-full animate-pulse"></div>
-                      <span id="tapforge-update-ease" class="text-xl font-bold text-indigo-600">{t.comparison.rows.updateEase.tapforge}</span>
+                      <span class="text-xl font-bold text-indigo-600" id="update-ease-tapforge">即座</span>
                     </div>
-                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="update-ease-note">{t.comparison.rows.updateEase.tapforgeNote}</div>
+                    <div class="text-xs text-gray-500 mt-2 font-medium text-center" id="update-ease-note">{currentLang === "ko" ? "업데이트 가능" : "更新可能"}</div>
                   </div>
                 </div>
               </td>
@@ -341,18 +295,18 @@ const benefits = [
     <div class="mt-12 text-center max-w-5xl mx-auto">
       <div class="bg-blue-50 rounded-xl p-8">
         <h3 class="text-2xl font-bold text-blue-900 mb-4" id="target-title">
-          {t.target.title}
+          海外案件を増やしたいフリーランサーに最適
         </h3>
         <p class="text-lg text-blue-800 mb-6" id="target-description">
-          {t.target.description}
+          多言語対応とAI機能により、国際的なビジネス展開を強力にサポートします
         </p>
         <div class="flex flex-wrap justify-center gap-4 text-sm text-blue-700">
           <span class="bg-blue-100 px-3 py-1 rounded-full" id="tag-global"
-            >{t.target.tags.global}</span
+            >🌍 グローバル対応</span
           >
-          <span class="bg-blue-100 px-3 py-1 rounded-full" id="tag-ai">{t.target.tags.ai}</span>
-          <span class="bg-blue-100 px-3 py-1 rounded-full" id="tag-no-app">{t.target.tags.noApp}</span>
-          <span class="bg-blue-100 px-3 py-1 rounded-full" id="tag-cost">{t.target.tags.costReduction}</span>
+          <span class="bg-blue-100 px-3 py-1 rounded-full" id="tag-ai">🤖 AI活用</span>
+          <span class="bg-blue-100 px-3 py-1 rounded-full" id="tag-no-app">📱 アプリ不要</span>
+          <span class="bg-blue-100 px-3 py-1 rounded-full" id="tag-cost">💰 コスト削減</span>
         </div>
       </div>
     </div>
@@ -360,95 +314,855 @@ const benefits = [
 </section>
 
 <script>
-  import {
-    getCurrentLanguage,
-    initializeOnDOMReady,
-    setupLanguageChangeListeners,
-    updateElementContent,
-    updateMultipleElements
-  } from '../lib/languageUtils';
-  import { translations } from '../lib/i18n';
-
-  // Benefits initialization function
-  function initializeBenefits() {
-    const currentLang = getCurrentLanguage();
+  // Benefits section language switching
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get current language from URL or localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    const storedLang = localStorage.getItem('preferred-language');
+    const currentLang = urlLang || storedLang || 'ja';
+    
+    // Language detection
+    
+    // Force update benefits content immediately
+    forceUpdateBenefitsContent(currentLang);
+    
+    // Also force update after delays to ensure DOM is ready
+    setTimeout(() => {
+      forceUpdateBenefitsContent(currentLang);
+    }, 100);
+    
+    setTimeout(() => {
+      forceUpdateBenefitsContent(currentLang);
+    }, 500);
+    
+    setTimeout(() => {
+      forceUpdateBenefitsContent(currentLang);
+    }, 1000);
+    
+    setTimeout(() => {
+      forceUpdateBenefitsContent(currentLang);
+    }, 2000);
+    
+    // Also try to update when window loads completely
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        forceUpdateBenefitsContent(currentLang);
+      }, 500);
+    });
+    
+    // Update benefits content based on language
     updateBenefitsContent(currentLang);
-  }
-
-  // Initialize on DOM ready with utility function
-  initializeOnDOMReady(initializeBenefits);
-
-  // Setup language change listeners
-  setupLanguageChangeListeners((newLang) => {
-    updateBenefitsContent(newLang);
+    
+    // Force update comparison table items for Korean
+    if (currentLang === 'ko') {
+      setTimeout(() => {
+        forceUpdateComparisonItems();
+      }, 100);
+      setTimeout(() => {
+        forceUpdateComparisonItems();
+      }, 500);
+      setTimeout(() => {
+        forceUpdateComparisonItems();
+      }, 1000);
+    }
+    
   });
 
-  function updateBenefitsContent(lang: string) {
-    const t = (translations as any)[lang] || translations["ja"];
+  function forceUpdateBenefitsContent(lang) {
+    // Force update benefit cards with hardcoded values
+    const benefitData = {
+      'ja': [
+        { title: 'コスト削減', metric: '¥2,000', description: '年間500枚の紙名刺コストが0円に' },
+        { title: '効率化', metric: '5分', description: '名刺整理が50枚一括デジタル化で完了' },
+        { title: 'ビジネス拡大', metric: '40%', description: 'フォロー率が15%から向上' },
+        { title: '環境配慮', metric: '500枚', description: '年間の紙削減でSDGsに貢献' }
+      ],
+      'en': [
+        { title: 'Cost Reduction', metric: '¥2,000', description: 'Annual cost of 500 paper business cards becomes 0 yen' },
+        { title: 'Efficiency', metric: '5 min', description: 'Business card organization of 50 cards completed with batch digitalization' },
+        { title: 'Business Growth', metric: '40%', description: 'Follow-up rate improved from 15%' },
+        { title: 'Environmental Consideration', metric: '500 cards', description: 'Annual paper reduction contributes to SDGs' }
+      ],
+      'zh': [
+        { title: '成本削减', metric: '¥2,000', description: '每年500张纸质名片成本变为0日元' },
+        { title: '效率化', metric: '5分钟', description: '50张名片整理通过批量数字化完成' },
+        { title: '业务扩展', metric: '40%', description: '跟进率从15%提升' },
+        { title: '环保考虑', metric: '500张', description: '年度纸张减少为SDGs做贡献' }
+      ],
+      'ko': [
+        { title: '비용 절감', metric: '¥8,000', description: '기존 종이 명함 5,000원 + OCR 앱 6,000원 → TapForge 3,000원으로 실현' },
+        { title: '효율화', metric: '5분', description: '명함 정리가 50장 일괄 디지털화로 완료' },
+        { title: '비즈니스 확장', metric: '40%', description: '팔로우율이 15%에서 향상' },
+        { title: '환경 고려', metric: '500장', description: '연간 종이 절약으로 SDGs에 기여' }
+      ],
+      'es': [
+        { title: 'Reducción de Costos', metric: '¥2,000', description: 'El costo anual de 500 tarjetas de presentación de papel se convierte en 0 yenes' },
+        { title: 'Eficiencia', metric: '5 min', description: 'Organización de 50 tarjetas de presentación completada con digitalización por lotes' },
+        { title: 'Crecimiento del Negocio', metric: '40%', description: 'Tasa de seguimiento mejorada del 15%' },
+        { title: 'Consideración Ambiental', metric: '500 tarjetas', description: 'Reducción anual de papel contribuye a los ODS' }
+      ]
+    };
 
-    // Update main title and subtitle
-    updateElementContent('benefits-title', t.title);
-    updateElementContent('benefits-subtitle', t.subtitle);
-
-    // Update benefit cards
-    const benefitKeys = ['costReduction', 'timeEfficiency', 'businessGrowth', 'environmental'];
-    for (let i = 0; i < benefitKeys.length; i++) {
-      const benefitData = t.items ? t.items[benefitKeys[i] as keyof typeof t.items] : null;
-
-      if (benefitData) {
-        updateElementContent(`benefit-${i}-title`, benefitData.title);
-        updateElementContent(`benefit-${i}-metric`, benefitData.metric);
-        updateElementContent(`benefit-${i}-description`, benefitData.description);
+    const currentData = benefitData[lang] || benefitData['ja'];
+    
+    // Force update each benefit card - try multiple selectors
+    for (let i = 0; i < 4; i++) {
+      // Try multiple ways to find elements
+      const titleElement = document.getElementById(`benefit-${i}-title`) || 
+                          document.querySelector(`[id*="benefit"][id*="${i}"][id*="title"]`) ||
+                          document.querySelectorAll('h3')[i];
+      
+      const metricElement = document.getElementById(`benefit-${i}-metric`) || 
+                           document.querySelector(`[id*="benefit"][id*="${i}"][id*="metric"]`) ||
+                           document.querySelectorAll('.text-4xl')[i];
+      
+      const descElement = document.getElementById(`benefit-${i}-description`) || 
+                         document.querySelector(`[id*="benefit"][id*="${i}"][id*="description"]`) ||
+                         document.querySelectorAll('p')[i + 4]; // Skip first few p tags
+      
+      // Find elements for benefit card
+      
+      // Force update title
+      if (titleElement && currentData[i]) {
+        titleElement.innerHTML = currentData[i].title;
+        titleElement.style.cssText = `
+          color: #1f2937 !important;
+          font-weight: bold !important;
+          font-size: 1.25rem !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          position: relative !important;
+          z-index: 999 !important;
+        `;
+        // Title updated
+      } else {
+        // Title element not found
+      }
+      
+      // Force update metric
+      if (metricElement && currentData[i]) {
+        metricElement.innerHTML = currentData[i].metric;
+        metricElement.style.cssText = `
+          color: #3b82f6 !important;
+          font-weight: 900 !important;
+          font-size: 2.25rem !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          position: relative !important;
+          z-index: 999 !important;
+          background: none !important;
+          background-image: none !important;
+        `;
+        // Metric updated
+      } else {
+        // Metric element not found
+      }
+      
+      // Force update description
+      if (descElement && currentData[i]) {
+        descElement.innerHTML = currentData[i].description;
+        descElement.style.cssText = `
+          color: #4b5563 !important;
+          font-size: 0.875rem !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          position: relative !important;
+          z-index: 999 !important;
+        `;
+        // Description updated
+      } else {
+        // Description element not found
       }
     }
-
-    // Update comparison table
-    if (t.comparison) {
-      const updates = [
-        { id: 'comparison-title', content: t.comparison.title },
-        { id: 'table-header-item', content: t.comparison.headers.item },
-        { id: 'table-header-traditional', content: t.comparison.headers.traditional },
-        { id: 'table-header-tapforge', content: t.comparison.headers.tapforge },
-        { id: 'row-annual-cost', content: t.comparison.rows.annualCost.item },
-        { id: 'annual-cost-note', content: t.comparison.rows.annualCost.tapforgeNote },
-        { id: 'row-organization-time', content: t.comparison.rows.organizationTime.item },
-        { id: 'organization-time-note', content: t.comparison.rows.organizationTime.tapforgeNote },
-        { id: 'row-follow-up-rate', content: t.comparison.rows.followUpRate.item },
-        { id: 'row-multilingual', content: t.comparison.rows.multilingual.item },
-        { id: 'multilingual-note', content: t.comparison.rows.multilingual.tapforgeNote },
-        { id: 'row-environmental-impact', content: t.comparison.rows.environmentalImpact.item },
-        { id: 'environmental-impact-note', content: t.comparison.rows.environmentalImpact.tapforgeNote },
-        { id: 'row-update-ease', content: t.comparison.rows.updateEase.item },
-        { id: 'update-ease-note', content: t.comparison.rows.updateEase.tapforgeNote },
-        { id: 'traditional-annual-cost', content: t.comparison.rows.annualCost.traditional },
-        { id: 'traditional-organization-time', content: t.comparison.rows.organizationTime.traditional },
-        { id: 'traditional-follow-up-rate', content: t.comparison.rows.followUpRate.traditional },
-        { id: 'traditional-multilingual', content: t.comparison.rows.multilingual.traditional },
-        { id: 'traditional-environmental-impact', content: t.comparison.rows.environmentalImpact.traditional },
-        { id: 'traditional-update-ease', content: t.comparison.rows.updateEase.traditional },
-        { id: 'tapforge-annual-cost', content: t.comparison.rows.annualCost.tapforge },
-        { id: 'tapforge-organization-time', content: t.comparison.rows.organizationTime.tapforge },
-        { id: 'tapforge-follow-up-rate', content: t.comparison.rows.followUpRate.tapforge },
-        { id: 'tapforge-multilingual', content: t.comparison.rows.multilingual.tapforge },
-        { id: 'tapforge-environmental-impact', content: t.comparison.rows.environmentalImpact.tapforge },
-        { id: 'tapforge-update-ease', content: t.comparison.rows.updateEase.tapforge }
+    
+    // Force update comparison table items for Korean
+    if (lang === 'ko') {
+      const comparisonItems = [
+        { id: 'annual-cost-item', text: '연간 비용' },
+        { id: 'organization-time-item', text: '정리 시간' },
+        { id: 'follow-up-rate-item', text: '팔로우율' },
+        { id: 'multilingual-item', text: '다국어 지원' },
+        { id: 'environmental-impact-item', text: '환경 부담' },
+        { id: 'update-ease-item', text: '업데이트 용이성' }
       ];
+      
+      comparisonItems.forEach(item => {
+        const element = document.getElementById(item.id);
+        if (element) {
+          element.textContent = item.text;
+          element.innerHTML = item.text;
+          // Item updated
+        } else {
+          // Element not found
+        }
+      });
+      
+      // Also try to update by class or other selectors
+      const allComparisonItems = document.querySelectorAll('[id*="row-"]');
+      allComparisonItems.forEach((element, index) => {
+        if (comparisonItems[index]) {
+          element.textContent = comparisonItems[index].text;
+          element.innerHTML = comparisonItems[index].text;
+          // Element updated
+        }
+      });
+    }
+  }
 
-      updateMultipleElements(updates);
+  function forceUpdateComparisonItems() {
+    // Force updating comparison items to Korean
+    
+    // Force update comparison table items
+    const comparisonItems = [
+      { id: 'annual-cost-item', text: '연간 비용' },
+      { id: 'organization-time-item', text: '정리 시간' },
+      { id: 'follow-up-rate-item', text: '팔로우율' },
+      { id: 'multilingual-item', text: '다국어 지원' },
+      { id: 'environmental-impact-item', text: '환경 부담' },
+      { id: 'update-ease-item', text: '업데이트 용이성' }
+    ];
+    
+    comparisonItems.forEach(item => {
+      const element = document.getElementById(item.id);
+      if (element) {
+        element.textContent = item.text;
+        element.innerHTML = item.text;
+        // Item force updated
+      } else {
+        // Element not found
+      }
+    });
+    
+    // Also try to update by row ID
+    const rowIds = ['row-annual-cost', 'row-organization-time', 'row-follow-up-rate', 'row-multilingual', 'row-environmental-impact', 'row-update-ease'];
+    const koreanTexts = ['연간 비용', '정리 시간', '팔로우율', '다국어 지원', '환경 부담', '업데이트 용이성'];
+    
+    rowIds.forEach((rowId, index) => {
+      const element = document.getElementById(rowId);
+      if (element) {
+        element.textContent = koreanTexts[index];
+        element.innerHTML = koreanTexts[index];
+        // Row updated
+      }
+    });
+  }
+
+  function updateBenefitsContent(lang) {
+    const translations = {
+      'ja': {
+        title: '導入効果',
+        subtitle: 'フリーランサーのビジネスを加速させる具体的な効果',
+        benefits: [
+          {
+            title: 'コスト削減',
+            metric: '¥2,000',
+            description: '年間500枚の紙名刺コストが0円に'
+          },
+          {
+            title: '効率化',
+            metric: '5分',
+            description: '名刺整理が50枚一括デジタル化で完了'
+          },
+          {
+            title: 'ビジネス拡大',
+            metric: '40%',
+            description: 'フォロー率が15%から向上'
+          },
+          {
+            title: '環境配慮',
+            metric: '500枚',
+            description: '年間の紙削減でSDGsに貢献'
+          }
+        ],
+        comparison: {
+          title: '詳細比較',
+          headers: {
+            item: '項目',
+            traditional: '従来の紙名刺＋管理アプリ',
+            tapforge: 'TapForge'
+          },
+          rows: {
+            annualCost: {
+              item: '年間コスト',
+              traditional: '¥11,000',
+              tapforge: '¥6,000',
+              tapforgeNote: '（早期アクセス）'
+            },
+            organizationTime: {
+              item: '整理時間',
+              traditional: '30分/50枚',
+              tapforge: '5分',
+              tapforgeNote: '/50枚'
+            },
+            followUpRate: {
+              item: 'フォロー率',
+              traditional: '15%',
+              tapforge: '40%'
+            },
+            multilingual: {
+              item: '多言語対応',
+              traditional: 'なし',
+              tapforge: '4言語',
+              tapforgeNote: '対応'
+            },
+            environmentalImpact: {
+              item: '環境負荷',
+              traditional: '高（紙使用）',
+              tapforge: 'ゼロ',
+              tapforgeNote: '（ペーパーレス）'
+            },
+            updateEase: {
+              item: '更新の容易さ',
+              traditional: '再印刷が必要',
+              tapforge: '即座',
+              tapforgeNote: '更新可能'
+            }
+          }
+        },
+        target: {
+          title: '海外案件を増やしたいフリーランサーに最適',
+          description: '多言語対応とAI機能により、国際的なビジネス展開を強力にサポートします',
+          tags: {
+            global: '🌍 グローバル対応',
+            ai: '🤖 AI活用',
+            noApp: '📱 アプリ不要',
+            costReduction: '💰 コスト削減'
+          }
+        }
+      },
+      'en': {
+        title: 'Introduction Effects',
+        subtitle: 'Specific effects that accelerate freelancers\' businesses',
+        benefits: [
+          {
+            title: 'Cost Reduction',
+            metric: '¥2,000',
+            description: 'Annual cost of 500 paper business cards becomes 0 yen'
+          },
+          {
+            title: 'Efficiency',
+            metric: '5 min',
+            description: 'Business card organization of 50 cards completed with batch digitalization'
+          },
+          {
+            title: 'Business Growth',
+            metric: '40%',
+            description: 'Follow-up rate improved from 15%'
+          },
+          {
+            title: 'Environmental Consideration',
+            metric: '500 cards',
+            description: 'Annual paper reduction contributes to SDGs'
+          }
+        ],
+        comparison: {
+          title: 'Detailed Comparison',
+          headers: {
+            item: 'Item',
+            traditional: 'Paper Cards + Management App',
+            tapforge: 'TapForge'
+          },
+          rows: {
+            annualCost: {
+              item: 'Annual Cost',
+              traditional: '¥11,000',
+              tapforge: '¥6,000',
+              tapforgeNote: '(Early Access)'
+            },
+            organizationTime: {
+              item: 'Organization Time',
+              traditional: '30 min/50 cards',
+              tapforge: '5 min',
+              tapforgeNote: '/50 cards'
+            },
+            followUpRate: {
+              item: 'Follow-up Rate',
+              traditional: '15%',
+              tapforge: '40%'
+            },
+            multilingual: {
+              item: 'Multilingual Support',
+              traditional: 'None',
+              tapforge: '4 Languages',
+              tapforgeNote: 'Support'
+            },
+            environmentalImpact: {
+              item: 'Environmental Impact',
+              traditional: 'High (Paper use)',
+              tapforge: 'Zero',
+              tapforgeNote: '(Paperless)'
+            },
+            updateEase: {
+              item: 'Update Ease',
+              traditional: 'Re-printing required',
+              tapforge: 'Instant',
+              tapforgeNote: 'Update possible'
+            }
+          }
+        },
+        target: {
+          title: 'Perfect for freelancers who want to increase overseas projects',
+          description: 'Supports international business expansion with multilingual support and AI features',
+          tags: {
+            global: '🌍 Global Support',
+            ai: '🤖 AI Utilization',
+            noApp: '📱 No App Required',
+            costReduction: '💰 Cost Reduction'
+          }
+        }
+      },
+      'zh': {
+        title: '导入效果',
+        subtitle: '加速自由职业者业务的具体效果',
+        benefits: [
+          {
+            title: '成本削减',
+            metric: '¥2,000',
+            description: '每年500张纸质名片成本变为0日元'
+          },
+          {
+            title: '效率化',
+            metric: '5分钟',
+            description: '50张名片整理通过批量数字化完成'
+          },
+          {
+            title: '业务扩展',
+            metric: '40%',
+            description: '跟进率从15%提升'
+          },
+          {
+            title: '环保考虑',
+            metric: '500张',
+            description: '年度纸张减少为SDGs做贡献'
+          }
+        ],
+        comparison: {
+          title: '详细比较',
+          headers: {
+            item: '项目',
+            traditional: '纸名片+管理应用',
+            tapforge: 'TapForge'
+          },
+          rows: {
+            annualCost: {
+              item: '年度成本',
+              traditional: '¥11,000',
+              tapforge: '¥6,000',
+              tapforgeNote: '（早期访问）'
+            },
+            organizationTime: {
+              item: '整理时间',
+              traditional: '30分钟/50张',
+              tapforge: '5分钟',
+              tapforgeNote: '/50张'
+            },
+            followUpRate: {
+              item: '跟进率',
+              traditional: '15%',
+              tapforge: '40%'
+            },
+            multilingual: {
+              item: '多语言支持',
+              traditional: '无',
+              tapforge: '4种语言',
+              tapforgeNote: '支持'
+            },
+            environmentalImpact: {
+              item: '环境影响',
+              traditional: '高（使用纸张）',
+              tapforge: '零',
+              tapforgeNote: '（无纸化）'
+            },
+            updateEase: {
+              item: '更新便利性',
+              traditional: '需要重新印刷',
+              tapforge: '即时',
+              tapforgeNote: '可更新'
+            }
+          }
+        },
+        target: {
+          title: '适合想要增加海外项目的自由职业者',
+          description: '通过多语言支持和AI功能，强力支持国际业务扩展',
+          tags: {
+            global: '🌍 全球支持',
+            ai: '🤖 AI利用',
+            noApp: '📱 无需应用',
+            costReduction: '💰 成本削减'
+          }
+        }
+      },
+      'ko': {
+        title: '도입 효과',
+        subtitle: '프리랜서의 비즈니스를 가속시키는 구체적인 효과',
+        benefits: [
+          {
+            title: '비용 절감',
+            metric: '¥8,000',
+            description: '기존 종이 명함 5,000원 + OCR 앱 6,000원 → TapForge 3,000원으로 실현'
+          },
+          {
+            title: '효율화',
+            metric: '5분',
+            description: '명함 정리가 50장 일괄 디지털화로 완료'
+          },
+          {
+            title: '비즈니스 확장',
+            metric: '40%',
+            description: '팔로우율이 15%에서 향상'
+          },
+          {
+            title: '환경 고려',
+            metric: '500장',
+            description: '연간 종이 절약으로 SDGs에 기여'
+          }
+        ],
+        comparison: {
+          title: '상세 비교',
+          headers: {
+            item: '항목',
+            traditional: '종이 명함+관리 앱',
+            tapforge: 'TapForge'
+          },
+          rows: {
+            annualCost: {
+              item: '연간 비용',
+              traditional: '¥11,000',
+              tapforge: '¥6,000',
+              tapforgeNote: '(조기 액세스)'
+            },
+            organizationTime: {
+              item: '정리 시간',
+              traditional: '30분/50장',
+              tapforge: '5분',
+              tapforgeNote: '/50장'
+            },
+            followUpRate: {
+              item: '팔로우율',
+              traditional: '15%',
+              tapforge: '40%'
+            },
+            multilingual: {
+              item: '다국어 지원',
+              traditional: '없음',
+              tapforge: '4개국어',
+              tapforgeNote: '지원'
+            },
+            environmentalImpact: {
+              item: '환경 부담',
+              traditional: '높음 (종이 사용)',
+              tapforge: '제로',
+              tapforgeNote: '(페이퍼리스)'
+            },
+            updateEase: {
+              item: '업데이트 용이성',
+              traditional: '재인쇄 필요',
+              tapforge: '즉시',
+              tapforgeNote: '업데이트 가능'
+            }
+          }
+        },
+        target: {
+          title: '해외 프로젝트를 늘리고 싶은 프리랜서에게 최적',
+          description: '다국어 지원과 AI 기능으로 국제적인 비즈니스 확장을 강력히 지원합니다',
+          tags: {
+            global: '🌍 글로벌 지원',
+            ai: '🤖 AI 활용',
+            noApp: '📱 앱 불필요',
+            costReduction: '💰 비용 절감'
+          }
+        }
+      },
+      'es': {
+        title: 'Efectos de Introducción',
+        subtitle: 'Efectos específicos que aceleran los negocios de freelancers',
+        benefits: [
+          {
+            title: 'Reducción de Costos',
+            metric: '¥2,000',
+            description: 'El costo anual de 500 tarjetas de presentación de papel se convierte en 0 yenes'
+          },
+          {
+            title: 'Eficiencia',
+            metric: '5 min',
+            description: 'Organización de 50 tarjetas de presentación completada con digitalización por lotes'
+          },
+          {
+            title: 'Crecimiento del Negocio',
+            metric: '40%',
+            description: 'Tasa de seguimiento mejorada del 15%'
+          },
+          {
+            title: 'Consideración Ambiental',
+            metric: '500 tarjetas',
+            description: 'Reducción anual de papel contribuye a los ODS'
+          }
+        ],
+        comparison: {
+          title: 'Comparación Detallada',
+          headers: {
+            item: 'Elemento',
+            traditional: 'Tarjetas de Papel + App de Gestión',
+            tapforge: 'TapForge'
+          },
+          rows: {
+            annualCost: {
+              item: 'Costo Anual',
+              traditional: '¥5,000',
+              tapforge: '¥0',
+              tapforgeNote: '(Solo costo inicial)'
+            },
+            organizationTime: {
+              item: 'Tiempo de Organización',
+              traditional: '30 min/50 tarjetas',
+              tapforge: '5 min',
+              tapforgeNote: '/50 tarjetas'
+            },
+            followUpRate: {
+              item: 'Tasa de Seguimiento',
+              traditional: '15%',
+              tapforge: '40%'
+            },
+            multilingual: {
+              item: 'Soporte Multilingüe',
+              traditional: 'Ninguno',
+              tapforge: '4 Idiomas',
+              tapforgeNote: 'Soporte'
+            },
+            environmentalImpact: {
+              item: 'Impacto Ambiental',
+              traditional: 'Alto (Uso de papel)',
+              tapforge: 'Cero',
+              tapforgeNote: '(Sin papel)'
+            },
+            updateEase: {
+              item: 'Facilidad de Actualización',
+              traditional: 'Reimpresión requerida',
+              tapforge: 'Instantáneo',
+              tapforgeNote: 'Actualización posible'
+            }
+          }
+        },
+        target: {
+          title: 'Perfecto para freelancers que quieren aumentar proyectos en el extranjero',
+          description: 'Apoya la expansión de negocios internacionales con soporte multilingüe y características de IA',
+          tags: {
+            global: '🌍 Soporte Global',
+            ai: '🤖 Utilización de IA',
+            noApp: '📱 Sin App Requerida',
+            costReduction: '💰 Reducción de Costos'
+          }
+        }
+      }
+    };
+
+    const t = translations[lang] || translations['ja'];
+    
+    // Update main title and subtitle
+    const titleElement = document.getElementById('benefits-title');
+    if (titleElement) {
+      titleElement.textContent = t.title;
+    }
+    
+    const subtitleElement = document.getElementById('benefits-subtitle');
+    if (subtitleElement) {
+      subtitleElement.textContent = t.subtitle;
+    }
+    
+    // Update benefits
+    for (let i = 0; i < t.benefits.length; i++) {
+      const titleElement = document.getElementById(`benefit-${i}-title`);
+      const metricElement = document.getElementById(`benefit-${i}-metric`);
+      const descElement = document.getElementById(`benefit-${i}-description`);
+      
+      if (titleElement) {
+        titleElement.textContent = t.benefits[i].title;
+      }
+      if (metricElement) {
+        metricElement.textContent = t.benefits[i].metric;
+      }
+      if (descElement) {
+        descElement.textContent = t.benefits[i].description;
+      }
+    }
+    
+    // Update comparison table
+    const comparisonTitleElement = document.getElementById('comparison-title');
+    if (comparisonTitleElement) {
+      comparisonTitleElement.textContent = t.comparison.title;
+    }
+    
+    const headerItemElement = document.getElementById('table-header-item');
+    if (headerItemElement) {
+      headerItemElement.textContent = t.comparison.headers.item;
+    }
+    
+    const headerTraditionalElement = document.getElementById('table-header-traditional');
+    if (headerTraditionalElement) {
+      headerTraditionalElement.textContent = t.comparison.headers.traditional;
+    }
+    
+    const headerTapforgeElement = document.getElementById('table-header-tapforge');
+    if (headerTapforgeElement) {
+      headerTapforgeElement.textContent = t.comparison.headers.tapforge;
+    }
+    
+    // Update table rows
+    const rowAnnualCostElement = document.getElementById('row-annual-cost');
+    if (rowAnnualCostElement) {
+      rowAnnualCostElement.textContent = t.comparison.rows.annualCost.item;
+    }
+    
+    const annualCostNoteElement = document.getElementById('annual-cost-note');
+    if (annualCostNoteElement) {
+      annualCostNoteElement.textContent = t.comparison.rows.annualCost.tapforgeNote;
+    }
+    
+    const rowOrganizationTimeElement = document.getElementById('row-organization-time');
+    if (rowOrganizationTimeElement) {
+      rowOrganizationTimeElement.textContent = t.comparison.rows.organizationTime.item;
+    }
+    
+    const organizationTimeNoteElement = document.getElementById('organization-time-note');
+    if (organizationTimeNoteElement) {
+      organizationTimeNoteElement.textContent = t.comparison.rows.organizationTime.tapforgeNote;
+    }
+    
+    const rowFollowUpRateElement = document.getElementById('row-follow-up-rate');
+    if (rowFollowUpRateElement) {
+      rowFollowUpRateElement.textContent = t.comparison.rows.followUpRate.item;
+    }
+    
+    const rowMultilingualElement = document.getElementById('row-multilingual');
+    if (rowMultilingualElement) {
+      rowMultilingualElement.textContent = t.comparison.rows.multilingual.item;
+    }
+    
+    const multilingualNoteElement = document.getElementById('multilingual-note');
+    if (multilingualNoteElement) {
+      multilingualNoteElement.textContent = t.comparison.rows.multilingual.tapforgeNote;
+    }
+    
+    const rowEnvironmentalImpactElement = document.getElementById('row-environmental-impact');
+    if (rowEnvironmentalImpactElement) {
+      rowEnvironmentalImpactElement.textContent = t.comparison.rows.environmentalImpact.item;
+    }
+    
+    const environmentalImpactNoteElement = document.getElementById('environmental-impact-note');
+    if (environmentalImpactNoteElement) {
+      environmentalImpactNoteElement.textContent = t.comparison.rows.environmentalImpact.tapforgeNote;
+    }
+    
+    const rowUpdateEaseElement = document.getElementById('row-update-ease');
+    if (rowUpdateEaseElement) {
+      rowUpdateEaseElement.textContent = t.comparison.rows.updateEase.item;
+    }
+    
+    const updateEaseNoteElement = document.getElementById('update-ease-note');
+    if (updateEaseNoteElement) {
+      updateEaseNoteElement.textContent = t.comparison.rows.updateEase.tapforgeNote;
+    }
+    
+    // Update traditional values with proper IDs
+    const annualCostTraditionalNote = document.getElementById('annual-cost-traditional-note');
+    if (annualCostTraditionalNote) {
+      annualCostTraditionalNote.textContent = lang === 'en' ? 'Paper Cards + App' : lang === 'zh' ? '纸质名片+应用' : lang === 'ko' ? '종이명함+앱' : lang === 'es' ? 'Tarjetas + App' : '紙名刺+管理アプリ';
     }
 
-    // Update target section
-    if (t.target) {
-      const targetUpdates = [
-        { id: 'target-title', content: t.target.title },
-        { id: 'target-description', content: t.target.description },
-        { id: 'tag-global', content: t.target.tags.global },
-        { id: 'tag-ai', content: t.target.tags.ai },
-        { id: 'tag-no-app', content: t.target.tags.noApp },
-        { id: 'tag-cost', content: t.target.tags.costReduction }
-      ];
+    const organizationTimeTraditional = document.getElementById('organization-time-traditional');
+    if (organizationTimeTraditional) {
+      organizationTimeTraditional.textContent = lang === 'en' ? '30 min' : lang === 'zh' ? '30分钟' : lang === 'ko' ? '30분' : lang === 'es' ? '30 min' : '30分';
+    }
 
-      updateMultipleElements(targetUpdates);
+    const organizationTimeTraditionalUnit = document.getElementById('organization-time-traditional-unit');
+    if (organizationTimeTraditionalUnit) {
+      organizationTimeTraditionalUnit.textContent = lang === 'en' ? '/50 cards' : lang === 'zh' ? '/50张' : lang === 'ko' ? '/50장' : lang === 'es' ? '/50 tarjetas' : '/50枚';
+    }
+
+    const organizationTimeTapForge = document.getElementById('organization-time-tapforge');
+    if (organizationTimeTapForge) {
+      organizationTimeTapForge.textContent = lang === 'en' ? '5 min' : lang === 'zh' ? '5分钟' : lang === 'ko' ? '5분' : lang === 'es' ? '5 min' : '5分';
+    }
+
+    const followRateTraditional = document.getElementById('follow-rate-traditional');
+    if (followRateTraditional) {
+      followRateTraditional.textContent = '15%';
+    }
+
+    const followRateTapForge = document.getElementById('follow-rate-tapforge');
+    if (followRateTapForge) {
+      followRateTapForge.textContent = '40%';
+    }
+
+    const multilingualTraditional = document.getElementById('multilingual-traditional');
+    if (multilingualTraditional) {
+      multilingualTraditional.textContent = lang === 'en' ? 'None' : lang === 'zh' ? '无' : lang === 'ko' ? '없음' : lang === 'es' ? 'Ninguno' : 'なし';
+    }
+
+    const multilingualTraditionalLabel = document.getElementById('multilingual-traditional-label');
+    if (multilingualTraditionalLabel) {
+      multilingualTraditionalLabel.textContent = lang === 'en' ? 'Multilingual' : lang === 'zh' ? '多语言支持' : lang === 'ko' ? '다국어 지원' : lang === 'es' ? 'Multilingüe' : '多言語対応';
+    }
+
+    const multilingualTapForge = document.getElementById('multilingual-tapforge');
+    if (multilingualTapForge) {
+      multilingualTapForge.textContent = lang === 'en' ? '4 Languages' : lang === 'zh' ? '4语言' : lang === 'ko' ? '4개국어' : lang === 'es' ? '4 Idiomas' : '4言語';
+    }
+
+    const environmentalTraditional = document.getElementById('environmental-traditional');
+    if (environmentalTraditional) {
+      environmentalTraditional.textContent = lang === 'en' ? 'High' : lang === 'zh' ? '高' : lang === 'ko' ? '높음' : lang === 'es' ? 'Alto' : '高';
+    }
+
+    const environmentalTapForge = document.getElementById('environmental-tapforge');
+    if (environmentalTapForge) {
+      environmentalTapForge.textContent = lang === 'en' ? 'Zero' : lang === 'zh' ? '零' : lang === 'ko' ? '제로' : lang === 'es' ? 'Cero' : 'ゼロ';
+    }
+
+    const updateEaseTraditional = document.getElementById('update-ease-traditional');
+    if (updateEaseTraditional) {
+      updateEaseTraditional.textContent = lang === 'en' ? 'Reprint' : lang === 'zh' ? '重新印刷' : lang === 'ko' ? '재인쇄' : lang === 'es' ? 'Reimpresión' : '再印刷';
+    }
+
+    const updateEaseTapForge = document.getElementById('update-ease-tapforge');
+    if (updateEaseTapForge) {
+      updateEaseTapForge.textContent = lang === 'en' ? 'Instant' : lang === 'zh' ? '即时' : lang === 'ko' ? '즉시' : lang === 'es' ? 'Instantáneo' : '即座';
+    }
+    
+    // Update target section
+    const targetTitleElement = document.getElementById('target-title');
+    if (targetTitleElement) {
+      targetTitleElement.textContent = t.target.title;
+    }
+    
+    const targetDescElement = document.getElementById('target-description');
+    if (targetDescElement) {
+      targetDescElement.textContent = t.target.description;
+    }
+    
+    const tagGlobalElement = document.getElementById('tag-global');
+    if (tagGlobalElement) {
+      tagGlobalElement.textContent = t.target.tags.global;
+    }
+    
+    const tagAiElement = document.getElementById('tag-ai');
+    if (tagAiElement) {
+      tagAiElement.textContent = t.target.tags.ai;
+    }
+    
+    const tagNoAppElement = document.getElementById('tag-no-app');
+    if (tagNoAppElement) {
+      tagNoAppElement.textContent = t.target.tags.noApp;
+    }
+    
+    const tagCostElement = document.getElementById('tag-cost');
+    if (tagCostElement) {
+      tagCostElement.textContent = t.target.tags.costReduction;
     }
   }
 </script>
+

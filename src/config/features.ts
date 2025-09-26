@@ -52,8 +52,8 @@ export const benefits: Benefit[] = [
   {
     id: "cost-reduction",
     title: "コスト削減",
-    metric: "¥8,000",
-    description: "従来の紙名刺5,000円+OCRアプリ6,000円→TapForge3,000円で実現",
+    metric: "年間¥5,000節約",
+    description: "従来¥11,000→TapForge¥6,000（早期アクセス価格）",
     metricColor: "text-green-600",
     icon: {
       bgColor: "bg-green-100",
@@ -103,24 +103,48 @@ export const benefits: Benefit[] = [
 
 export const pricingPlans: PricingPlan[] = [
   {
-    id: "initial",
-    title: "初期費用",
-    price: "¥3,000",
-    description: "1枚目",
-    priceColor: "text-blue-600",
+    id: "early-initial",
+    title: "【早期アクセス】初期費用",
+    price: "¥0",
+    description: "初期費用無料",
+    priceColor: "text-red-600",
+  },
+  {
+    id: "early-monthly",
+    title: "【早期アクセス】月額料金",
+    price: "¥500/アカウント",
+    description: "初月NFCカード1枚含む・100名限定",
+    priceColor: "text-red-600",
   },
   {
     id: "additional",
     title: "追加カード",
-    price: "¥600",
+    price: "¥500",
     description: "2枚目以降",
     priceColor: "text-green-600",
   },
+];
+
+export const regularPricingPlans: PricingPlan[] = [
   {
-    id: "monthly",
-    title: "月額料金",
+    id: "regular-initial",
+    title: "通常料金 初期費用",
     price: "¥0",
-    description: "完全無料",
-    priceColor: "text-purple-600",
+    description: "初期費用無料",
+    priceColor: "text-blue-600",
+  },
+  {
+    id: "regular-monthly",
+    title: "通常料金 月額",
+    price: "¥700~/アカウント",
+    description: "段階的割引制（¥700→¥600→¥500）",
+    priceColor: "text-blue-600",
+  },
+  {
+    id: "regular-additional",
+    title: "追加カード",
+    price: "¥600",
+    description: "2枚目以降",
+    priceColor: "text-green-600",
   },
 ];

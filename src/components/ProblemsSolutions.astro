@@ -48,10 +48,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="problem-1-title"
                 >
-                  紙の名刺にかかるコスト
+                  紙の名刺と管理にかかるコスト
                 </h4>
                 <p class="text-gray-600" id="problem-1-desc">
-                  年間300枚で約3,000円の印刷費
+                  紙名刺5,000円＋管理アプリ6,000円＝年間11,000円
                 </p>
               </div>
             </div>
@@ -172,10 +172,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="solution-1-title"
                 >
-                  コストゼロ
+                  低コストで継続的な価値
                 </h4>
                 <p class="text-gray-600" id="solution-1-desc">
-                  初期3,000円のみ、月額無料
+                  初期費用無料、月額500円〜で常に最新機能を提供
                 </p>
               </div>
             </div>
@@ -381,14 +381,15 @@
                   <div>
                     <div
                       class="text-4xl font-black bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3"
+                      id="tapforge-annual-cost"
                     >
-                      ¥3,000
+                      年間¥6,000
                     </div>
                     <div
                       class="text-sm text-gray-600 mb-6 font-medium"
                       id="tapforge-period"
                     >
-                      初期費用のみ（OCR機能込み）
+                      月額500円（早期アクセス）
                     </div>
                   </div>
                   <div class="space-y-4 text-sm text-gray-600">
@@ -401,13 +402,13 @@
                         <div
                           class="relative w-10 h-10 bg-white rounded-full border-2 border-red-500 flex items-center justify-center shadow-lg"
                         >
-                          <span class="text-xs font-black text-red-600">¥0</span
+                          <span class="text-xs font-black text-red-600">¥500</span
                           >
                         </div>
                       </div>
                       <span
                         class="ml-3 font-bold text-red-600"
-                        id="tapforge-monthly-cost">月額料金: ¥0</span
+                        id="tapforge-monthly-cost">月額料金: ¥500</span
                       >
                     </div>
                     <div class="flex items-center">
@@ -505,7 +506,7 @@
           },
         ],
         solutions: [
-          { title: "コストゼロ", desc: "初期3,000円のみ、月額無料" },
+          { title: "低コストで継続的な価値", desc: "初期費用無料、月額500円〜" },
           {
             title: "5分で完了",
             desc: "OCR機能付きNFC名刺でVCard変換（別アプリ不要）",
@@ -524,8 +525,8 @@
           },
           tapforge: {
             title: "TapForge",
-            period: "初期費用のみ（OCR機能込み）",
-            monthlyCost: "月額料金: ¥0",
+            period: "月額500円（早期アクセス）",
+            monthlyCost: "月額料金: ¥500",
             orgTime: "整理時間: 5分",
             envImpact: "環境負荷: ゼロ",
           },
@@ -556,7 +557,7 @@
           },
         ],
         solutions: [
-          { title: "Zero Cost", desc: "Only initial 3,000 yen, free monthly" },
+          { title: "Low Ongoing Cost", desc: "No initial fee, from ¥500/month with continuous updates" },
           {
             title: "Complete in 5 minutes",
             desc: "AI business card shooting to VCard conversion",
@@ -573,16 +574,16 @@
         costComparison: {
           title: "Cost Comparison",
           traditional: {
-            title: "Traditional Paper Business Cards",
+            title: "Traditional Paper Business Cards + Management App",
             period: "500 cards per year",
-            printingCost: "Printing cost: ¥5,000",
+            printingCost: "Paper ¥5,000 + App ¥6,000 = ¥11,000/year",
             orgTime: "Organization time: 30 minutes",
             envImpact: "Environmental impact: High",
           },
           tapforge: {
             title: "TapForge",
-            period: "Initial cost only",
-            monthlyCost: "Monthly fee: ¥0",
+            period: "¥500/month (Early Access)",
+            monthlyCost: "Monthly fee: ¥500~",
             orgTime: "Organization time: 5 minutes",
             envImpact: "Environmental impact: Zero",
           },
@@ -602,7 +603,7 @@
           { title: "跟进率低", desc: "名片交换后的联系率只有15%左右" },
         ],
         solutions: [
-          { title: "零成本", desc: "仅初始3,000日元，月费免费" },
+          { title: "低持续成本", desc: "无初始费用，每月¥500起，持续更新" },
           { title: "5分钟完成", desc: "AI名片拍摄到VCard转换" },
           { title: "4语言支持", desc: "日英中西支持国际业务" },
           { title: "40%跟进率", desc: "通过AI和多语言效果提升" },
@@ -610,20 +611,80 @@
         costComparison: {
           title: "成本比较",
           traditional: {
-            title: "传统纸质名片",
+            title: "传统纸质名片 + 管理应用",
             period: "每年500张",
-            printingCost: "印刷费: ¥5,000",
+            printingCost: "纸质 ¥5,000 + 应用 ¥6,000 = ¥11,000/年",
             orgTime: "整理时间: 30分钟",
             envImpact: "环境影响: 高",
           },
           tapforge: {
             title: "TapForge",
-            period: "仅初始费用",
-            monthlyCost: "月费: ¥0",
+            period: "¥500/月（早期访问）",
+            monthlyCost: "月费: ¥500~",
             orgTime: "整理时间: 5分钟",
             envImpact: "环境影响: 零",
           },
           targetAudience: "适合想要增加海外项目的自由职业者",
+        },
+      },
+      ko: {
+        title: "명함 정리, 번거롭죠?",
+        subtitle: "TapForge로 5분 만에 해결!",
+        problemsTitle: "프리랜서의 고민",
+        solutionsTitle: "TapForge의 해결책",
+        problems: [
+          {
+            title: "종이 명함의 비용",
+            desc: "연간 500장으로 약 5,000엔의 인쇄비",
+          },
+          {
+            title: "정리의 번거로움",
+            desc: "명함 50장 정리에 30분 이상",
+          },
+          {
+            title: "해외 클라이언트와의 언어 장벽",
+            desc: "영어 프로필 작성에 시간이 많이 걸림",
+          },
+          {
+            title: "낮은 후속 연락률",
+            desc: "명함 교환 후 연락률이 15% 정도",
+          },
+        ],
+        solutions: [
+          {
+            title: "저렴한 지속 비용",
+            desc: "초기 비용 무료, 월 ¥500부터 지속적 업데이트",
+          },
+          {
+            title: "5분 완료",
+            desc: "OCR 기능 NFC 명함으로 VCard 변환 (별도 앱 불필요)",
+          },
+          {
+            title: "4개국어 지원",
+            desc: "일영중서로 국제 비즈니스 지원",
+          },
+          {
+            title: "40% 후속 연락률",
+            desc: "AI와 다국어 효과로 향상",
+          },
+        ],
+        costComparison: {
+          title: "비용 비교",
+          traditional: {
+            title: "기존 종이 명함 + 관리 앱",
+            period: "연간 (종이 명함 5,000엔+OCR 앱 6,000엔)",
+            printingCost: "종이 ¥5,000 + 앱 ¥6,000 = ¥11,000/년",
+            orgTime: "정리 시간: 30분",
+            envImpact: "환경 부담: 높음",
+          },
+          tapforge: {
+            title: "TapForge",
+            period: "¥500/월 (조기 액세스)",
+            monthlyCost: "월 비용: ¥500~",
+            orgTime: "정리 시간: 5분",
+            envImpact: "환경 부담: 제로",
+          },
+          targetAudience: "해외 프로젝트를 늘리고 싶은 프리랜서에게 최적",
         },
       },
       es: {
@@ -651,8 +712,8 @@
         ],
         solutions: [
           {
-            title: "Costo Cero",
-            desc: "Solo 3,000 yenes iniciales, mensualidad gratuita",
+            title: "Costo Bajo Continuo",
+            desc: "Sin tarifa inicial, desde ¥500/mes con actualizaciones continuas",
           },
           {
             title: "Completar en 5 minutos",
@@ -670,16 +731,16 @@
         costComparison: {
           title: "Comparación de Costos",
           traditional: {
-            title: "Tarjetas de Presentación de Papel Tradicionales",
+            title: "Tarjetas de Papel + App de Gestión",
             period: "500 tarjetas por año",
-            printingCost: "Costo de impresión: ¥5,000",
+            printingCost: "Papel ¥5,000 + App ¥6,000 = ¥11,000/año",
             orgTime: "Tiempo de organización: 30 minutos",
             envImpact: "Impacto ambiental: Alto",
           },
           tapforge: {
             title: "TapForge",
-            period: "Solo costo inicial",
-            monthlyCost: "Tarifa mensual: ¥0",
+            period: "¥500/mes (Acceso Anticipado)",
+            monthlyCost: "Tarifa mensual: ¥500~",
             orgTime: "Tiempo de organización: 5 minutos",
             envImpact: "Impacto ambiental: Cero",
           },
@@ -819,6 +880,22 @@
     const targetAudienceElement = document.getElementById("target-audience");
     if (targetAudienceElement) {
       targetAudienceElement.textContent = t.costComparison.targetAudience;
+    }
+
+    // Update annual cost display
+    const tapforgeAnnualCostElement = document.getElementById("tapforge-annual-cost");
+    if (tapforgeAnnualCostElement) {
+      if (lang === "ko") {
+        tapforgeAnnualCostElement.textContent = "연간 ¥6,000";
+      } else if (lang === "en") {
+        tapforgeAnnualCostElement.textContent = "¥6,000/year";
+      } else if (lang === "zh") {
+        tapforgeAnnualCostElement.textContent = "年费¥6,000";
+      } else if (lang === "es") {
+        tapforgeAnnualCostElement.textContent = "¥6,000/año";
+      } else {
+        tapforgeAnnualCostElement.textContent = "年間¥6,000";
+      }
     }
   }
 </script>
