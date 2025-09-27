@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 import Layout from "../layouts/Default.astro";
 import { type Language } from "../lib/i18n";
 
@@ -389,3 +390,9 @@ const pageTitle =
   // Also try to load content immediately for cases where the script runs after DOM is ready
   setTimeout(loadPrivacyContent, 0);
 </script>
+=======
+// プライバシーポリシーのリダイレクトページ
+// デフォルトで日本語にリダイレクト
+return Astro.redirect('/ja/privacy');
+---
+>>>>>>> 787f4f5 (feat: Add multilingual support for privacy policy and terms of service)

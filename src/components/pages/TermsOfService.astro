@@ -1,0 +1,234 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Section from "@/components/sections/Section.astro";
+import { getLanguageFromPath } from "@/i18n/utils";
+import { loadTranslations } from "@/i18n/utils";
+
+const currentPath = Astro.url.pathname;
+const language = getLanguageFromPath(currentPath);
+const translations = await loadTranslations(language);
+
+const t = (key: string) => {
+  if (!translations) {
+    return key;
+  }
+  
+  const keys = key.split('.');
+  let value: any = translations;
+
+  for (const k of keys) {
+    if (value && typeof value === 'object' && k in value) {
+      value = value[k];
+    } else {
+      return key;
+    }
+  }
+  
+  return typeof value === 'string' ? value : key;
+};
+---
+
+<MainLayout
+  title={`${t('terms.title')} | IoTRealm`}
+  description={t('terms.description')}
+  currentLanguage={language}
+  currentPath={currentPath}
+>
+  <Section id="terms">
+    <div class="container mx-auto px-4 py-16 max-w-4xl terms-container">
+      <h1 class="text-4xl font-bold mb-8 text-gray-900">{t('terms.title')}</h1>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-gray-600 mb-8" set:html={t('terms.intro')}>
+        </p>
+
+        <p class="text-sm text-gray-500 mb-8">{t('terms.establishmentDate')}</p>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article1.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article1.content')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article2.title')}</h2>
+          <p class="text-gray-700 mb-4">{t('terms.article2.intro')}</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            <li><strong>{t('terms.article2.ai')}</strong></li>
+            <li><strong>{t('terms.article2.iot')}</strong></li>
+            <li><strong>{t('terms.article2.poc')}</strong></li>
+            <li><strong>{t('terms.article2.edgeDevice')}</strong></li>
+            <li><strong>{t('terms.article2.cloudService')}</strong></li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article3.title')}</h2>
+          <p class="text-gray-700 mb-4">{t('terms.article3.intro')}</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            {translations.terms.article3.services.map((service: string) => (
+              <li>{service}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article4.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article4.content')}
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700 mt-4">
+            {translations.terms.article4.reasons.map((reason: string) => (
+              <li>{reason}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article5.title')}</h2>
+          <p class="text-gray-700 mb-4">
+            {t('terms.article5.intro')}
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            {translations.terms.article5.fees.map((fee: string) => (
+              <li>{fee}</li>
+            ))}
+          </ul>
+          <p class="text-gray-700 mt-4">
+            {t('terms.article5.latePayment')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article6.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article6.content')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article7.title')}</h2>
+          <p class="text-gray-700 mb-4">
+            {t('terms.article7.intro')}
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            {translations.terms.article7.purposes.map((purpose: string) => (
+              <li>{purpose}</li>
+            ))}
+          </ul>
+          <p class="text-gray-700 mt-4">
+            {t('terms.article7.privacy')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article8.title')}</h2>
+          <p class="text-gray-700 mb-4">{t('terms.article8.intro')}</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            {translations.terms.article8.prohibited.map((prohibition: string) => (
+              <li>{prohibition}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article9.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article9.content')}
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700 mt-4">
+            {translations.terms.article9.reasons.map((reason: string) => (
+              <li>{reason}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article10.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article10.content1')}
+          </p>
+          <p class="text-gray-700 mt-4">
+            {t('terms.article10.content2')}
+          </p>
+          <p class="text-gray-700 mt-4">
+            {t('terms.article10.content3')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article11.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article11.content')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article12.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article12.content')}
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700 mt-4">
+            {translations.terms.article12.conditions.map((condition: string) => (
+              <li>{condition}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article13.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article13.content')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article14.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article14.content')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article15.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article15.content')}
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700 mt-4">
+            {translations.terms.article15.conditions.map((condition: string) => (
+              <li>{condition}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article16.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article16.content')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article17.title')}</h2>
+          <p class="text-gray-700">
+            {t('terms.article17.content')}
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">{t('terms.article18.title')}</h2>
+          <p class="text-gray-700 mb-4">
+            {t('terms.article18.intro')}
+          </p>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <p class="text-gray-700" set:html={t('terms.article18.contact')}>
+            </p>
+          </div>
+        </section>
+
+        <p class="text-center text-gray-600 mt-12">{t('terms.end')}</p>
+      </div>
+    </div>
+  </Section>
+</MainLayout>
