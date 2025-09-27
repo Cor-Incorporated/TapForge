@@ -1051,35 +1051,35 @@ export const translations = {
     },
     // CTA Section
     cta: {
-      title: "¿Listo para comenzar?",
+      title: "准备开始吗？",
       description:
-        "Experimenta el poder de TapForge con nuestra prueba gratuita limitada para 50 personas",
-      trialButton: "Solicitar Prueba Gratuita",
-      contactButton: "Contacto (Para Socios de Co-creación)",
-      tapNow: "¡Toca Ahora!",
-      profileDisplay: "Mostrar Perfil",
+        "体验TapForge的强大功能，限50人免费试用",
+      trialButton: "申请免费试用",
+      contactButton: "联系（共创合作伙伴）",
+      tapNow: "立即点击！",
+      profileDisplay: "个人资料显示",
       features: {
-        noApp: "Sin App Requerida",
-        free: "Mensualidad Gratuita",
-        multilingual: "4 Idiomas",
-        aiScanning: "Escaneo de Tarjeta con IA",
+        noApp: "无需应用",
+        free: "月费免费",
+        multilingual: "4种语言",
+        aiScanning: "AI名片扫描",
       },
     },
     // Trial Form
     trialForm: {
-      title: "Solicitar Prueba Gratuita",
-      description: "Crearemos una tarjeta de presentación gratis para ti.",
+      title: "申请免费试用",
+      description: "我们将为您免费制作一张名片。",
       subDescription:
-        "Cambios de diseño ilimitados, escaneo de tarjeta con IA y conversión VCard disponibles",
-      contactFormTitle: "Formulario de Contacto",
+        "无限设计更改，AI名片扫描和VCard转换可用",
+      contactFormTitle: "联系表单",
       contactFormDescription:
-        "Para solicitar la prueba gratuita, contáctanos a través del botón de abajo.",
-      contactFormButton: "Ir al Formulario de Contacto",
-      termsText: "Al solicitar, aceptas nuestros ",
-      termsLink: "Términos de Servicio",
-      andText: " y ",
-      privacyLink: "Política de Privacidad",
-      agreementText: ".",
+        "要申请免费试用，请通过下面的按钮与我们联系。",
+      contactFormButton: "前往联系表单",
+      termsText: "申请即表示您同意我们的",
+      termsLink: "服务条款",
+      andText: "和",
+      privacyLink: "隐私政策",
+      agreementText: "。",
     },
     // Cost Comparison
     costComparison: {
@@ -2208,15 +2208,33 @@ export const translations = {
     // CTA Section
     cta: {
       title: "지금 바로 시작하세요",
-      subtitle: "50명 한정 무료 체험",
-      description: "AI 기반 차세대 명함으로 비즈니스를 가속화하세요",
-      button: "무료 체험 신청",
-      features: [
-        "앱 불필요",
-        "월 무료",
-        "4개국어 지원",
-        "OCR 기능 포함",
-      ],
+      description: "50명 한정 무료 체험으로 TapForge의 힘을 경험해보세요",
+      trialButton: "무료 체험 신청",
+      contactButton: "문의하기 (공동창조 파트너용)",
+      tapNow: "지금 탭하기!",
+      profileDisplay: "프로필 표시",
+      features: {
+        noApp: "앱 불필요",
+        free: "월 무료",
+        multilingual: "4개국어 지원",
+        aiScanning: "AI 명함 촬영",
+      },
+    },
+    // Trial Form
+    trialForm: {
+      title: "무료 체험 신청",
+      description: "명함 1장을 무료로 제작해드립니다.",
+      subDescription:
+        "무제한 디자인 변경, AI 명함 촬영 및 VCard 변환 사용 가능",
+      contactFormTitle: "문의 양식",
+      contactFormDescription:
+        "무료 체험 신청은 아래 버튼을 통해 문의해주세요.",
+      contactFormButton: "문의 양식으로 이동",
+      termsText: "신청하시면 ",
+      termsLink: "이용약관",
+      andText: " 및 ",
+      privacyLink: "개인정보처리방침",
+      agreementText: "에 동의하는 것으로 간주됩니다.",
     },
     // SDGs Section
     sdgs: {

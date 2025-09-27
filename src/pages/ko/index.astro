@@ -1,0 +1,27 @@
+---
+import Benefits from "../../components/Benefits.astro";
+import CTA from "../../components/CTA.astro";
+import FAQ from "../../components/FAQ.astro";
+import Features from "../../components/Features.astro";
+import Hero from "../../components/Hero.astro";
+import PartnerProgram from "../../components/PartnerProgram.astro";
+import ProblemsSolutions from "../../components/ProblemsSolutions.astro";
+import SDGs from "../../components/SDGs.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import Layout from "../../layouts/Default.astro";
+
+// Set language to Korean for this page
+const lang = "ko";
+---
+
+<Layout title="TapForge - 탭으로 세계와 연결되세요" lang={lang}>
+  <Hero lang={lang} />
+  <ProblemsSolutions lang={lang} />
+  <Features lang={lang} />
+  <Benefits lang={lang} />
+  <SDGs lang={lang} />
+  <PartnerProgram lang={lang} />
+  <Testimonials lang={lang} />
+  <FAQ lang={lang} />
+  <CTA lang={lang} />
+</Layout>

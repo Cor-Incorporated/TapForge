@@ -1,0 +1,373 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "features": "Características",
+    "pricing": "Precios",
+    "testimonials": "Testimonios",
+    "faq": "FAQ",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Conecta con el mundo con un toque.",
+    "subtitle": "Tarjeta de presentación de próxima generación",
+    "description": "impulsada por IA para acelerar tu negocio",
+    "subDescription": "Sin aplicación requerida, sin costo inicial. Comparte perfiles multilingües con un toque NFC.\nApoyando a freelancers en la adquisición de proyectos en el extranjero.",
+    "cta": "Solicitar Acceso Anticipado",
+    "limited": "¡Limitado a 100!",
+    "features": {
+      "noApp": "Sin App Requerida",
+      "free": "Sin Costo Inicial",
+      "multilingual": "4 Idiomas"
+    }
+  },
+  "problems": {
+    "title": "Organizar tarjetas de presentación es molesto, ¿verdad?",
+    "subtitle": "¡TapForge lo resuelve en 5 minutos!",
+    "problems": {
+      "title": "Problemas de Freelancers",
+      "cost": {
+        "title": "Costo de tarjetas de presentación de papel",
+        "description": "Aproximadamente 5,000 yenes por 500 tarjetas al año"
+      },
+      "organization": {
+        "title": "Molestia de organización",
+        "description": "30+ minutos para organizar 50 tarjetas de presentación"
+      },
+      "language": {
+        "title": "Barreras de idioma con clientes extranjeros",
+        "description": "Consume tiempo crear perfiles en inglés"
+      },
+      "followup": {
+        "title": "Baja tasa de seguimiento",
+        "description": "Solo 15% de tasa de contacto después del intercambio de tarjetas"
+      }
+    },
+    "solutions": {
+      "title": "Soluciones TapForge",
+      "cost": {
+        "title": "Costo Cero",
+        "description": "Costo inicial 0 yenes, mensualidad 500 yenes~"
+      },
+      "time": {
+        "title": "Completo en 5 minutos",
+        "description": "Escaneo de tarjetas con IA a conversión VCard"
+      },
+      "language": {
+        "title": "Soporte de 4 idiomas",
+        "description": "Japonés, inglés, chino, español para negocios internacionales"
+      },
+      "followup": {
+        "title": "40% Tasa de seguimiento",
+        "description": "Mejorado con efectos de IA y multilingües"
+      }
+    }
+  },
+  "cta": {
+    "title": "¿Listo para comenzar?",
+    "description": "Experimenta el poder de TapForge con nuestro acceso anticipado limitado para 100 personas (500 yenes/mes)",
+    "trialButton": "Solicitar Acceso Anticipado",
+    "contactButton": "Contacto (Para Socios de Co-creación)",
+    "tapNow": "¡Toca Ahora!",
+    "profileDisplay": "Visualización de Perfil",
+    "features": {
+      "noApp": "Sin App Requerida",
+      "free": "Sin Costo Inicial",
+      "multilingual": "4 Idiomas",
+      "aiScanning": "Escaneo de Tarjetas con IA"
+    }
+  },
+  "trialForm": {
+    "title": "Solicitar Acceso Anticipado",
+    "description": "Crearemos una tarjeta de presentación para ti gratis.",
+    "subDescription": "Cambios de diseño ilimitados, escaneo de tarjetas con IA y conversión VCard disponibles",
+    "contactFormTitle": "Formulario de Contacto",
+    "contactFormDescription": "Para solicitar el acceso anticipado (500 yenes/mes), contáctanos a través del botón de abajo.",
+    "contactFormButton": "Ir al Formulario de Contacto",
+    "termsText": "Al solicitar, aceptas nuestros ",
+    "termsLink": "Términos de Servicio",
+    "andText": " y ",
+    "privacyLink": "Política de Privacidad",
+    "agreementText": "."
+  },
+  "costComparison": {
+    "title": "Comparación de Costos",
+    "traditional": {
+      "title": "Tarjetas de Papel Tradicionales",
+      "period": "500 tarjetas al año",
+      "printingCost": "Costo de impresión: ¥5,000",
+      "orgTime": "Tiempo de organización: 30 minutos",
+      "envImpact": "Impacto ambiental: Alto"
+    },
+    "tapforge": {
+      "title": "TapForge",
+      "period": "Cuota mensual",
+      "monthlyCost": "Cuota mensual: ¥500~",
+      "orgTime": "Tiempo de organización: 5 minutos",
+      "envImpact": "Impacto ambiental: Cero"
+    },
+    "targetAudience": "Perfecto para freelancers que quieren aumentar proyectos internacionales"
+  },
+  "features": {
+    "title": "Características de TapForge",
+    "subtitle": "Revolucionando el intercambio de tarjetas con tecnología de vanguardia",
+    "items": {
+      "aiScan": {
+        "title": "Tarjeta NFC con función OCR de lectura de tarjetas",
+        "description": "Integra gratis la función OCR que normalmente cuesta 500 yenes al mes en una app separada. Digitaliza tarjetas de papel con IA (95% de precisión) y guarda como VCard directamente en smartphones"
+      },
+      "multilingual": {
+        "title": "Soporte Multilingüe",
+        "description": "Cambia automáticamente entre 4 idiomas: japonés, inglés, chino (simplificado), español"
+      },
+      "noApp": {
+        "title": "Sin App Requerida",
+        "description": "Muestra perfiles instantáneamente con toque NFC (entorno en línea)"
+      },
+      "paperless": {
+        "title": "Sin Papel",
+        "description": "Contribuye al Objetivo 12 de los ODS, completamente sin papel y consciente del medio ambiente"
+      }
+    },
+    "pricing": {
+      "title": "Sistema de Precios (Impuestos Incluidos)",
+      "plans": {
+        "initial": {
+          "title": "Costo Inicial",
+          "price": "¥0",
+          "description": "Primera tarjeta gratis"
+        },
+        "additional": {
+          "title": "Tarjetas Adicionales",
+          "price": "¥600",
+          "description": "Desde la segunda"
+        },
+        "monthly": {
+          "title": "Cuota Mensual",
+          "price": "¥500~",
+          "description": "Plan mensual"
+        }
+      },
+      "tagline": "El precio más bajo de la industria para tarjetas NFC con función OCR - Ofreciendo funciones que normalmente cuestan 11,000 yenes anuales por 500 yenes~/mes"
+    },
+    "demo": {
+      "title": "Video Demo",
+      "description": "Video demo de escaneo de tarjetas con IA",
+      "note": "(Enlace de YouTube próximamente)"
+    }
+  },
+  "benefits": {
+    "title": "Efectos de Implementación",
+    "subtitle": "Efectos concretos que aceleran los negocios de freelancers",
+    "items": {
+      "costReduction": {
+        "title": "Reducción de Costos",
+        "metric": "¥8,000",
+        "description": "Tarjetas de papel tradicionales 5,000 yenes + App OCR 6,000 yenes → TapForge 500 yenes~/mes"
+      },
+      "timeEfficiency": {
+        "title": "Eficiencia",
+        "metric": "5 min",
+        "description": "Organización de tarjetas completada con digitalización por lotes de 50 tarjetas"
+      },
+      "businessGrowth": {
+        "title": "Crecimiento del Negocio",
+        "metric": "40%",
+        "description": "Tasa de seguimiento mejorada desde 15%"
+      },
+      "environmental": {
+        "title": "Consideración Ambiental",
+        "metric": "500 tarjetas",
+        "description": "Reducción anual de papel contribuye a los ODS"
+      }
+    },
+    "comparison": {
+      "title": "Comparación Detallada",
+      "headers": {
+        "item": "Elemento",
+        "traditional": "Tarjetas de papel tradicionales + App OCR",
+        "tapforge": "TapForge"
+      },
+      "rows": {
+        "annualCost": {
+          "item": "Costo Anual",
+          "traditional": "¥11,000",
+          "tapforge": "¥6,000",
+          "tapforgeNote": "(500 yenes~/mes)"
+        },
+        "organizationTime": {
+          "item": "Tiempo de Organización",
+          "traditional": "30 min/50 tarjetas",
+          "tapforge": "5 min",
+          "tapforgeNote": "/50 tarjetas"
+        },
+        "followUpRate": {
+          "item": "Tasa de Seguimiento",
+          "traditional": "15%",
+          "tapforge": "40%"
+        },
+        "multilingual": {
+          "item": "Soporte Multilingüe",
+          "traditional": "Ninguno",
+          "tapforge": "4 Idiomas",
+          "tapforgeNote": "Soporte"
+        },
+        "environmentalImpact": {
+          "item": "Impacto Ambiental",
+          "traditional": "Alto (Uso de papel)",
+          "tapforge": "Cero",
+          "tapforgeNote": "(Sin papel)"
+        },
+        "updateEase": {
+          "item": "Facilidad de Actualización",
+          "traditional": "Reimpresión requerida",
+          "tapforge": "Instantáneo",
+          "tapforgeNote": "Actualizable"
+        }
+      }
+    },
+    "target": {
+      "title": "Perfecto para freelancers que quieren aumentar proyectos internacionales",
+      "description": "Apoya fuertemente la expansión de negocios internacionales con soporte multilingüe y funciones de IA",
+      "tags": {
+        "global": "🌍 Soporte Global",
+        "ai": "🤖 Utilización de IA",
+        "noApp": "📱 Sin App Requerida",
+        "costReduction": "💰 Reducción de Costos"
+      }
+    }
+  },
+  "sdgs": {
+    "title": "Contribución a los ODS",
+    "subtitle": "Equilibrando ambiente y carrera",
+    "goals": {
+      "goal12": {
+        "title": "Producción y Consumo Responsables",
+        "items": ["Sin papel", "500 hojas de papel reducidas anualmente", "Consumo sostenible"]
+      },
+      "goal10": {
+        "title": "Reducción de las Desigualdades",
+        "items": ["Soporte de 4 idiomas", "Eliminación de desigualdad en proyectos internacionales", "Eliminación de barreras lingüísticas"]
+      },
+      "goal17": {
+        "title": "Alianzas para Lograr los Objetivos",
+        "items": ["Co-creación a través del intercambio de tarjetas", "Conexiones globales", "Compartir innovación tecnológica"]
+      }
+    },
+    "environmental": {
+      "title": "Consideración Ambiental",
+      "metrics": {
+        "paperReduction": {
+          "value": "500 hojas",
+          "description": "Reducción anual de papel"
+        },
+        "paperless": {
+          "value": "100%",
+          "description": "Logro sin papel"
+        },
+        "updates": {
+          "value": "∞",
+          "description": "Tarjetas digitales actualizables"
+        }
+      },
+      "summary": "Actividades comerciales sostenibles que equilibran la protección ambiental y el crecimiento empresarial"
+    }
+  },
+  "partnerProgram": {
+    "title": "Programa de Socios de Co-creación",
+    "subtitle": "Precios especiales basados en asociación a largo plazo",
+    "heading": "Para clientes que usan otros servicios de Cor. Co., Ltd.",
+    "description": "Para clientes que usan otros servicios de Cor. Co., Ltd., proporcionamos precios especiales basados en asociación a largo plazo.",
+    "contactNote": "Por favor contáctenos para más detalles.",
+    "benefits": {
+      "specialPrice": {
+        "title": "Precios Especiales",
+        "description": "Precios preferenciales exclusivos para clientes existentes"
+      },
+      "prioritySupport": {
+        "title": "Soporte Prioritario",
+        "description": "Soporte por personal dedicado"
+      },
+      "customization": {
+        "title": "Soporte de Personalización",
+        "description": "Ajustes adaptados a las necesidades del cliente"
+      },
+      "longTermPartnership": {
+        "title": "Asociación a Largo Plazo",
+        "description": "Construcción de relaciones continuas"
+      }
+    },
+    "ctaButton": "Contáctenos",
+    "additionalInfo": "Este programa se basa en el contenido del sitio web oficial (cor-jp.com)"
+  },
+  "testimonials": {
+    "title": "Testimonios de Clientes",
+    "subtitle": "Voces de quienes realmente usan nuestro servicio",
+    "items": [
+      {
+        "name": "Sr. Suzuki",
+        "role": "Diseñador Web",
+        "message": "¡Organización de tarjetas de papel completada en 5 minutos! Los perfiles en inglés han aumentado los proyectos internacionales. La precisión del escaneo de tarjetas con IA es alta, y la conversión VCard es fluida. Es realmente un servicio conveniente para freelancers.",
+        "tags": ["Eficiencia", "Proyectos Internacionales", "Precisión IA"]
+      },
+      {
+        "name": "Sr. Tanaka",
+        "role": "Consultor IT",
+        "message": "Sin app requerida, simple. Causa buena impresión en los clientes. El soporte multilingüe ha hecho fluida la comunicación con clientes extranjeros. El rendimiento costo-beneficio también es excelente.",
+        "tags": ["Operación Fácil", "Buena Impresión", "Rendimiento Costo-Beneficio"]
+      }
+    ],
+    "note": "Estas voces son hipotéticas. Planeamos seleccionar 5 reseñas reales de 100 participantes del acceso anticipado y reemplazarlas."
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Respondemos preguntas frecuentes de nuestros clientes",
+    "items": [
+      {
+        "question": "¿Se puede usar NFC en cualquier smartphone?",
+        "answer": "Compatible con el 95% de los smartphones. Disponible en iPhone 7 y posteriores, y modelos Android compatibles con NFC.\nPara modelos específicos compatibles, consulte el sitio web oficial de cada fabricante de smartphones."
+      },
+      {
+        "question": "¿Cuál es la precisión de la lectura de tarjetas?",
+        "answer": "La precisión del escaneo de tarjetas con IA y conversión VCard es del 95%. Apuntamos a mejorar aún más la precisión a través de mejoras continuas.\nSi el reconocimiento falla, también es posible la corrección manual."
+      },
+      {
+        "question": "¿Puedo cambiar el diseño yo mismo?",
+        "answer": "Los cambios de diseño ilimitados son posibles desde la pantalla de administración.\nPuedes elegir entre 3 tipos de colores claros (blanco, azul claro, beige), y la información de texto y contacto se puede actualizar fácilmente."
+      },
+      {
+        "question": "Por favor, dime cómo usar el soporte multilingüe",
+        "answer": "Puedes cambiar a 4 idiomas (japonés, inglés, chino, español) tú mismo.\nPuedes seleccionar el idioma de visualización en la pantalla de perfil, por lo que puedes usarlo en tu idioma preferido independientemente de la configuración de idioma del smartphone de la otra parte."
+      },
+      {
+        "question": "¿Se puede usar sin conexión?",
+        "answer": "Actualmente recomendamos usarlo en un entorno en línea.\nLa funcionalidad sin conexión está en consideración para el futuro. Priorizamos la provisión de servicio estable en un entorno en línea, aprovechando el beneficio de no necesitar app."
+      }
+    ],
+    "additionalHelp": {
+      "title": "Por favor, siéntete libre de contactarnos para otras preguntas",
+      "description": "Nuestro personal profesional te responderá cuidadosamente",
+      "button": "Contáctenos"
+    }
+  },
+  "footer": {
+    "description": "Conecta con el mundo a través de tarjetas de presentación digitales NFC. Acelera tu negocio con tarjetas de próxima generación impulsadas por IA.",
+    "tagline": "Pioneros del futuro, encuentros inteligentes para todos",
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "features": "Características",
+      "pricing": "Precios",
+      "testimonials": "Testimonios",
+      "faq": "FAQ"
+    },
+    "contact": {
+      "title": "Contacto",
+      "company": "Cor. Co., Ltd.",
+      "trial": "Acceso Anticipado"
+    },
+    "copyright": "© 2025 TapForge por Cor. Co., Ltd. Todos los derechos reservados.",
+    "legal": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+---
+import Layout from "../../layouts/Default.astro";
+import { type Language } from "../../lib/i18n";
+
+const currentLang: Language = "en";
+const pageTitle = "TapForge - Privacy Policy";
+---
+
+<Layout title={pageTitle} lang={currentLang}>
+  <main class="container mx-auto px-4 py-16 max-w-4xl">
+    <h1 id="page-title" class="text-4xl font-bold mb-4 text-gray-900">
+      Privacy Policy
+    </h1>
+    <p id="last-updated" class="text-gray-600 mb-8">
+      Last Updated: September 20, 2025
+    </p>
+
+    <div id="privacy-content" class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">1. Introduction</h2>
+        <p class="text-gray-700 leading-relaxed">
+          TapForge (operated by Cor. Corporation) values your privacy. This Privacy Policy explains how we collect, use, and protect your personal information.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">2. Information We Collect</h2>
+        <p class="text-gray-700 leading-relaxed mb-2">We collect the following types of information:</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>Name, email address, phone number</li>
+          <li>Company information and job title</li>
+          <li>Business card information you create</li>
+          <li>Usage data and interaction history</li>
+          <li>Device information and IP address</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">3. How We Use Your Information</h2>
+        <p class="text-gray-700 leading-relaxed mb-2">We use your information to:</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>Provide and improve our services</li>
+          <li>Process payments and manage accounts</li>
+          <li>Send service-related communications</li>
+          <li>Provide customer support</li>
+          <li>Analyze usage patterns to improve user experience</li>
+          <li>Comply with legal obligations</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">4. Data Sharing</h2>
+        <p class="text-gray-700 leading-relaxed">
+          We do not sell your personal information. We may share your data with:
+        </p>
+        <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-700">
+          <li>Service providers (payment processors, cloud hosting)</li>
+          <li>Legal authorities when required by law</li>
+          <li>Business partners with your explicit consent</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">5. Data Security</h2>
+        <p class="text-gray-700 leading-relaxed">
+          We implement industry-standard security measures including:
+        </p>
+        <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-700">
+          <li>SSL/TLS encryption for data transmission</li>
+          <li>Encrypted storage of sensitive information</li>
+          <li>Regular security audits and updates</li>
+          <li>Access controls and authentication</li>
+          <li>Regular data backups</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">6. Your Rights</h2>
+        <p class="text-gray-700 leading-relaxed mb-2">You have the right to:</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>Access your personal data</li>
+          <li>Correct inaccurate data</li>
+          <li>Request data deletion</li>
+          <li>Export your data</li>
+          <li>Opt-out of marketing communications</li>
+          <li>Restrict processing of your data</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">7. Cookies</h2>
+        <p class="text-gray-700 leading-relaxed">
+          We use cookies to improve your experience. You can control cookie preferences through your browser settings. Essential cookies are required for service functionality.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">8. Data Retention</h2>
+        <p class="text-gray-700 leading-relaxed">
+          We retain your data for as long as your account is active or as needed to provide services. You can request data deletion at any time.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">9. Children's Privacy</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Our service is not intended for children under 18. We do not knowingly collect data from minors.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">10. International Data Transfers</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Your data may be processed in countries other than your residence. We ensure appropriate safeguards are in place for international transfers.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">11. Policy Updates</h2>
+        <p class="text-gray-700 leading-relaxed">
+          We may update this policy periodically. We will notify you of significant changes via email or service announcements.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">12. Contact Us</h2>
+        <p class="text-gray-700 leading-relaxed">
+          For privacy-related questions, please contact us:
+        </p>
+        <ul class="list-none mt-2 text-gray-700">
+          <li>Company: Cor. Corporation</li>
+          <li>Website: <a href="https://cor-jp.com/" class="text-blue-500 hover:underline">https://cor-jp.com/</a></li>
+          <li>Contact: <a href="https://cor-jp.com/contact/" class="text-blue-500 hover:underline">Contact Form</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+      <p class="text-sm text-gray-600 text-center">
+        © 2025 TapForge by Cor. Corporation. All rights reserved.
+      </p>
+    </div>
+  </main>
+</Layout>

@@ -48,15 +48,40 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Key Architectural Decisions
 
 - **Mobile-first**: 80% of users expected on smartphones
-- **Multilingual**: 4-language support (JP, EN, CN, ES) with custom i18n
+- **Multilingual**: 5-language support (JP, EN, ZH, KO, ES) with prefix-based routing
 - **Component-based**: Astro components for static parts, React for interactivity
 - **Performance-focused**: Static generation with selective hydration
 
-### Legal Pages
+## Internationalization (i18n)
 
-- `src/pages/terms.astro` - Terms of Service (利用規約) with client-side language switching
-- `src/pages/privacy.astro` - Privacy Policy (プライバシーポリシー) with client-side language switching
-- Both pages use JavaScript for dynamic language detection via URL parameters (`?lang=`)
-- Content is embedded directly in page scripts for optimal performance
+### Language Support
+- Japanese (ja) - Default language, no prefix
+- English (en) - `/en/` prefix
+- Chinese (zh) - `/zh/` prefix
+- Korean (ko) - `/ko/` prefix
+- Spanish (es) - `/es/` prefix
+
+### Translation System
+- **Translation Files**: `src/locales/{lang}/translation.json`
+- **Dynamic Loading**: Translations are loaded asynchronously for better performance
+- **Utility Functions**: `src/utils/i18n.ts` provides translation loading and language detection
+- **Fallback**: Automatic fallback to Japanese if translation fails
+
+### URL Structure
+- Main pages: `/`, `/en/`, `/zh/`, `/ko/`, `/es/`
+- Legal pages: `/terms/`, `/en/terms/`, `/zh/terms/`, etc.
+- All URLs use trailing slashes (configured in `astro.config.mjs`)
+
+### Components Pattern
+```astro
+const { lang } = Astro.props;
+const locale = lang || getLocaleFromPathname(Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = translations.componentName;
+```
+
+### Legal Pages
+- Language-specific pages in `src/pages/{lang}/terms.astro` and `src/pages/{lang}/privacy.astro`
+- Japanese pages in `src/pages/terms.astro` and `src/pages/privacy.astro` (no prefix)
 - Company: Cor.株式会社 (https://cor-jp.com/)
 - Last updated: 2025年9月20日

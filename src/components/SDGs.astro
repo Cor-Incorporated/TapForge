@@ -1,5 +1,15 @@
 ---
-// SDGs Contribution Section
+import { loadTranslation, getLocaleFromPathname } from '../utils/i18n';
+import type { Language } from '../lib/i18n';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const locale = lang || getLocaleFromPathname(Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = translations.sdgs;
 ---
 
 <section class="py-20 bg-white">
@@ -9,10 +19,10 @@
         class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
         id="sdgs-title"
       >
-        SDGsへの貢献
+        {t.title}
       </h2>
       <p class="text-xl text-gray-600" id="sdgs-subtitle">
-        環境とキャリアを両立
+        {t.subtitle}
       </p>
     </div>
 
@@ -31,7 +41,7 @@
             class="text-lg font-semibold text-gray-900 mb-2"
             id="sdg-12-title"
           >
-            つくる責任 つかう責任
+            {t.goals.goal12.title}
           </h3>
         </div>
         <div class="space-y-3">
@@ -47,7 +57,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-12-item-1"
-              >ペーパーレス化</span
+              >{t.goals.goal12.items[0]}</span
             >
           </div>
           <div class="flex items-center">
@@ -62,7 +72,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-12-item-2"
-              >年間300枚の紙削減</span
+              >{t.goals.goal12.items[1]}</span
             >
           </div>
           <div class="flex items-center">
@@ -77,7 +87,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-12-item-3"
-              >持続可能な消費</span
+              >{t.goals.goal12.items[2]}</span
             >
           </div>
         </div>
@@ -97,7 +107,7 @@
             class="text-lg font-semibold text-gray-900 mb-2"
             id="sdg-10-title"
           >
-            人や国の不平等をなくそう
+            {t.goals.goal10.title}
           </h3>
         </div>
         <div class="space-y-3">
@@ -113,7 +123,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-10-item-1"
-              >4言語対応</span
+              >{t.goals.goal10.items[0]}</span
             >
           </div>
           <div class="flex items-center">
@@ -128,7 +138,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-10-item-2"
-              >国際案件での不平等解消</span
+              >{t.goals.goal10.items[1]}</span
             >
           </div>
           <div class="flex items-center">
@@ -143,7 +153,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-10-item-3"
-              >言語バリアの解消</span
+              >{t.goals.goal10.items[2]}</span
             >
           </div>
         </div>
@@ -163,7 +173,7 @@
             class="text-lg font-semibold text-gray-900 mb-2"
             id="sdg-17-title"
           >
-            パートナーシップで目標を達成しよう
+            {t.goals.goal17.title}
           </h3>
         </div>
         <div class="space-y-3">
@@ -179,7 +189,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-17-item-1"
-              >名刺交換を通じた共創</span
+              >{t.goals.goal17.items[0]}</span
             >
           </div>
           <div class="flex items-center">
@@ -194,7 +204,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-17-item-2"
-              >グローバルなつながり</span
+              >{t.goals.goal17.items[1]}</span
             >
           </div>
           <div class="flex items-center">
@@ -209,7 +219,7 @@
                 clip-rule="evenodd"></path>
             </svg>
             <span class="text-sm text-gray-600" id="sdg-17-item-3"
-              >技術革新の共有</span
+              >{t.goals.goal17.items[2]}</span
             >
           </div>
         </div>
@@ -225,7 +235,7 @@
           class="text-2xl font-bold text-gray-900 mb-6"
           id="environmental-title"
         >
-          環境への配慮
+          {t.environmental.title}
         </h3>
         <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div class="text-center">
@@ -233,10 +243,10 @@
               class="text-4xl font-bold text-green-600 mb-2"
               id="env-paper-reduction-value"
             >
-              300枚
+              {t.environmental.metrics.paperReduction.value}
             </div>
             <p class="text-gray-600" id="env-paper-reduction-desc">
-              年間削減される紙の枚数
+              {t.environmental.metrics.paperReduction.description}
             </p>
           </div>
           <div class="text-center">
@@ -244,10 +254,10 @@
               class="text-4xl font-bold text-blue-600 mb-2"
               id="env-paperless-value"
             >
-              100%
+              {t.environmental.metrics.paperless.value}
             </div>
             <p class="text-gray-600" id="env-paperless-desc">
-              ペーパーレス化の実現
+              {t.environmental.metrics.paperless.description}
             </p>
           </div>
           <div class="text-center">
@@ -255,469 +265,18 @@
               class="text-4xl font-bold text-purple-600 mb-2"
               id="env-updates-value"
             >
-              ∞
+              {t.environmental.metrics.updates.value}
             </div>
             <p class="text-gray-600" id="env-updates-desc">
-              更新可能なデジタル名刺
+              {t.environmental.metrics.updates.description}
             </p>
           </div>
         </div>
         <p class="text-lg text-gray-700 mt-6" id="environmental-summary">
-          持続可能なビジネス活動で、地球環境とビジネス成長を両立
+          {t.environmental.summary}
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  // SDGs section language switching
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get current language from URL or localStorage
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get("lang");
-    const storedLang = localStorage.getItem("preferred-language");
-    const currentLang = urlLang || storedLang || "ja";
-
-    // Update SDGs content based on language
-    updateSDGsContent(currentLang);
-    
-    // Force Korean translation if needed
-    if (currentLang === 'ko') {
-      setTimeout(() => {
-        forceKoreanSDGsTranslation();
-      }, 100);
-      setTimeout(() => {
-        forceKoreanSDGsTranslation();
-      }, 500);
-      setTimeout(() => {
-        forceKoreanSDGsTranslation();
-      }, 1000);
-    }
-  });
-
-  function updateSDGsContent(lang: string) {
-    const translations = {
-      ja: {
-        title: "SDGsへの貢献",
-        subtitle: "環境とキャリアを両立",
-        goals: {
-          goal12: {
-            title: "つくる責任 つかう責任",
-            items: ["ペーパーレス化", "年間300枚の紙削減", "持続可能な消費"],
-          },
-          goal10: {
-            title: "人や国の不平等をなくそう",
-            items: ["4言語対応", "国際案件での不平等解消", "言語バリアの解消"],
-          },
-          goal17: {
-            title: "パートナーシップで目標を達成しよう",
-            items: [
-              "名刺交換を通じた共創",
-              "グローバルなつながり",
-              "技術革新の共有",
-            ],
-          },
-        },
-        environmental: {
-          title: "環境への配慮",
-          metrics: {
-            paperReduction: {
-              value: "300枚",
-              description: "年間削減される紙の枚数",
-            },
-            paperless: {
-              value: "100%",
-              description: "ペーパーレス化の実現",
-            },
-            updates: {
-              value: "∞",
-              description: "更新可能なデジタル名刺",
-            },
-          },
-          summary: "持続可能なビジネス活動で、地球環境とビジネス成長を両立",
-        },
-      },
-      ko: {
-        title: "SDGs 기여",
-        subtitle: "환경과 커리어의 양립",
-        goals: {
-          goal12: {
-            title: "책임감 있는 소비와 생산",
-            items: ["페이퍼리스화", "연간 300장의 종이 절약", "지속가능한 소비"],
-          },
-          goal10: {
-            title: "국가 내·국가 간 불평등 해소",
-            items: ["4개국어 지원", "국제 프로젝트 불평등 해소", "언어 장벽 해소"],
-          },
-          goal17: {
-            title: "목표를 위한 파트너십",
-            items: [
-              "명함 교환을 통한 공동 창조",
-              "글로벌 연결",
-              "기술 혁신 공유",
-            ],
-          },
-        },
-        environmental: {
-          title: "환경 고려",
-          metrics: {
-            paperReduction: {
-              value: "300장",
-              description: "연간 절약되는 종이 수",
-            },
-            paperless: {
-              value: "100%",
-              description: "페이퍼리스화 실현",
-            },
-            updates: {
-              value: "∞",
-              description: "업데이트 가능한 디지털 명함",
-            },
-          },
-          summary: "지속가능한 비즈니스 활동으로 지구 환경과 비즈니스 성장을 양립",
-        },
-      },
-      en: {
-        title: "SDGs Contribution",
-        subtitle: "Balancing environment and career",
-        goals: {
-          goal12: {
-            title: "Responsible Consumption and Production",
-            items: [
-              "Paperless",
-              "300 sheets of paper reduced annually",
-              "Sustainable consumption",
-            ],
-          },
-          goal10: {
-            title: "Reduced Inequalities",
-            items: [
-              "4-language support",
-              "Elimination of inequality in international projects",
-              "Elimination of language barriers",
-            ],
-          },
-          goal17: {
-            title: "Partnerships for the Goals",
-            items: [
-              "Co-creation through business card exchange",
-              "Global connections",
-              "Sharing technological innovation",
-            ],
-          },
-        },
-        environmental: {
-          title: "Environmental Consideration",
-          metrics: {
-            paperReduction: {
-              value: "300 sheets",
-              description: "Annual paper reduction",
-            },
-            paperless: {
-              value: "100%",
-              description: "Paperless achievement",
-            },
-            updates: {
-              value: "∞",
-              description: "Updatable digital business cards",
-            },
-          },
-          summary:
-            "Sustainable business activities that balance environmental protection and business growth",
-        },
-      },
-      zh: {
-        title: "SDGs贡献",
-        subtitle: "环境与职业并重",
-        goals: {
-          goal12: {
-            title: "负责任消费和生产",
-            items: ["无纸化", "每年减少300张纸张", "可持续消费"],
-          },
-          goal10: {
-            title: "减少不平等",
-            items: ["4语言支持", "消除国际项目中的不平等", "消除语言障碍"],
-          },
-          goal17: {
-            title: "促进目标实现的伙伴关系",
-            items: ["通过名片交换共创", "全球连接", "分享技术创新"],
-          },
-        },
-        environmental: {
-          title: "环境考虑",
-          metrics: {
-            paperReduction: {
-              value: "300张",
-              description: "年度纸张减少",
-            },
-            paperless: {
-              value: "100%",
-              description: "无纸化实现",
-            },
-            updates: {
-              value: "∞",
-              description: "可更新的数字名片",
-            },
-          },
-          summary: "可持续商业活动，平衡环境保护和业务增长",
-        },
-      },
-      es: {
-        title: "Contribución a los ODS",
-        subtitle: "Equilibrando medio ambiente y carrera",
-        goals: {
-          goal12: {
-            title: "Consumo y Producción Responsables",
-            items: [
-              "Sin papel",
-              "300 hojas de papel reducidas anualmente",
-              "Consumo sostenible",
-            ],
-          },
-          goal10: {
-            title: "Reducción de las Desigualdades",
-            items: [
-              "Soporte de 4 idiomas",
-              "Eliminación de desigualdad en proyectos internacionales",
-              "Eliminación de barreras de idioma",
-            ],
-          },
-          goal17: {
-            title: "Alianzas para Lograr los Objetivos",
-            items: [
-              "Co-creación a través del intercambio de tarjetas",
-              "Conexiones globales",
-              "Compartir innovación tecnológica",
-            ],
-          },
-        },
-        environmental: {
-          title: "Consideración Ambiental",
-          metrics: {
-            paperReduction: {
-              value: "300 hojas",
-              description: "Reducción anual de papel",
-            },
-            paperless: {
-              value: "100%",
-              description: "Logro sin papel",
-            },
-            updates: {
-              value: "∞",
-              description: "Tarjetas digitales actualizables",
-            },
-          },
-          summary:
-            "Actividades comerciales sostenibles que equilibran la protección ambiental y el crecimiento empresarial",
-        },
-      },
-    };
-
-    const t = (translations as any)[lang] || translations["ja"];
-
-    // Update main title and subtitle
-    const titleElement = document.getElementById("sdgs-title");
-    if (titleElement) {
-      titleElement.textContent = t.title;
-    }
-
-    const subtitleElement = document.getElementById("sdgs-subtitle");
-    if (subtitleElement) {
-      subtitleElement.textContent = t.subtitle;
-    }
-
-    // Update SDG 12
-    const sdg12TitleElement = document.getElementById("sdg-12-title");
-    if (sdg12TitleElement) {
-      sdg12TitleElement.textContent = t.goals.goal12.title;
-    }
-
-    for (let i = 0; i < t.goals.goal12.items.length; i++) {
-      const itemElement = document.getElementById(`sdg-12-item-${i + 1}`);
-      if (itemElement) {
-        itemElement.textContent = t.goals.goal12.items[i];
-      }
-    }
-
-    // Update SDG 10
-    const sdg10TitleElement = document.getElementById("sdg-10-title");
-    if (sdg10TitleElement) {
-      sdg10TitleElement.textContent = t.goals.goal10.title;
-    }
-
-    for (let i = 0; i < t.goals.goal10.items.length; i++) {
-      const itemElement = document.getElementById(`sdg-10-item-${i + 1}`);
-      if (itemElement) {
-        itemElement.textContent = t.goals.goal10.items[i];
-      }
-    }
-
-    // Update SDG 17
-    const sdg17TitleElement = document.getElementById("sdg-17-title");
-    if (sdg17TitleElement) {
-      sdg17TitleElement.textContent = t.goals.goal17.title;
-    }
-
-    for (let i = 0; i < t.goals.goal17.items.length; i++) {
-      const itemElement = document.getElementById(`sdg-17-item-${i + 1}`);
-      if (itemElement) {
-        itemElement.textContent = t.goals.goal17.items[i];
-      }
-    }
-
-    // Update environmental section
-    const envTitleElement = document.getElementById("environmental-title");
-    if (envTitleElement) {
-      envTitleElement.textContent = t.environmental.title;
-    }
-
-    const paperReductionValueElement = document.getElementById(
-      "env-paper-reduction-value",
-    );
-    if (paperReductionValueElement) {
-      paperReductionValueElement.textContent =
-        t.environmental.metrics.paperReduction.value;
-    }
-
-    const paperReductionDescElement = document.getElementById(
-      "env-paper-reduction-desc",
-    );
-    if (paperReductionDescElement) {
-      paperReductionDescElement.textContent =
-        t.environmental.metrics.paperReduction.description;
-    }
-
-    const paperlessValueElement = document.getElementById(
-      "env-paperless-value",
-    );
-    if (paperlessValueElement) {
-      paperlessValueElement.textContent =
-        t.environmental.metrics.paperless.value;
-    }
-
-    const paperlessDescElement = document.getElementById("env-paperless-desc");
-    if (paperlessDescElement) {
-      paperlessDescElement.textContent =
-        t.environmental.metrics.paperless.description;
-    }
-
-    const updatesValueElement = document.getElementById("env-updates-value");
-    if (updatesValueElement) {
-      updatesValueElement.textContent = t.environmental.metrics.updates.value;
-    }
-
-    const updatesDescElement = document.getElementById("env-updates-desc");
-    if (updatesDescElement) {
-      updatesDescElement.textContent =
-        t.environmental.metrics.updates.description;
-    }
-
-    const envSummaryElement = document.getElementById("environmental-summary");
-    if (envSummaryElement) {
-      envSummaryElement.textContent = t.environmental.summary;
-    }
-  }
-
-  function forceKoreanSDGsTranslation() {
-    // Debug output removed
-    
-    // Force update main title and subtitle
-    const titleElement = document.getElementById('sdgs-title');
-    if (titleElement) {
-      titleElement.textContent = 'SDGs 기여';
-      // Debug output removed
-    }
-    
-    const subtitleElement = document.getElementById('sdgs-subtitle');
-    if (subtitleElement) {
-      subtitleElement.textContent = '환경과 커리어의 양립';
-      // Debug output removed
-    }
-    
-    // Force update SDG goals
-    const goal12Title = document.getElementById('sdg-12-title');
-    if (goal12Title) {
-      goal12Title.textContent = '책임감 있는 소비와 생산';
-      // Debug output removed
-    }
-    
-    const goal10Title = document.getElementById('sdg-10-title');
-    if (goal10Title) {
-      goal10Title.textContent = '국가 내·국가 간 불평등 해소';
-      // Debug output removed
-    }
-    
-    const goal17Title = document.getElementById('sdg-17-title');
-    if (goal17Title) {
-      goal17Title.textContent = '목표를 위한 파트너십';
-      // Debug output removed
-    }
-    
-    // Force update SDG items
-    const sdg12Items = ['페이퍼리스화', '연간 300장의 종이 절약', '지속가능한 소비'];
-    const sdg10Items = ['4개국어 지원', '국제 프로젝트 불평등 해소', '언어 장벽 해소'];
-    const sdg17Items = ['명함 교환을 통한 공동 창조', '글로벌 연결', '기술 혁신 공유'];
-    
-    sdg12Items.forEach((item, index) => {
-      const element = document.getElementById(`sdg-12-item-${index + 1}`);
-      if (element) {
-        element.textContent = item;
-        // Debug output removed
-      }
-    });
-    
-    sdg10Items.forEach((item, index) => {
-      const element = document.getElementById(`sdg-10-item-${index + 1}`);
-      if (element) {
-        element.textContent = item;
-        // Debug output removed
-      }
-    });
-    
-    sdg17Items.forEach((item, index) => {
-      const element = document.getElementById(`sdg-17-item-${index + 1}`);
-      if (element) {
-        element.textContent = item;
-        // Debug output removed
-      }
-    });
-    
-    // Force update environmental section
-    const envTitle = document.getElementById('environmental-title');
-    if (envTitle) {
-      envTitle.textContent = '환경 고려';
-      // Debug output removed
-    }
-    
-    const paperReductionValue = document.getElementById('env-paper-reduction-value');
-    if (paperReductionValue) {
-      paperReductionValue.textContent = '300장';
-      // Debug output removed
-    }
-    
-    const paperReductionDesc = document.getElementById('env-paper-reduction-desc');
-    if (paperReductionDesc) {
-      paperReductionDesc.textContent = '연간 절약되는 종이 수';
-      // Debug output removed
-    }
-    
-    const paperlessDesc = document.getElementById('env-paperless-desc');
-    if (paperlessDesc) {
-      paperlessDesc.textContent = '페이퍼리스화 실현';
-      // Debug output removed
-    }
-    
-    const updatesDesc = document.getElementById('env-updates-desc');
-    if (updatesDesc) {
-      updatesDesc.textContent = '업데이트 가능한 디지털 명함';
-      // Debug output removed
-    }
-    
-    const envSummary = document.getElementById('environmental-summary');
-    if (envSummary) {
-      envSummary.textContent = '지속가능한 비즈니스 활동으로 지구 환경과 비즈니스 성장을 양립';
-      // Debug output removed
-    }
-  }
-</script>

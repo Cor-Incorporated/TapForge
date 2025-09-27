@@ -1,5 +1,15 @@
 ---
-// Problems and Solutions Section
+import { loadTranslation, getLocaleFromPathname, createTranslator } from '../utils/i18n';
+import type { Language } from '../lib/i18n';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const locale = lang || getLocaleFromPathname(Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = translations.problems;
 ---
 
 <section class="py-20 bg-gray-50">
@@ -9,10 +19,10 @@
         class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
         id="problems-title"
       >
-        名刺整理、面倒ですよね？
+        {t.title}
       </h2>
       <p class="text-xl text-gray-600" id="problems-subtitle">
-        TapForgeなら5分で解決！
+        {t.subtitle}
       </p>
     </div>
 
@@ -24,7 +34,7 @@
             class="text-2xl font-bold text-gray-900 mb-6 text-center lg:text-left"
             id="problems-section-title"
           >
-            フリーランサーの悩み
+            {t.problems.title}
           </h3>
 
           <div class="space-y-6">
@@ -48,10 +58,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="problem-1-title"
                 >
-                  紙の名刺と管理にかかるコスト
+                  {t.problems.cost.title}
                 </h4>
                 <p class="text-gray-600" id="problem-1-desc">
-                  紙名刺5,000円＋管理アプリ6,000円＝年間11,000円
+                  {t.problems.cost.description}
                 </p>
               </div>
             </div>
@@ -76,10 +86,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="problem-2-title"
                 >
-                  整理の手間
+                  {t.problems.organization.title}
                 </h4>
                 <p class="text-gray-600" id="problem-2-desc">
-                  50枚の名刺整理に30分以上
+                  {t.problems.organization.description}
                 </p>
               </div>
             </div>
@@ -104,10 +114,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="problem-3-title"
                 >
-                  海外クライアントとの言語の壁
+                  {t.problems.language.title}
                 </h4>
                 <p class="text-gray-600" id="problem-3-desc">
-                  英語プロフィール作成に時間がかかる
+                  {t.problems.language.description}
                 </p>
               </div>
             </div>
@@ -132,10 +142,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="problem-4-title"
                 >
-                  フォローアップ率の低さ
+                  {t.problems.followup.title}
                 </h4>
                 <p class="text-gray-600" id="problem-4-desc">
-                  名刺交換後の連絡率は15%程度
+                  {t.problems.followup.description}
                 </p>
               </div>
             </div>
@@ -148,7 +158,7 @@
             class="text-2xl font-bold text-gray-900 mb-6 text-center lg:text-left"
             id="solutions-section-title"
           >
-            TapForgeの解決策
+            {t.solutions.title}
           </h3>
 
           <div class="space-y-6">
@@ -172,10 +182,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="solution-1-title"
                 >
-                  低コストで継続的な価値
+                  {t.solutions.cost.title}
                 </h4>
                 <p class="text-gray-600" id="solution-1-desc">
-                  初期費用無料、月額500円〜で常に最新機能を提供
+                  {t.solutions.cost.description}
                 </p>
               </div>
             </div>
@@ -200,10 +210,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="solution-2-title"
                 >
-                  5分で完了
+                  {t.solutions.time.title}
                 </h4>
                 <p class="text-gray-600" id="solution-2-desc">
-                  OCR機能付きNFC名刺でVCard変換（別アプリ不要）
+                  {t.solutions.time.description}
                 </p>
               </div>
             </div>
@@ -228,10 +238,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="solution-3-title"
                 >
-                  4言語対応
+                  {t.solutions.language.title}
                 </h4>
                 <p class="text-gray-600" id="solution-3-desc">
-                  日英中西で国際ビジネス支援
+                  {t.solutions.language.description}
                 </p>
               </div>
             </div>
@@ -256,10 +266,10 @@
                   class="font-semibold text-gray-900 mb-2"
                   id="solution-4-title"
                 >
-                  フォロー率40%
+                  {t.solutions.followup.title}
                 </h4>
                 <p class="text-gray-600" id="solution-4-desc">
-                  AIと多言語効果で向上
+                  {t.solutions.followup.description}
                 </p>
               </div>
             </div>
@@ -284,7 +294,7 @@
             class="text-4xl font-black bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-4"
             id="cost-comparison-title"
           >
-            コスト比較
+{translations.costComparison?.title || ''}
           </h3>
           <div
             class="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"
@@ -300,7 +310,7 @@
                 class="text-xl font-bold text-gray-700 mb-6"
                 id="traditional-cards-title"
               >
-                従来の紙名刺+OCRアプリ
+{translations.costComparison?.traditional?.title || ''}
               </h4>
               <div
                 class="relative bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border border-red-200/50 shadow-lg group-hover:shadow-xl transition-all duration-300 w-full max-w-[400px] mx-auto h-80 flex flex-col justify-between"
@@ -313,7 +323,7 @@
                     class="text-sm text-gray-600 mb-6 font-medium"
                     id="traditional-cards-period"
                   >
-                    年間（紙名刺5,000円+OCRアプリ6,000円）
+                    {translations.costComparison?.traditional?.period || ''}
                   </div>
                 </div>
                 <div class="space-y-4 text-sm text-gray-600">
@@ -324,7 +334,7 @@
                       <span class="text-xs font-black text-red-600">¥11K</span>
                     </div>
                     <span id="traditional-printing-cost"
-                      >紙名刺5,000円+OCRアプリ6,000円</span
+                      >{translations.costComparison?.traditional?.printingCost || ''}</span
                     >
                   </div>
                   <div class="flex items-center">
@@ -333,7 +343,7 @@
                     >
                       <span class="text-xs font-black text-red-600">30分</span>
                     </div>
-                    <span id="traditional-org-time">整理時間: 30分</span>
+                    <span id="traditional-org-time">{translations.costComparison?.traditional?.orgTime || ''}</span>
                   </div>
                   <div class="flex items-center">
                     <div
@@ -341,7 +351,7 @@
                     >
                       <span class="text-xs font-black text-red-600">高</span>
                     </div>
-                    <span id="traditional-env-impact">環境負荷: 高</span>
+                    <span id="traditional-env-impact">{translations.costComparison?.traditional?.envImpact || ''}</span>
                   </div>
                 </div>
               </div>
@@ -366,7 +376,7 @@
                 class="text-xl font-bold text-gray-700 mb-6"
                 id="tapforge-title"
               >
-                TapForge
+{translations.costComparison?.tapforge?.title || ''}
               </h4>
               <div
                 class="relative bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 border-4 border-green-200/50 shadow-xl group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 w-full max-w-[400px] mx-auto h-80 flex flex-col justify-between"
@@ -383,7 +393,7 @@
                       class="text-4xl font-black bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3"
                       id="tapforge-annual-cost"
                     >
-                      年間¥6,000
+                      {translations.costComparison?.tapforge?.period || ''}
                     </div>
                     <div
                       class="text-sm text-gray-600 mb-6 font-medium"
@@ -408,7 +418,7 @@
                       </div>
                       <span
                         class="ml-3 font-bold text-red-600"
-                        id="tapforge-monthly-cost">月額料金: ¥500</span
+                        id="tapforge-monthly-cost">{translations.costComparison?.tapforge?.monthlyCost || ''}</span
                       >
                     </div>
                     <div class="flex items-center">
@@ -427,7 +437,7 @@
                       </div>
                       <span
                         class="ml-3 font-bold text-orange-600"
-                        id="tapforge-org-time">整理時間: 5分</span
+                        id="tapforge-org-time">{translations.costComparison?.tapforge?.orgTime || ''}</span
                       >
                     </div>
                     <div class="flex items-center">
@@ -446,7 +456,7 @@
                       </div>
                       <span
                         class="ml-3 font-bold text-green-600"
-                        id="tapforge-env-impact">環境負荷: ゼロ</span
+                        id="tapforge-env-impact">{translations.costComparison?.tapforge?.envImpact || ''}</span
                       >
                     </div>
                   </div>
@@ -461,7 +471,7 @@
             class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg"
           >
             <span class="text-lg font-bold text-white" id="target-audience">
-              海外案件を増やしたいフリーランサーに最適
+  {translations.costComparison?.targetAudience || ''}
             </span>
           </div>
         </div>
@@ -470,432 +480,3 @@
   </div>
 </section>
 
-<script>
-  // Problems & Solutions section language switching
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get current language from URL or localStorage
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get("lang");
-    const storedLang = localStorage.getItem("preferred-language");
-    const currentLang = urlLang || storedLang || "ja";
-
-    // Update problems & solutions content based on language
-    updateProblemsSolutionsContent(currentLang);
-  });
-
-  function updateProblemsSolutionsContent(lang: string) {
-    const translations = {
-      ja: {
-        title: "名刺整理、面倒ですよね？",
-        subtitle: "TapForgeなら5分で解決！",
-        problemsTitle: "フリーランサーの悩み",
-        solutionsTitle: "TapForgeの解決策",
-        problems: [
-          {
-            title: "紙の名刺にかかるコスト",
-            desc: "年間500枚で約5,000円の印刷費",
-          },
-          { title: "整理の手間", desc: "50枚の名刺整理に30分以上" },
-          {
-            title: "海外クライアントとの言語の壁",
-            desc: "英語プロフィール作成に時間がかかる",
-          },
-          {
-            title: "フォローアップ率の低さ",
-            desc: "名刺交換後の連絡率は15%程度",
-          },
-        ],
-        solutions: [
-          { title: "低コストで継続的な価値", desc: "初期費用無料、月額500円〜" },
-          {
-            title: "5分で完了",
-            desc: "OCR機能付きNFC名刺でVCard変換（別アプリ不要）",
-          },
-          { title: "4言語対応", desc: "日英中西で国際ビジネス支援" },
-          { title: "フォロー率40%", desc: "AIと多言語効果で向上" },
-        ],
-        costComparison: {
-          title: "コスト比較",
-          traditional: {
-            title: "従来の紙名刺+OCRアプリ",
-            period: "年間（紙名刺5,000円+OCRアプリ6,000円）",
-            printingCost: "紙名刺5,000円+OCRアプリ6,000円",
-            orgTime: "整理時間: 30分",
-            envImpact: "環境負荷: 高",
-          },
-          tapforge: {
-            title: "TapForge",
-            period: "月額500円（早期アクセス）",
-            monthlyCost: "月額料金: ¥500",
-            orgTime: "整理時間: 5分",
-            envImpact: "環境負荷: ゼロ",
-          },
-          targetAudience: "海外案件を増やしたいフリーランサーに最適",
-        },
-      },
-      en: {
-        title: "Business card organization is troublesome, right?",
-        subtitle: "TapForge solves it in 5 minutes!",
-        problemsTitle: "Freelancer Problems",
-        solutionsTitle: "TapForge Solutions",
-        problems: [
-          {
-            title: "Cost of paper business cards",
-            desc: "About 5,000 yen for 500 cards per year",
-          },
-          {
-            title: "Organization hassle",
-            desc: "30+ minutes to organize 50 business cards",
-          },
-          {
-            title: "Language barriers with overseas clients",
-            desc: "Time-consuming to create English profiles",
-          },
-          {
-            title: "Low follow-up rate",
-            desc: "Only 15% contact rate after business card exchange",
-          },
-        ],
-        solutions: [
-          { title: "Low Ongoing Cost", desc: "No initial fee, from ¥500/month with continuous updates" },
-          {
-            title: "Complete in 5 minutes",
-            desc: "AI business card shooting to VCard conversion",
-          },
-          {
-            title: "4 Language Support",
-            desc: "Japanese, English, Chinese, Spanish for international business",
-          },
-          {
-            title: "40% Follow-up Rate",
-            desc: "Improved with AI and multilingual effects",
-          },
-        ],
-        costComparison: {
-          title: "Cost Comparison",
-          traditional: {
-            title: "Traditional Paper Business Cards + Management App",
-            period: "500 cards per year",
-            printingCost: "Paper ¥5,000 + App ¥6,000 = ¥11,000/year",
-            orgTime: "Organization time: 30 minutes",
-            envImpact: "Environmental impact: High",
-          },
-          tapforge: {
-            title: "TapForge",
-            period: "¥500/month (Early Access)",
-            monthlyCost: "Monthly fee: ¥500~",
-            orgTime: "Organization time: 5 minutes",
-            envImpact: "Environmental impact: Zero",
-          },
-          targetAudience:
-            "Perfect for freelancers who want to increase overseas projects",
-        },
-      },
-      zh: {
-        title: "名片整理很麻烦，对吧？",
-        subtitle: "TapForge 5分钟解决！",
-        problemsTitle: "自由职业者的烦恼",
-        solutionsTitle: "TapForge解决方案",
-        problems: [
-          { title: "纸质名片的成本", desc: "每年500张约5,000日元的印刷费" },
-          { title: "整理的麻烦", desc: "整理50张名片需要30分钟以上" },
-          { title: "与海外客户的语言障碍", desc: "制作英文个人资料很耗时" },
-          { title: "跟进率低", desc: "名片交换后的联系率只有15%左右" },
-        ],
-        solutions: [
-          { title: "低持续成本", desc: "无初始费用，每月¥500起，持续更新" },
-          { title: "5分钟完成", desc: "AI名片拍摄到VCard转换" },
-          { title: "4语言支持", desc: "日英中西支持国际业务" },
-          { title: "40%跟进率", desc: "通过AI和多语言效果提升" },
-        ],
-        costComparison: {
-          title: "成本比较",
-          traditional: {
-            title: "传统纸质名片 + 管理应用",
-            period: "每年500张",
-            printingCost: "纸质 ¥5,000 + 应用 ¥6,000 = ¥11,000/年",
-            orgTime: "整理时间: 30分钟",
-            envImpact: "环境影响: 高",
-          },
-          tapforge: {
-            title: "TapForge",
-            period: "¥500/月（早期访问）",
-            monthlyCost: "月费: ¥500~",
-            orgTime: "整理时间: 5分钟",
-            envImpact: "环境影响: 零",
-          },
-          targetAudience: "适合想要增加海外项目的自由职业者",
-        },
-      },
-      ko: {
-        title: "명함 정리, 번거롭죠?",
-        subtitle: "TapForge로 5분 만에 해결!",
-        problemsTitle: "프리랜서의 고민",
-        solutionsTitle: "TapForge의 해결책",
-        problems: [
-          {
-            title: "종이 명함의 비용",
-            desc: "연간 500장으로 약 5,000엔의 인쇄비",
-          },
-          {
-            title: "정리의 번거로움",
-            desc: "명함 50장 정리에 30분 이상",
-          },
-          {
-            title: "해외 클라이언트와의 언어 장벽",
-            desc: "영어 프로필 작성에 시간이 많이 걸림",
-          },
-          {
-            title: "낮은 후속 연락률",
-            desc: "명함 교환 후 연락률이 15% 정도",
-          },
-        ],
-        solutions: [
-          {
-            title: "저렴한 지속 비용",
-            desc: "초기 비용 무료, 월 ¥500부터 지속적 업데이트",
-          },
-          {
-            title: "5분 완료",
-            desc: "OCR 기능 NFC 명함으로 VCard 변환 (별도 앱 불필요)",
-          },
-          {
-            title: "4개국어 지원",
-            desc: "일영중서로 국제 비즈니스 지원",
-          },
-          {
-            title: "40% 후속 연락률",
-            desc: "AI와 다국어 효과로 향상",
-          },
-        ],
-        costComparison: {
-          title: "비용 비교",
-          traditional: {
-            title: "기존 종이 명함 + 관리 앱",
-            period: "연간 (종이 명함 5,000엔+OCR 앱 6,000엔)",
-            printingCost: "종이 ¥5,000 + 앱 ¥6,000 = ¥11,000/년",
-            orgTime: "정리 시간: 30분",
-            envImpact: "환경 부담: 높음",
-          },
-          tapforge: {
-            title: "TapForge",
-            period: "¥500/월 (조기 액세스)",
-            monthlyCost: "월 비용: ¥500~",
-            orgTime: "정리 시간: 5분",
-            envImpact: "환경 부담: 제로",
-          },
-          targetAudience: "해외 프로젝트를 늘리고 싶은 프리랜서에게 최적",
-        },
-      },
-      es: {
-        title: "Organizar tarjetas de presentación es molesto, ¿verdad?",
-        subtitle: "¡TapForge lo resuelve en 5 minutos!",
-        problemsTitle: "Problemas de Freelancers",
-        solutionsTitle: "Soluciones TapForge",
-        problems: [
-          {
-            title: "Costo de tarjetas de presentación de papel",
-            desc: "Aproximadamente 5,000 yenes por 500 tarjetas al año",
-          },
-          {
-            title: "Molestia de organización",
-            desc: "30+ minutos para organizar 50 tarjetas de presentación",
-          },
-          {
-            title: "Barreras de idioma con clientes extranjeros",
-            desc: "Consume tiempo crear perfiles en inglés",
-          },
-          {
-            title: "Baja tasa de seguimiento",
-            desc: "Solo 15% de tasa de contacto después del intercambio de tarjetas",
-          },
-        ],
-        solutions: [
-          {
-            title: "Costo Bajo Continuo",
-            desc: "Sin tarifa inicial, desde ¥500/mes con actualizaciones continuas",
-          },
-          {
-            title: "Completar en 5 minutos",
-            desc: "Fotografía de tarjeta de presentación con IA a conversión VCard",
-          },
-          {
-            title: "Soporte de 4 Idiomas",
-            desc: "Japonés, Inglés, Chino, Español para negocios internacionales",
-          },
-          {
-            title: "40% Tasa de Seguimiento",
-            desc: "Mejorado con efectos de IA y multilingües",
-          },
-        ],
-        costComparison: {
-          title: "Comparación de Costos",
-          traditional: {
-            title: "Tarjetas de Papel + App de Gestión",
-            period: "500 tarjetas por año",
-            printingCost: "Papel ¥5,000 + App ¥6,000 = ¥11,000/año",
-            orgTime: "Tiempo de organización: 30 minutos",
-            envImpact: "Impacto ambiental: Alto",
-          },
-          tapforge: {
-            title: "TapForge",
-            period: "¥500/mes (Acceso Anticipado)",
-            monthlyCost: "Tarifa mensual: ¥500~",
-            orgTime: "Tiempo de organización: 5 minutos",
-            envImpact: "Impacto ambiental: Cero",
-          },
-          targetAudience:
-            "Perfecto para freelancers que quieren aumentar proyectos en el extranjero",
-        },
-      },
-    };
-
-    const t = (translations as any)[lang] || translations["ja"];
-
-    // Update main title and subtitle
-    const titleElement = document.getElementById("problems-title");
-    if (titleElement) {
-      titleElement.textContent = t.title;
-    }
-
-    const subtitleElement = document.getElementById("problems-subtitle");
-    if (subtitleElement) {
-      subtitleElement.textContent = t.subtitle;
-    }
-
-    // Update section titles
-    const problemsTitleElement = document.getElementById(
-      "problems-section-title",
-    );
-    if (problemsTitleElement) {
-      problemsTitleElement.textContent = t.problemsTitle;
-    }
-
-    const solutionsTitleElement = document.getElementById(
-      "solutions-section-title",
-    );
-    if (solutionsTitleElement) {
-      solutionsTitleElement.textContent = t.solutionsTitle;
-    }
-
-    // Update problems
-    for (let i = 0; i < t.problems.length; i++) {
-      const titleElement = document.getElementById(`problem-${i + 1}-title`);
-      const descElement = document.getElementById(`problem-${i + 1}-desc`);
-
-      if (titleElement) {
-        titleElement.textContent = t.problems[i].title;
-      }
-      if (descElement) {
-        descElement.textContent = t.problems[i].desc;
-      }
-    }
-
-    // Update solutions
-    for (let i = 0; i < t.solutions.length; i++) {
-      const titleElement = document.getElementById(`solution-${i + 1}-title`);
-      const descElement = document.getElementById(`solution-${i + 1}-desc`);
-
-      if (titleElement) {
-        titleElement.textContent = t.solutions[i].title;
-      }
-      if (descElement) {
-        descElement.textContent = t.solutions[i].desc;
-      }
-    }
-
-    // Update cost comparison
-    const costTitleElement = document.getElementById("cost-comparison-title");
-    if (costTitleElement) {
-      costTitleElement.textContent = t.costComparison.title;
-    }
-
-    const traditionalTitleElement = document.getElementById(
-      "traditional-cards-title",
-    );
-    if (traditionalTitleElement) {
-      traditionalTitleElement.textContent = t.costComparison.traditional.title;
-    }
-
-    const traditionalPeriodElement = document.getElementById(
-      "traditional-cards-period",
-    );
-    if (traditionalPeriodElement) {
-      traditionalPeriodElement.textContent =
-        t.costComparison.traditional.period;
-    }
-
-    const traditionalPrintingElement = document.getElementById(
-      "traditional-printing-cost",
-    );
-    if (traditionalPrintingElement) {
-      traditionalPrintingElement.textContent =
-        t.costComparison.traditional.printingCost;
-    }
-
-    const traditionalOrgTimeElement = document.getElementById(
-      "traditional-org-time",
-    );
-    if (traditionalOrgTimeElement) {
-      traditionalOrgTimeElement.textContent =
-        t.costComparison.traditional.orgTime;
-    }
-
-    const traditionalEnvElement = document.getElementById(
-      "traditional-env-impact",
-    );
-    if (traditionalEnvElement) {
-      traditionalEnvElement.textContent =
-        t.costComparison.traditional.envImpact;
-    }
-
-    const tapforgeTitleElement = document.getElementById("tapforge-title");
-    if (tapforgeTitleElement) {
-      tapforgeTitleElement.textContent = t.costComparison.tapforge.title;
-    }
-
-    const tapforgePeriodElement = document.getElementById("tapforge-period");
-    if (tapforgePeriodElement) {
-      tapforgePeriodElement.textContent = t.costComparison.tapforge.period;
-    }
-
-    const tapforgeMonthlyElement = document.getElementById(
-      "tapforge-monthly-cost",
-    );
-    if (tapforgeMonthlyElement) {
-      tapforgeMonthlyElement.textContent =
-        t.costComparison.tapforge.monthlyCost;
-    }
-
-    const tapforgeOrgTimeElement = document.getElementById("tapforge-org-time");
-    if (tapforgeOrgTimeElement) {
-      tapforgeOrgTimeElement.textContent = t.costComparison.tapforge.orgTime;
-    }
-
-    const tapforgeEnvElement = document.getElementById("tapforge-env-impact");
-    if (tapforgeEnvElement) {
-      tapforgeEnvElement.textContent = t.costComparison.tapforge.envImpact;
-    }
-
-    const targetAudienceElement = document.getElementById("target-audience");
-    if (targetAudienceElement) {
-      targetAudienceElement.textContent = t.costComparison.targetAudience;
-    }
-
-    // Update annual cost display
-    const tapforgeAnnualCostElement = document.getElementById("tapforge-annual-cost");
-    if (tapforgeAnnualCostElement) {
-      if (lang === "ko") {
-        tapforgeAnnualCostElement.textContent = "연간 ¥6,000";
-      } else if (lang === "en") {
-        tapforgeAnnualCostElement.textContent = "¥6,000/year";
-      } else if (lang === "zh") {
-        tapforgeAnnualCostElement.textContent = "年费¥6,000";
-      } else if (lang === "es") {
-        tapforgeAnnualCostElement.textContent = "¥6,000/año";
-      } else {
-        tapforgeAnnualCostElement.textContent = "年間¥6,000";
-      }
-    }
-  }
-</script>

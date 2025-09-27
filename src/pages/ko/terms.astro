@@ -1,0 +1,109 @@
+---
+import Layout from "../../layouts/Default.astro";
+import { type Language } from "../../lib/i18n";
+
+const currentLang: Language = "ko";
+const pageTitle = "TapForge - 이용약관";
+---
+
+<Layout title={pageTitle} lang={currentLang}>
+  <main class="container mx-auto px-4 py-16 max-w-4xl">
+    <h1 id="page-title" class="text-4xl font-bold mb-4 text-gray-900">
+      이용약관
+    </h1>
+    <p id="last-updated" class="text-gray-600 mb-8">
+      최종 업데이트: 2025년 9월 20일
+    </p>
+
+    <div id="terms-content" class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">1. 약관 동의</h2>
+        <p class="text-gray-700 leading-relaxed">
+          TapForge 서비스를 사용하면 이 이용약관에 동의하는 것으로 간주됩니다. 이 약관에 동의하지 않으시면 서비스를 사용하지 마십시오.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">2. 서비스 개요</h2>
+        <p class="text-gray-700 leading-relaxed">
+          TapForge는 앱 없이도 다음 기능을 제공하는 AI 기반 NFC 디지털 명함 서비스입니다:
+        </p>
+        <ul class="list-disc pl-6 mt-2">
+          <li>디지털 명함 생성 및 관리</li>
+          <li>NFC를 통한 즉시 명함 정보 공유</li>
+          <li>AI 기반 명함 관리</li>
+          <li>다국어 자동 번역</li>
+          <li>CRM 시스템과의 통합</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">3. 사용자 등록</h2>
+        <p class="text-gray-700 leading-relaxed">
+          서비스를 사용하려면 계정을 등록하고 정확한 정보를 제공해야 합니다. 계정 정보의 기밀성을 유지할 책임은 사용자에게 있습니다.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">4. 서비스 요금</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>조기 액세스: 월 500엔 (영구 요금, 100명 한정)</li>
+          <li>일반 플랜: 월 700엔부터 단계적 할인</li>
+          <li>조기 액세스는 최소 3개월 계약</li>
+          <li>Stripe를 통한 결제</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">5. 데이터 보호 및 개인정보 보호</h2>
+        <p class="text-gray-700 leading-relaxed">
+          저희는 개인정보 보호정책에 따라 사용자 데이터를 보호합니다. 개인 정보는 암호화되며 제3자에게 판매되지 않습니다. 업계 표준 보안 조치를 사용하여 데이터를 보호합니다.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">6. 금지된 사용</h2>
+        <p class="text-gray-700 leading-relaxed">다음 행위는 금지됩니다:</p>
+        <ul class="list-disc pl-6 mt-2 text-gray-700">
+          <li>불법적인 목적으로 서비스 사용</li>
+          <li>타인의 개인정보나 지적 재산권 침해</li>
+          <li>서비스 방해 또는 손상 시도</li>
+          <li>허위 또는 오해의 소지가 있는 정보 공유</li>
+          <li>허가 없이 서비스 재판매 또는 재배포</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">7. 서비스 수정</h2>
+        <p class="text-gray-700 leading-relaxed">
+          저희는 언제든지 서비스를 수정하거나 중단할 권리를 보유합니다. 중요한 변경 사항은 이메일 또는 서비스 공지를 통해 사용자에게 알려드립니다.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">8. 책임 제한</h2>
+        <p class="text-gray-700 leading-relaxed">
+          저희는 서비스 사용으로 인해 발생하는 간접적, 부수적 또는 결과적 손해에 대해 책임지지 않습니다. 저희의 책임은 지난 12개월 동안 지불한 서비스 요금으로 제한됩니다.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">9. 연락처 정보</h2>
+        <p class="text-gray-700 leading-relaxed">
+          이 약관에 대해 궁금한 점이 있으시면 연락해 주세요:
+        </p>
+        <ul class="list-none mt-2 text-gray-700">
+          <li>회사: Cor.주식회사</li>
+          <li>웹사이트: <a href="https://cor-jp.com/" class="text-blue-500 hover:underline">https://cor-jp.com/</a></li>
+          <li>연락처: <a href="https://cor-jp.com/contact/" class="text-blue-500 hover:underline">문의 양식</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+      <p class="text-sm text-gray-600 text-center">
+        © 2025 TapForge by Cor.주식회사. 모든 권리 보유.
+      </p>
+    </div>
+  </main>
+</Layout>

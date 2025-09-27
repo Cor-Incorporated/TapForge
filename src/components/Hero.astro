@@ -1,6 +1,7 @@
 ---
 // Hero Section for TapForge
-import { getTranslation, type Language } from "../lib/i18n";
+import { loadTranslation, getLocaleFromPathname, createTranslator } from '../utils/i18n';
+import type { Language } from '../lib/i18n';
 
 interface Props {
   lang: Language;
@@ -9,18 +10,23 @@ interface Props {
 // Get language from props with fallback to Japanese
 const { lang = "ja" } = Astro.props;
 
+// Load translations
+const locale = lang || getLocaleFromPathname(Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const getT = createTranslator(translations);
+
 // Get translations for the current language
 const t = {
-  title: getTranslation(lang, "hero.title"),
-  subtitle: getTranslation(lang, "hero.subtitle"),
-  description: getTranslation(lang, "hero.description"),
-  subDescription: getTranslation(lang, "hero.subDescription"),
-  cta: getTranslation(lang, "hero.cta"),
-  limited: getTranslation(lang, "hero.limited"),
+  title: getT("hero.title"),
+  subtitle: getT("hero.subtitle"),
+  description: getT("hero.description"),
+  subDescription: getT("hero.subDescription"),
+  cta: getT("hero.cta"),
+  limited: getT("hero.limited"),
   features: {
-    noApp: getTranslation(lang, "hero.features.noApp"),
-    free: getTranslation(lang, "hero.features.free"),
-    multilingual: getTranslation(lang, "hero.features.multilingual"),
+    noApp: getT("hero.features.noApp"),
+    free: getT("hero.features.free"),
+    multilingual: getT("hero.features.multilingual"),
   }
 };
 
@@ -61,9 +67,7 @@ const currentLimited = limitedText[lang] || limitedText.ja;
           id="hero-title"
           data-lang={lang}
         >
-          <span class="text-red-500" id="hero-title-word1">タップ</span><span id="hero-title-connector1">で</span><span class="text-blue-600" id="hero-title-word2">世界</span><span id="hero-title-connector2">と繋がる。</span><br />
-          <span id="hero-title-line2">月額500円で始める</span><br />
-          <span id="hero-title-line3">次世代デジタル名刺</span>
+          {t.title}
         </h1>
 
         <!-- Hero Image -->
@@ -84,7 +88,10 @@ const currentLimited = limitedText[lang] || limitedText.ja;
           id="hero-description"
           data-lang={lang}
         >
-          <span class="text-blue-600 font-semibold" id="hero-desc-highlight">AI駆動の次世代名刺</span><span id="hero-desc-text1">であなたのビジネスを加速。アプリ不要、</span><span class="font-bold" id="hero-desc-price">月額500円から</span><span id="hero-desc-text2">。NFCタップ一つで多言語プロフィールを共有。フリーランサーの海外案件獲得を支援します。</span>
+          <span class="text-blue-600 font-semibold">{t.subtitle}</span>
+          {t.description}
+          <br />
+          {t.subDescription}
         </p>
 
         <!-- CTA Button -->
@@ -94,8 +101,8 @@ const currentLimited = limitedText[lang] || limitedText.ja;
             class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center justify-center min-h-[48px]"
             id="hero-cta"
           >
-            <span class="text-red-500 font-bold mr-2" id="hero-limited-text">100名限定!</span>
-            <span id="hero-cta-text">無料トライアル申し込み</span>
+            <span class="text-red-500 font-bold mr-2">{t.limited}</span>
+            {t.cta}
           </a>
         </div>
         <!-- Trust Indicators -->
@@ -114,7 +121,7 @@ const currentLimited = limitedText[lang] || limitedText.ja;
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                 clip-rule="evenodd"></path>
             </svg>
-            <span id="hero-feature-noapp">アプリ不要</span>
+            {t.features.noApp}
           </div>
           <div class="flex items-center">
             <svg
@@ -127,7 +134,7 @@ const currentLimited = limitedText[lang] || limitedText.ja;
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                 clip-rule="evenodd"></path>
             </svg>
-            <span id="hero-feature-price">月額500円～</span>
+            {t.features.free}
           </div>
           <div class="flex items-center">
             <svg
@@ -140,167 +147,10 @@ const currentLimited = limitedText[lang] || limitedText.ja;
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                 clip-rule="evenodd"></path>
             </svg>
-            <span id="hero-feature-multilingual">4言語対応</span>
+            {t.features.multilingual}
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  // Safe client-side language switching using textContent only
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get current language from URL or localStorage
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get("lang");
-    const storedLang = localStorage.getItem("preferred-language");
-    const currentLang = urlLang || storedLang || "ja";
-
-
-    // Update hero content based on language
-    updateHeroContent(currentLang);
-  });
-
-  function updateHeroContent(lang: string) {
-    const translations = {
-      ja: {
-        word1: "タップ",
-        connector1: "で",
-        word2: "世界",
-        connector2: "と繋がる。",
-        line2: "月額500円で始める",
-        line3: "次世代デジタル名刺",
-        descHighlight: "AI駆動の次世代名刺",
-        descText1: "であなたのビジネスを加速。アプリ不要、",
-        descPrice: "月額500円から",
-        descText2: "。NFCタップ一つで多言語プロフィールを共有。フリーランサーの海外案件獲得を支援します。",
-        limited: "100名限定!",
-        cta: "無料トライアル申し込み",
-        featureNoApp: "アプリ不要",
-        featurePrice: "月額500円～",
-        featureMultilingual: "4言語対応"
-      },
-      en: {
-        word1: "Tap",
-        connector1: " to connect with the ",
-        word2: "world",
-        connector2: ".",
-        line2: "Starting at ¥500/month",
-        line3: "Next-generation digital business card",
-        descHighlight: "AI-powered next-generation business card",
-        descText1: " to accelerate your business. No app required, ",
-        descPrice: "from ¥500/month",
-        descText2: ". Share multilingual profiles with one NFC tap. Supporting freelancers in acquiring overseas projects.",
-        limited: "Limited to 100!",
-        cta: "Apply for Free Trial",
-        featureNoApp: "No App Required",
-        featurePrice: "From ¥500/month",
-        featureMultilingual: "4 Languages"
-      },
-      zh: {
-        word1: "轻触",
-        connector1: "连接",
-        word2: "世界",
-        connector2: "。",
-        line2: "月费¥500起",
-        line3: "AI驱动的下一代名片",
-        descHighlight: "AI驱动的下一代名片",
-        descText1: "加速您的业务。无需应用，",
-        descPrice: "月费¥500起",
-        descText2: "。一次NFC轻触即可分享多语言个人资料。支持自由职业者获得海外项目。",
-        limited: "限100名！",
-        cta: "申请免费试用",
-        featureNoApp: "无需应用",
-        featurePrice: "月费¥500起",
-        featureMultilingual: "4种语言"
-      },
-      ko: {
-        word1: "탭",
-        connector1: "으로 ",
-        word2: "세계",
-        connector2: "와 연결되세요.",
-        line2: "월액 500엔으로 시작하는",
-        line3: "차세대 디지털 명함",
-        descHighlight: "AI 기반 차세대 명함",
-        descText1: "으로 비즈니스를 가속화하세요. 앱 불필요, ",
-        descPrice: "월액 500엔부터",
-        descText2: ". NFC 탭 하나로 다국어 프로필을 공유하세요. 프리랜서의 해외 프로젝트 획득을 지원합니다.",
-        limited: "100명 한정!",
-        cta: "무료 트라이얼 신청",
-        featureNoApp: "앱 불필요",
-        featurePrice: "월액 500엔~",
-        featureMultilingual: "4개국어 지원"
-      },
-      es: {
-        word1: "Toca",
-        connector1: " para conectar con el ",
-        word2: "mundo",
-        connector2: ".",
-        line2: "Desde ¥500/mes",
-        line3: "Tarjeta de presentación de próxima generación",
-        descHighlight: "Tarjeta de presentación de próxima generación",
-        descText1: " impulsada por IA para acelerar tu negocio. Sin aplicación requerida, ",
-        descPrice: "desde ¥500/mes",
-        descText2: ". Comparte perfiles multilingües con un toque NFC. Apoyando a freelancers en la adquisición de proyectos en el extranjero.",
-        limited: "¡Limitado a 100!",
-        cta: "Solicitar Prueba Gratuita",
-        featureNoApp: "Sin App Requerida",
-        featurePrice: "Desde ¥500/mes",
-        featureMultilingual: "4 Idiomas"
-      }
-    };
-
-    const t = translations[lang as keyof typeof translations] || translations["ja"];
-
-
-    // Update title elements
-    const word1 = document.getElementById("hero-title-word1");
-    if (word1) word1.textContent = t.word1;
-
-    const connector1 = document.getElementById("hero-title-connector1");
-    if (connector1) connector1.textContent = t.connector1;
-
-    const word2 = document.getElementById("hero-title-word2");
-    if (word2) word2.textContent = t.word2;
-
-    const connector2 = document.getElementById("hero-title-connector2");
-    if (connector2) connector2.textContent = t.connector2;
-
-    const line2 = document.getElementById("hero-title-line2");
-    if (line2) line2.textContent = t.line2;
-
-    const line3 = document.getElementById("hero-title-line3");
-    if (line3) line3.textContent = t.line3;
-
-    // Update description elements
-    const descHighlight = document.getElementById("hero-desc-highlight");
-    if (descHighlight) descHighlight.textContent = t.descHighlight;
-
-    const descText1 = document.getElementById("hero-desc-text1");
-    if (descText1) descText1.textContent = t.descText1;
-
-    const descPrice = document.getElementById("hero-desc-price");
-    if (descPrice) descPrice.textContent = t.descPrice;
-
-    const descText2 = document.getElementById("hero-desc-text2");
-    if (descText2) descText2.textContent = t.descText2;
-
-    // Update CTA button
-    const limitedText = document.getElementById("hero-limited-text");
-    if (limitedText) limitedText.textContent = t.limited;
-
-    const ctaText = document.getElementById("hero-cta-text");
-    if (ctaText) ctaText.textContent = t.cta;
-
-    // Update features
-    const featureNoApp = document.getElementById("hero-feature-noapp");
-    if (featureNoApp) featureNoApp.textContent = t.featureNoApp;
-
-    const featurePrice = document.getElementById("hero-feature-price");
-    if (featurePrice) featurePrice.textContent = t.featurePrice;
-
-    const featureMultilingual = document.getElementById("hero-feature-multilingual");
-    if (featureMultilingual) featureMultilingual.textContent = t.featureMultilingual;
-  }
-</script>

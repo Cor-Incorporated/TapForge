@@ -1,5 +1,17 @@
 ---
 // CTA Section with integrated Trial Form
+import { loadTranslation, getLocaleFromPathname, createTranslator } from '../utils/i18n';
+import type { Language } from '../lib/i18n';
+
+interface Props {
+  lang?: Language;
+}
+
+// Get language from props or URL
+const { lang } = Astro.props as Props;
+const locale = lang || getLocaleFromPathname(Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = createTranslator(translations);
 ---
 
 <section class="py-20 bg-gradient-to-br from-blue-600 to-purple-700">
@@ -12,11 +24,11 @@
           class="w-16 h-16 rounded-xl shadow-lg mr-4"
         />
         <h2 class="text-3xl md:text-4xl font-bold" id="cta-title">
-          今すぐ始めませんか？
+          {t("cta.title")}
         </h2>
       </div>
       <p class="text-xl mb-12 opacity-90" id="cta-description">
-        100名限定の早期アクセスプログラムで、永続的に月額500円でご利用いただけます
+        {t("cta.description")}
       </p>
 
       <!-- Trial Form Section -->
@@ -24,7 +36,7 @@
         <div class="bg-white rounded-2xl shadow-xl p-8">
           <div class="text-center mb-8">
             <h2 class="text-3xl font-bold text-gray-900 mb-4" id="trial-title">
-              早期アクセスプログラム
+              {t("trialForm.title")}
             </h2>
             <p class="text-lg text-gray-600 mb-2">
               <span class="text-red-500 font-bold" id="trial-limited"
@@ -146,231 +158,8 @@
 </section>
 
 <script>
-  // Language translations for CTA component
-  const ctaTranslations = {
-    ja: {
-      cta: {
-        title: "今すぐ始めませんか？",
-        description:
-          "100名限定の早期アクセスプログラムで、永続的に月額500円でご利用いただけます",
-        limited: "100名限定!",
-        trialButton: "早期アクセスに申し込む",
-        contactButton: "お問い合わせはこちら",
-        features: [
-          "アプリ不要",
-          "月額500円～",
-          "4言語対応",
-          "AI名刺撮影",
-        ],
-      },
-      trial: {
-        title: "早期アクセスプログラム",
-        limited: "100名限定!",
-        description: "永続的に月額500円でご利用いただけます",
-        subDescription:
-          "初期費用無料、月額500円（初月NFCカード1枚含む）、最低3ヶ月契約",
-        trialFormTitle: "早期アクセスに申し込む",
-        trialFormDescription:
-          "今すぐ早期アクセスに申し込んで、特別価格を永続適用。",
-        trialFormButton: "早期アクセスに申し込む",
-        trialFormLimited: "100名限定!",
-        termsTextStart: "申し込みにより、",
-        termsLink: "利用規約",
-        termsAnd: "および",
-        privacyLink: "プライバシーポリシー",
-        termsTextEnd: "に同意したものとみなされます。",
-      },
-    },
-    en: {
-      cta: {
-        title: "Ready to get started?",
-        description:
-          "Experience the power of TapForge with our Early Access Program - Limited to 100 members",
-        limited: "Limited to 100!",
-        trialButton: "Apply for Early Access",
-        contactButton: "Contact Us Here",
-        features: [
-          "No App Required",
-          "From ¥500/month",
-          "4 Languages",
-          "AI Business Card Scanning",
-        ],
-      },
-      trial: {
-        title: "Early Access Program",
-        limited: "Limited to 100!",
-        description: "Get permanent monthly rate of ¥500",
-        subDescription:
-          "Initial fee ¥0, monthly ¥500 (includes 1 NFC card in first month), minimum 3-month contract",
-        trialFormTitle: "Apply for Early Access",
-        trialFormDescription:
-          "Apply for early access now and lock in the special price forever.",
-        trialFormButton: "Apply for Early Access",
-        trialFormLimited: "Limited to 100!",
-        termsTextStart: "By applying, you agree to our ",
-        termsLink: "Terms of Service",
-        termsAnd: " and ",
-        privacyLink: "Privacy Policy",
-        termsTextEnd: ".",
-      },
-    },
-    zh: {
-      cta: {
-        title: "准备开始了吗？",
-        description: "通过我们限50人的免费试用体验TapForge的力量",
-        limited: "限50名！",
-        trialButton: "申请免费试用",
-        contactButton: "联系我们",
-        features: ["无需应用", "月费免费", "4种语言", "OCR名片读取"],
-      },
-      trial: {
-        title: "关于免费试用",
-        limited: "限50名！",
-        description: "我们将为您免费制作一张名片。",
-        subDescription: "无限设计更改，OCR名片读取和VCard转换可用",
-        trialFormTitle: "申请免费试用",
-        trialFormDescription: "立即申请免费试用，体验TapForge的力量。",
-        trialFormButton: "申请免费试用",
-        trialFormLimited: "限50名！",
-        termsTextStart: "申请即表示您同意我们的",
-        termsLink: "服务条款",
-        termsAnd: "和",
-        privacyLink: "隐私政策",
-        termsTextEnd: "。",
-      },
-    },
-    es: {
-      cta: {
-        title: "¿Listo para comenzar?",
-        description:
-          "Experimenta el poder de TapForge con nuestra prueba gratuita limitada para 50 personas",
-        limited: "¡Limitado a 50!",
-        trialButton: "Solicitar Prueba Gratuita",
-        contactButton: "Contáctanos Aquí",
-        features: [
-          "Sin App Requerida",
-          "Mensualidad Gratuita",
-          "4 Idiomas",
-          "Lectura OCR de Tarjetas",
-        ],
-      },
-      trial: {
-        title: "Acerca de la Prueba Gratuita",
-        limited: "¡Limitado a 50!",
-        description: "Crearemos una tarjeta de presentación gratis para ti.",
-        subDescription:
-          "Cambios de diseño ilimitados, lectura OCR de tarjetas y conversión VCard disponibles",
-        trialFormTitle: "Solicitar Prueba Gratuita",
-        trialFormDescription:
-          "Solicita la prueba gratuita ahora y experimenta el poder de TapForge.",
-        trialFormButton: "Solicitar Prueba Gratuita",
-        trialFormLimited: "¡Limitado a 50!",
-        termsTextStart: "Al solicitar, aceptas nuestros ",
-        termsLink: "Términos de Servicio",
-        termsAnd: " y ",
-        privacyLink: "Política de Privacidad",
-        termsTextEnd: ".",
-      },
-    },
-    ko: {
-      cta: {
-        title: "지금 바로 시작하시겠습니까?",
-        description: "50명 한정 무료 트라이얼로 TapForge의 힘을 체험해보세요",
-        limited: "50명 한정!",
-        trialButton: "무료 트라이얼 신청",
-        contactButton: "문의하기",
-        features: [
-          "앱 불필요",
-          "월 무료",
-          "4개국어 지원",
-          "OCR 명함 읽기 기능",
-        ],
-      },
-      trial: {
-        title: "무료 트라이얼에 대해",
-        limited: "50명 한정!",
-        description: "당신의 명함을 1장 무료로 만들어드립니다.",
-        subDescription: "디자인 변경 무제한, OCR 명함 읽기 기능·VCard 변환 이용 가능",
-        trialFormTitle: "무료 트라이얼 신청",
-        trialFormDescription: "지금 바로 무료 트라이얼에 신청하여 TapForge의 힘을 체험해보세요.",
-        trialFormButton: "무료 트라이얼 신청",
-        trialFormLimited: "50명 한정!",
-        termsTextStart: "신청에 의해,",
-        termsLink: "이용약관",
-        termsAnd: "및",
-        privacyLink: "개인정보처리방침",
-        termsTextEnd: "에 동의한 것으로 간주됩니다.",
-      },
-    },
-  };
-
-  // Helper function to update element text content
-  function updateElement(id: string, text: string) {
-    const element = document.getElementById(id);
-    if (element) element.textContent = text;
-  }
-
-  // Helper function to update element attribute
-  function updateElementAttr(id: string, attr: string, value: string) {
-    const element = document.getElementById(id);
-    if (element) element.setAttribute(attr, value);
-  }
-
-  // Get current language
-  function getCurrentLanguage() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get("lang");
-    const storedLang = localStorage.getItem("preferred-language");
-    return urlLang || storedLang || "ja";
-  }
-
-  // Update CTA content
-  function updateCTAContent(lang: string) {
-    const translations =
-      ctaTranslations[lang as keyof typeof ctaTranslations] ||
-      ctaTranslations["ja"];
-    const cta = translations.cta;
-    const trial = translations.trial;
-
-    // Update CTA section
-    updateElement("cta-title", cta.title);
-    updateElement("cta-description", cta.description);
-    updateElement("cta-contact-text", cta.contactButton);
-
-    // Update features
-    cta.features.forEach((feature: string, index: number) => {
-      updateElement(`cta-feature-${index + 1}`, feature);
-    });
-
-    // Update trial form section
-    updateElement("trial-title", trial.title);
-    updateElement("trial-limited", trial.limited);
-    updateElement("trial-description", trial.description);
-    updateElement("trial-sub-description", trial.subDescription);
-    updateElement("trial-form-title", trial.trialFormTitle);
-    updateElement("trial-form-description", trial.trialFormDescription);
-    updateElement("trial-form-button-text", trial.trialFormButton);
-    updateElement("trial-form-limited", trial.trialFormLimited);
-
-    // Update terms and privacy
-    updateElement("terms-text-start", trial.termsTextStart);
-    updateElement("terms-link", trial.termsLink);
-    updateElement("terms-and", trial.termsAnd);
-    updateElement("privacy-link", trial.privacyLink);
-    updateElement("terms-text-end", trial.termsTextEnd);
-
-    // Update links with language parameter
-    const termsHref = lang === "ja" ? "/terms" : `/terms?lang=${lang}`;
-    const privacyHref = lang === "ja" ? "/privacy" : `/privacy?lang=${lang}`;
-    updateElementAttr("terms-link", "href", termsHref);
-    updateElementAttr("privacy-link", "href", privacyHref);
-  }
-
-  // Initialize on DOMContentLoaded
+  // Keep smooth scrolling functionality
   document.addEventListener("DOMContentLoaded", function () {
-    const currentLang = getCurrentLanguage();
-    updateCTAContent(currentLang);
-
     // Update trial slots counter
     const totalSlots = 100;
     const usedSlots = Math.floor(Math.random() * 30); // Simulate 0-30 slots taken
@@ -384,17 +173,6 @@
       if (remainingSlots < 20) {
         slotElement.parentElement?.classList.add("animate-pulse");
       }
-    }
-    
-    // Force Korean translation if needed
-    // Force additional updates if needed
-    if (currentLang === 'ko') {
-      setTimeout(() => {
-        updateCTAContent(currentLang);
-      }, 100);
-      setTimeout(() => {
-        updateCTAContent(currentLang);
-      }, 500);
     }
 
     // Smooth scrolling for trial links

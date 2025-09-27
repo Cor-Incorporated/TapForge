@@ -15,23 +15,25 @@
     <img src="https://img.shields.io/github/license/komatsuzakinagisa/tapforge" alt="license">
   </a>
   <img src="https://img.shields.io/badge/Mobile%20Optimized-80%25%20Smartphone-blue" alt="Mobile Optimized">
-  <img src="https://img.shields.io/badge/Multilingual-4%20Languages-green" alt="Multilingual">
+  <img src="https://img.shields.io/badge/Multilingual-5%20Languages-green" alt="Multilingual">
 </p>
 
 ## 🚀 概要
 
 TapForgeは、フリーランサー向けのNFCデジタル名刺サービスです。アプリ不要、月額無料で多言語プロフィールを共有し、海外案件獲得を支援します。
 
-### 最新更新（2025年9月20日）
+### 最新更新（2025年9月27日）
 
-- TrialFormコンポーネントをCTAコンポーネントに統合
-- JavaScriptコードのリファクタリングによりパフォーマンス向上
-- 多言語サポートの改善
+- 多言語システムの完全リファクタリング
+- プレフィックスベースのルーティング実装（/en/, /zh/, /ko/, /es/）
+- 翻訳ファイルをJSONベースに移行（src/locales/）
+- 韓国語サポートを追加（5言語対応に拡張）
+- 中国語翻訳の修正（スペイン語混入問題を解決）
 
 ## ✨ 主な特徴
 
 - 🤖 **OCR名刺読み取り機能付きNFC名刺** - 通常別アプリで月額500円のOCR機能を無料で統合
-- 🌍 **多言語対応** - 日本語、英語、中国語、スペイン語の4言語対応
+- 🌍 **多言語対応** - 日本語、英語、中国語、韓国語、スペイン語の5言語対応
 - 📱 **アプリ不要** - NFCタップで即座にプロフィール表示
 - 💰 **月額無料** - 初期費用3,000円のみ、月額料金なし
 - 🌱 **ペーパーレス** - SDGs目標12に貢献
@@ -42,7 +44,7 @@ TapForgeは、フリーランサー向けのNFCデジタル名刺サービスで
 - **フレームワーク**: Astro 5.8 + Tailwind CSS v4
 - **UIライブラリ**: React 19
 - **言語**: TypeScript（Strict mode）
-- **多言語対応**: カスタムi18n実装（4言語対応）
+- **多言語対応**: プレフィックスベースi18n実装（5言語対応）
 - **ホスティング**: Vercel（独自ドメイン対応）
 - **SEO最適化**: メタタグ、キーワード最適化
 - **アクセシビリティ**: WCAG 2.1準拠
@@ -117,7 +119,7 @@ TapForgeは、フリーランサー向けのNFCデジタル名刺サービスで
 ## 📞 お問い合わせ
 
 - **公式サイト**: [Cor.株式会社](https://cor-jp.com)
-- **無料トライアル**: 50名限定（アンケートで1枚無料）
+- **早期アクセス**: 月額500円（100名限定・永久割引価格）
 - **共創パートナー優待制度**: 既存顧客様限定の特別価格
 
 ## 📄 ライセンス

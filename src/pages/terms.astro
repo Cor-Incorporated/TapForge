@@ -2,19 +2,8 @@
 import Layout from "../layouts/Default.astro";
 import { type Language } from "../lib/i18n";
 
-// Get language from URL query parameter during SSR
-const urlLang = Astro.url.searchParams.get("lang") as Language | null;
-const currentLang: Language = urlLang || "ja";
-
-// Set title based on language
-const pageTitle =
-  currentLang === "ja"
-    ? "TapForge - 利用規約"
-    : currentLang === "en"
-      ? "TapForge - Terms of Service"
-      : currentLang === "zh"
-        ? "TapForge - 服务条款"
-        : "TapForge - Términos de Servicio";
+const currentLang: Language = "ja";
+const pageTitle = "TapForge - 利用規約";
 ---
 
 <Layout title={pageTitle} lang={currentLang}>
@@ -27,7 +16,88 @@ const pageTitle =
     </p>
 
     <div id="terms-content" class="space-y-8">
-      <!-- Content will be dynamically populated by JavaScript -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">1. 規約の同意</h2>
+        <p class="text-gray-700 leading-relaxed">
+          TapForgeサービスを利用することで、本利用規約に同意したものとみなされます。本規約に同意されない場合は、サービスをご利用いただけません。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">2. サービス概要</h2>
+        <p class="text-gray-700 leading-relaxed">
+          TapForgeは、アプリ不要で以下の機能を提供するAI駆動のNFCデジタル名刺サービスです：
+        </p>
+        <ul class="list-disc pl-6 mt-2">
+          <li>デジタル名刺の作成・管理</li>
+          <li>NFCによる瞬時の名刺情報共有</li>
+          <li>AIによる名刺管理</li>
+          <li>多言語自動翻訳</li>
+          <li>CRMシステムとの連携</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">3. ユーザー登録</h2>
+        <p class="text-gray-700 leading-relaxed">
+          サービスを利用するには、アカウント登録が必要で、正確な情報を提供していただく必要があります。お客様はアカウント情報の機密性を保持する責任があります。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">4. サービス料金</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>早期アクセス：月額500円（永久料金、100名限定）</li>
+          <li>通常プラン：月額700円から段階的割引</li>
+          <li>早期アクセスは最低3ヶ月の契約期間</li>
+          <li>Stripeによる決済</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">5. データ保護とプライバシー</h2>
+        <p class="text-gray-700 leading-relaxed">
+          弊社はプライバシーポリシーに従ってユーザーデータを保護します。個人情報は暗号化され、第三者に販売されることはありません。業界標準のセキュリティ対策を使用してデータを保護します。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">6. 禁止事項</h2>
+        <p class="text-gray-700 leading-relaxed">以下の行為は禁止されています：</p>
+        <ul class="list-disc pl-6 mt-2 text-gray-700">
+          <li>違法な目的でのサービスの使用</li>
+          <li>他者のプライバシーまたは知的財産権の侵害</li>
+          <li>サービスの妨害または損害を与える試み</li>
+          <li>虚偽または誤解を招く情報の共有</li>
+          <li>許可なくサービスを再販売または再配布すること</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">7. サービスの変更</h2>
+        <p class="text-gray-700 leading-relaxed">
+          弊社はいつでもサービスを変更または中止する権利を留保します。重要な変更については、メールまたはサービスのお知らせでユーザーに通知します。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">8. 責任の制限</h2>
+        <p class="text-gray-700 leading-relaxed">
+          弊社は、サービスの使用から生じる間接的、偶発的、または結果的な損害について責任を負いません。弊社の責任は、過去12ヶ月間に支払われたサービス料金の額に制限されます。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">9. お問い合わせ</h2>
+        <p class="text-gray-700 leading-relaxed">
+          本規約に関するご質問は、以下までお問い合わせください：
+        </p>
+        <ul class="list-none mt-2 text-gray-700">
+          <li>会社名：Cor.株式会社</li>
+          <li>ウェブサイト：<a href="https://cor-jp.com/" class="text-blue-500 hover:underline">https://cor-jp.com/</a></li>
+          <li>お問い合わせ：<a href="https://cor-jp.com/contact/" class="text-blue-500 hover:underline">お問い合わせフォーム</a></li>
+        </ul>
+      </section>
     </div>
 
     <div class="mt-12 p-6 bg-gray-50 rounded-lg">
@@ -37,330 +107,3 @@ const pageTitle =
     </div>
   </main>
 </Layout>
-
-<script>
-  // Terms of Service content in multiple languages
-  const termsContent = {
-    ja: {
-      title: "利用規約",
-      lastUpdated: "最終更新日: 2025年9月20日",
-      sections: [
-        {
-          title: "1. 規約の同意",
-          content:
-            "TapForgeサービス（以下「本サービス」）をご利用いただくにあたり、以下の利用規約（以下「本規約」）をお読みいただき、内容にご同意いただく必要があります。本サービスを利用することで、本規約に同意したものとみなされます。",
-        },
-        {
-          title: "2. サービスの概要",
-          content:
-            "TapForgeは、NFC（近距離無線通信）技術を活用したデジタル名刺サービスです。ユーザーは本サービスを通じて、デジタルプロフィールの作成、共有、管理を行うことができます。",
-        },
-        {
-          title: "3. アカウント登録",
-          content:
-            "本サービスの一部機能を利用するためには、アカウント登録が必要です。登録時には正確で完全な情報を提供し、常に最新の状態に保つ責任があります。アカウントのセキュリティを維持する責任はユーザーにあります。",
-        },
-        {
-          title: "4. 利用料金",
-          content:
-            "基本サービスは無料でご利用いただけます。追加機能については別途料金が発生する場合があります。料金体系の変更がある場合は、事前にお知らせいたします。",
-        },
-        {
-          title: "5. 禁止事項",
-          content:
-            "以下の行為を禁止します：\n・法令に違反する行為\n・他のユーザーまたは第三者の権利を侵害する行為\n・虚偽の情報を登録する行為\n・本サービスの運営を妨げる行為\n・不正アクセスやハッキング行為\n・商業目的での無断使用",
-        },
-        {
-          title: "6. 知的財産権",
-          content:
-            "本サービスに関する著作権、商標権その他の知的財産権は、Cor.株式会社または正当な権利者に帰属します。ユーザーが作成したコンテンツについては、ユーザーが著作権を保持しますが、本サービスの提供に必要な範囲で使用許諾をいただきます。",
-        },
-        {
-          title: "7. プライバシー",
-          content:
-            "個人情報の取り扱いについては、別途定める「プライバシーポリシー」に従います。",
-        },
-        {
-          title: "8. 免責事項",
-          content:
-            "本サービスは「現状有姿」で提供され、明示的または黙示的な保証はありません。Cor.株式会社は、本サービスの利用により生じた損害について、故意または重大な過失がある場合を除き、責任を負いません。",
-        },
-        {
-          title: "9. サービスの変更・終了",
-          content:
-            "Cor.株式会社は、事前の通知をもって本サービスの内容を変更または終了することができます。",
-        },
-        {
-          title: "10. 規約の変更",
-          content:
-            "本規約は必要に応じて変更されることがあります。変更後の規約は、本サービス上での公開をもって効力を生じます。",
-        },
-        {
-          title: "11. 準拠法・管轄",
-          content:
-            "本規約は日本法に準拠し、本サービスに関する紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とします。",
-        },
-        {
-          title: "12. お問い合わせ",
-          content:
-            "本規約に関するお問い合わせは、以下までご連絡ください：\nCor.株式会社\nウェブサイト: https://cor-jp.com/\n",
-        },
-      ],
-    },
-    en: {
-      title: "Terms of Service",
-      lastUpdated: "Last Updated: September 20, 2025",
-      sections: [
-        {
-          title: "1. Acceptance of Terms",
-          content:
-            'By using the TapForge service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Service.',
-        },
-        {
-          title: "2. Description of Service",
-          content:
-            "TapForge is a digital business card service utilizing NFC (Near Field Communication) technology. Users can create, share, and manage digital profiles through our Service.",
-        },
-        {
-          title: "3. Account Registration",
-          content:
-            "Some features require account registration. You must provide accurate and complete information and keep it updated. You are responsible for maintaining the security of your account.",
-        },
-        {
-          title: "4. Fees",
-          content:
-            "Basic services are free. Additional features may incur fees. We will notify you in advance of any changes to our pricing structure.",
-        },
-        {
-          title: "5. Prohibited Activities",
-          content:
-            "The following activities are prohibited:\n• Violating any applicable laws\n• Infringing on the rights of other users or third parties\n• Registering false information\n• Interfering with Service operations\n• Unauthorized access or hacking\n• Unauthorized commercial use",
-        },
-        {
-          title: "6. Intellectual Property",
-          content:
-            "All intellectual property rights related to the Service belong to Cor. Co., Ltd. or its licensors. While you retain copyright to your content, you grant us a license to use it as necessary for Service provision.",
-        },
-        {
-          title: "7. Privacy",
-          content:
-            "Personal information is handled according to our separate Privacy Policy.",
-        },
-        {
-          title: "8. Disclaimer",
-          content:
-            'The Service is provided "as is" without warranties. Cor. Co., Ltd. is not liable for damages arising from Service use, except in cases of willful misconduct or gross negligence.',
-        },
-        {
-          title: "9. Service Modification/Termination",
-          content:
-            "Cor. Co., Ltd. may modify or terminate the Service with prior notice.",
-        },
-        {
-          title: "10. Changes to Terms",
-          content:
-            "These Terms may be updated as needed. Updated Terms become effective upon publication on the Service.",
-        },
-        {
-          title: "11. Governing Law",
-          content:
-            "These Terms are governed by Japanese law. Disputes shall be subject to the exclusive jurisdiction of the Tokyo District Court.",
-        },
-        {
-          title: "12. Contact",
-          content:
-            "For inquiries regarding these Terms, please contact:\nCor. Co., Ltd.\nWebsite: https://cor-jp.com/",
-        },
-      ],
-    },
-    zh: {
-      title: "服务条款",
-      lastUpdated: "最后更新：2025年9月20日",
-      sections: [
-        {
-          title: "1. 条款接受",
-          content:
-            '使用TapForge服务（"服务"）即表示您同意受这些服务条款（"条款"）约束。如果您不同意这些条款，请不要使用本服务。',
-        },
-        {
-          title: "2. 服务说明",
-          content:
-            "TapForge是一项利用NFC（近场通信）技术的数字名片服务。用户可以通过我们的服务创建、分享和管理数字档案。",
-        },
-        {
-          title: "3. 账户注册",
-          content:
-            "某些功能需要账户注册。您必须提供准确完整的信息并保持更新。您有责任维护账户安全。",
-        },
-        {
-          title: "4. 费用",
-          content:
-            "基础服务免费。附加功能可能产生费用。我们会提前通知您任何价格结构的变化。",
-        },
-        {
-          title: "5. 禁止行为",
-          content:
-            "禁止以下行为：\n• 违反任何适用法律\n• 侵犯其他用户或第三方的权利\n• 注册虚假信息\n• 干扰服务运营\n• 未经授权的访问或黑客行为\n• 未经授权的商业用途",
-        },
-        {
-          title: "6. 知识产权",
-          content:
-            "与服务相关的所有知识产权归Cor.株式会社或其许可方所有。虽然您保留对您内容的版权，但您授予我们在提供服务所必需的范围内使用的许可。",
-        },
-        {
-          title: "7. 隐私",
-          content: "个人信息根据我们单独的隐私政策处理。",
-        },
-        {
-          title: "8. 免责声明",
-          content:
-            '服务"按原样"提供，不作任何保证。除故意不当行为或重大过失外，Cor.株式会社对因使用服务而产生的损害不承担责任。',
-        },
-        {
-          title: "9. 服务修改/终止",
-          content: "Cor.株式会社可在事先通知的情况下修改或终止服务。",
-        },
-        {
-          title: "10. 条款变更",
-          content: "这些条款可能会根据需要更新。更新的条款在服务上发布后生效。",
-        },
-        {
-          title: "11. 管辖法律",
-          content: "这些条款受日本法律管辖。争议应由东京地方法院专属管辖。",
-        },
-        {
-          title: "12. 联系方式",
-          content:
-            "关于这些条款的咨询，请联系：\nCor.株式会社\n网站：https://cor-jp.com/",
-        },
-      ],
-    },
-    es: {
-      title: "Términos de Servicio",
-      lastUpdated: "Última actualización: 20 de septiembre de 2025",
-      sections: [
-        {
-          title: "1. Aceptación de los Términos",
-          content:
-            'Al utilizar el servicio TapForge ("Servicio"), usted acepta estar sujeto a estos Términos de Servicio ("Términos"). Si no está de acuerdo con estos Términos, no utilice el Servicio.',
-        },
-        {
-          title: "2. Descripción del Servicio",
-          content:
-            "TapForge es un servicio de tarjetas de presentación digitales que utiliza tecnología NFC (Comunicación de Campo Cercano). Los usuarios pueden crear, compartir y gestionar perfiles digitales a través de nuestro Servicio.",
-        },
-        {
-          title: "3. Registro de Cuenta",
-          content:
-            "Algunas funciones requieren registro de cuenta. Debe proporcionar información precisa y completa y mantenerla actualizada. Usted es responsable de mantener la seguridad de su cuenta.",
-        },
-        {
-          title: "4. Tarifas",
-          content:
-            "Los servicios básicos son gratuitos. Las funciones adicionales pueden incurrir en tarifas. Le notificaremos con anticipación cualquier cambio en nuestra estructura de precios.",
-        },
-        {
-          title: "5. Actividades Prohibidas",
-          content:
-            "Están prohibidas las siguientes actividades:\n• Violar cualquier ley aplicable\n• Infringir los derechos de otros usuarios o terceros\n• Registrar información falsa\n• Interferir con las operaciones del Servicio\n• Acceso no autorizado o piratería\n• Uso comercial no autorizado",
-        },
-        {
-          title: "6. Propiedad Intelectual",
-          content:
-            "Todos los derechos de propiedad intelectual relacionados con el Servicio pertenecen a Cor. Co., Ltd. o sus licenciantes. Si bien usted conserva los derechos de autor de su contenido, nos otorga una licencia para usarlo según sea necesario para la prestación del Servicio.",
-        },
-        {
-          title: "7. Privacidad",
-          content:
-            "La información personal se maneja de acuerdo con nuestra Política de Privacidad separada.",
-        },
-        {
-          title: "8. Descargo de Responsabilidad",
-          content:
-            'El Servicio se proporciona "tal cual" sin garantías. Cor. Co., Ltd. no es responsable de los daños derivados del uso del Servicio, excepto en casos de mala conducta intencional o negligencia grave.',
-        },
-        {
-          title: "9. Modificación/Terminación del Servicio",
-          content:
-            "Cor. Co., Ltd. puede modificar o terminar el Servicio con previo aviso.",
-        },
-        {
-          title: "10. Cambios en los Términos",
-          content:
-            "Estos Términos pueden actualizarse según sea necesario. Los Términos actualizados entran en vigencia tras su publicación en el Servicio.",
-        },
-        {
-          title: "11. Ley Aplicable",
-          content:
-            "Estos Términos se rigen por la ley japonesa. Las disputas estarán sujetas a la jurisdicción exclusiva del Tribunal de Distrito de Tokio.",
-        },
-        {
-          title: "12. Contacto",
-          content:
-            "Para consultas sobre estos Términos, comuníquese con:\nCor. Co., Ltd.\nSitio web: https://cor-jp.com/",
-        },
-      ],
-    },
-  };
-
-  // Function to load content based on language parameter
-  function loadTermsContent() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get("lang");
-    const storedLang = localStorage.getItem("preferred-language");
-    const lang = urlLang || storedLang || "ja";
-    const content = (termsContent as any)[lang] || termsContent.ja;
-
-    // Update page title
-    document.title =
-      lang === "ja" ? "TapForge - 利用規約" : `TapForge - ${content.title}`;
-
-    // Update content
-    const titleElement = document.getElementById("page-title");
-    if (titleElement) {
-      titleElement.textContent = content.title;
-    }
-
-    const lastUpdatedElement = document.getElementById("last-updated");
-    if (lastUpdatedElement) {
-      lastUpdatedElement.textContent = content.lastUpdated;
-    }
-
-    const contentContainer = document.getElementById("terms-content");
-    if (contentContainer) {
-      contentContainer.innerHTML = "";
-      content.sections.forEach((section: any) => {
-        const sectionElement = document.createElement("section");
-        sectionElement.className =
-          "border-b border-gray-200 pb-6 last:border-0";
-
-        const titleElement = document.createElement("h2");
-        titleElement.className = "text-2xl font-semibold mb-3 text-gray-800";
-        titleElement.textContent = section.title;
-
-        const contentElement = document.createElement("div");
-        contentElement.className =
-          "text-gray-700 whitespace-pre-line leading-relaxed";
-        contentElement.textContent = section.content;
-
-        sectionElement.appendChild(titleElement);
-        sectionElement.appendChild(contentElement);
-        contentContainer.appendChild(sectionElement);
-      });
-    }
-  }
-
-  // Load content on DOMContentLoaded (for direct page access)
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", loadTermsContent);
-  } else {
-    // DOM is already loaded, execute immediately
-    loadTermsContent();
-  }
-
-  // Load content on page navigation (for SPA routing)
-  document.addEventListener("astro:after-swap", loadTermsContent);
-
-  // Also try to load content immediately for cases where the script runs after DOM is ready
-  setTimeout(loadTermsContent, 0);
-</script>

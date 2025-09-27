@@ -1,0 +1,373 @@
+{
+  "nav": {
+    "home": "홈",
+    "features": "특징",
+    "pricing": "가격",
+    "testimonials": "리뷰",
+    "faq": "자주 묻는 질문",
+    "contact": "문의"
+  },
+  "hero": {
+    "title": "탭으로 세계와 연결하세요.",
+    "subtitle": "AI 기반 차세대 명함",
+    "description": "으로 비즈니스를 가속화",
+    "subDescription": "앱 불필요, 초기 비용 무료. NFC 탭 한 번으로 다국어 프로필 공유.\n해외 프로젝트 획득을 지원하는 프리랜서.",
+    "cta": "조기 액세스 신청",
+    "limited": "100명 한정!",
+    "features": {
+      "noApp": "앱 불필요",
+      "free": "초기 비용 무료",
+      "multilingual": "4개 언어 지원"
+    }
+  },
+  "problems": {
+    "title": "명함 정리, 귀찮으시죠?",
+    "subtitle": "TapForge로 5분 만에 해결!",
+    "problems": {
+      "title": "프리랜서의 고민",
+      "cost": {
+        "title": "종이 명함 비용",
+        "description": "연간 500장 약 5,000엔의 인쇄비"
+      },
+      "organization": {
+        "title": "정리의 번거로움",
+        "description": "명함 50장 정리에 30분 이상"
+      },
+      "language": {
+        "title": "해외 클라이언트와의 언어 장벽",
+        "description": "영어 프로필 작성에 시간 소요"
+      },
+      "followup": {
+        "title": "낮은 후속 조치율",
+        "description": "명함 교환 후 연락률 약 15%"
+      }
+    },
+    "solutions": {
+      "title": "TapForge 솔루션",
+      "cost": {
+        "title": "제로 비용",
+        "description": "초기 비용 0엔, 월 500엔~"
+      },
+      "time": {
+        "title": "5분 완료",
+        "description": "AI 명함 촬영으로 VCard 변환"
+      },
+      "language": {
+        "title": "4개 언어 지원",
+        "description": "일영중서로 국제 비즈니스 지원"
+      },
+      "followup": {
+        "title": "40% 후속 조치율",
+        "description": "AI와 다국어 효과로 개선"
+      }
+    }
+  },
+  "cta": {
+    "title": "지금 시작하시겠습니까?",
+    "description": "100명 한정 조기 액세스(월 500엔)로 TapForge의 힘을 경험하세요",
+    "trialButton": "조기 액세스 신청",
+    "contactButton": "문의 (공동 창조 파트너용)",
+    "tapNow": "지금 탭!",
+    "profileDisplay": "프로필 표시",
+    "features": {
+      "noApp": "앱 불필요",
+      "free": "초기 비용 무료",
+      "multilingual": "4개 언어",
+      "aiScanning": "AI 명함 스캔"
+    }
+  },
+  "trialForm": {
+    "title": "조기 액세스 신청",
+    "description": "명함 1장을 무료로 만들어 드립니다.",
+    "subDescription": "무제한 디자인 변경, AI 명함 스캔 및 VCard 변환 사용 가능",
+    "contactFormTitle": "문의 양식",
+    "contactFormDescription": "조기 액세스(월 500엔) 신청은 아래 버튼을 통해 문의해 주세요.",
+    "contactFormButton": "문의 양식으로 이동",
+    "termsText": "신청하면 ",
+    "termsLink": "이용약관",
+    "andText": " 및 ",
+    "privacyLink": "개인정보처리방침",
+    "agreementText": "에 동의한 것으로 간주됩니다."
+  },
+  "costComparison": {
+    "title": "비용 비교",
+    "traditional": {
+      "title": "기존 종이 명함",
+      "period": "연간 500장",
+      "printingCost": "인쇄비: ¥5,000",
+      "orgTime": "정리 시간: 30분",
+      "envImpact": "환경 영향: 높음"
+    },
+    "tapforge": {
+      "title": "TapForge",
+      "period": "월 사용료",
+      "monthlyCost": "월 사용료: ¥500~",
+      "orgTime": "정리 시간: 5분",
+      "envImpact": "환경 영향: 제로"
+    },
+    "targetAudience": "해외 프로젝트를 늘리고 싶은 프리랜서에게 최적"
+  },
+  "features": {
+    "title": "TapForge 특징",
+    "subtitle": "최신 기술로 명함 교환 혁신",
+    "items": {
+      "aiScan": {
+        "title": "OCR 명함 읽기 기능이 있는 NFC 명함",
+        "description": "일반적으로 별도 앱으로 월 500엔인 OCR 기능을 무료로 통합. 종이 명함을 AI로 디지털화(정확도 95%)하여 VCard로 스마트폰에 직접 저장"
+      },
+      "multilingual": {
+        "title": "다국어 지원",
+        "description": "일본어, 영어, 중국어(간체), 스페인어 4개 언어로 자동 전환"
+      },
+      "noApp": {
+        "title": "앱 불필요",
+        "description": "NFC 탭으로 즉시 프로필 표시(온라인 환경)"
+      },
+      "paperless": {
+        "title": "종이 없음",
+        "description": "SDGs 목표 12에 기여, 완전 종이 없음으로 환경 배려"
+      }
+    },
+    "pricing": {
+      "title": "가격 체계(세금 포함)",
+      "plans": {
+        "initial": {
+          "title": "초기 비용",
+          "price": "¥0",
+          "description": "첫 장 무료"
+        },
+        "additional": {
+          "title": "추가 카드",
+          "price": "¥600",
+          "description": "두 번째부터"
+        },
+        "monthly": {
+          "title": "월 사용료",
+          "price": "¥500~",
+          "description": "월정액 플랜"
+        }
+      },
+      "tagline": "OCR 기능이 있는 NFC 명함의 업계 최저가 - 일반적으로 연간 11,000엔의 기능을 월 500엔~에 제공"
+    },
+    "demo": {
+      "title": "데모 비디오",
+      "description": "AI 명함 스캔 데모 비디오",
+      "note": "(YouTube 링크 예정)"
+    }
+  },
+  "benefits": {
+    "title": "도입 효과",
+    "subtitle": "프리랜서 비즈니스를 가속화하는 구체적인 효과",
+    "items": {
+      "costReduction": {
+        "title": "비용 절감",
+        "metric": "¥8,000",
+        "description": "기존 종이 명함 5,000엔 + OCR 앱 6,000엔 → TapForge 월 500엔~으로 실현"
+      },
+      "timeEfficiency": {
+        "title": "효율화",
+        "metric": "5분",
+        "description": "명함 정리가 50장 일괄 디지털화로 완료"
+      },
+      "businessGrowth": {
+        "title": "비즈니스 확대",
+        "metric": "40%",
+        "description": "후속 조치율이 15%에서 향상"
+      },
+      "environmental": {
+        "title": "환경 배려",
+        "metric": "500장",
+        "description": "연간 종이 절감으로 SDGs에 기여"
+      }
+    },
+    "comparison": {
+      "title": "상세 비교",
+      "headers": {
+        "item": "항목",
+        "traditional": "기존 종이 명함+OCR 앱",
+        "tapforge": "TapForge"
+      },
+      "rows": {
+        "annualCost": {
+          "item": "연간 비용",
+          "traditional": "¥11,000",
+          "tapforge": "¥6,000",
+          "tapforgeNote": "(월 500엔~)"
+        },
+        "organizationTime": {
+          "item": "정리 시간",
+          "traditional": "30분/50장",
+          "tapforge": "5분",
+          "tapforgeNote": "/50장"
+        },
+        "followUpRate": {
+          "item": "후속 조치율",
+          "traditional": "15%",
+          "tapforge": "40%"
+        },
+        "multilingual": {
+          "item": "다국어 지원",
+          "traditional": "없음",
+          "tapforge": "4개 언어",
+          "tapforgeNote": "지원"
+        },
+        "environmentalImpact": {
+          "item": "환경 영향",
+          "traditional": "높음(종이 사용)",
+          "tapforge": "제로",
+          "tapforgeNote": "(종이 없음)"
+        },
+        "updateEase": {
+          "item": "업데이트 용이성",
+          "traditional": "재인쇄 필요",
+          "tapforge": "즉시",
+          "tapforgeNote": "업데이트 가능"
+        }
+      }
+    },
+    "target": {
+      "title": "해외 프로젝트를 늘리고 싶은 프리랜서에게 최적",
+      "description": "다국어 지원과 AI 기능으로 국제 비즈니스 확장을 강력하게 지원합니다",
+      "tags": {
+        "global": "🌍 글로벌 지원",
+        "ai": "🤖 AI 활용",
+        "noApp": "📱 앱 불필요",
+        "costReduction": "💰 비용 절감"
+      }
+    }
+  },
+  "sdgs": {
+    "title": "SDGs 기여",
+    "subtitle": "환경과 경력의 균형",
+    "goals": {
+      "goal12": {
+        "title": "책임감 있는 소비와 생산",
+        "items": ["종이 없음", "연간 500장의 종이 절감", "지속 가능한 소비"]
+      },
+      "goal10": {
+        "title": "불평등 감소",
+        "items": ["4개 언어 지원", "국제 프로젝트에서의 불평등 해소", "언어 장벽 해소"]
+      },
+      "goal17": {
+        "title": "목표 달성을 위한 파트너십",
+        "items": ["명함 교환을 통한 공동 창조", "글로벌 연결", "기술 혁신 공유"]
+      }
+    },
+    "environmental": {
+      "title": "환경 고려",
+      "metrics": {
+        "paperReduction": {
+          "value": "500장",
+          "description": "연간 절감되는 종이 수"
+        },
+        "paperless": {
+          "value": "100%",
+          "description": "종이 없음 실현"
+        },
+        "updates": {
+          "value": "∞",
+          "description": "업데이트 가능한 디지털 명함"
+        }
+      },
+      "summary": "지속 가능한 비즈니스 활동으로 지구 환경과 비즈니스 성장을 균형있게"
+    }
+  },
+  "partnerProgram": {
+    "title": "공동 창조 파트너 우대 제도",
+    "subtitle": "장기 파트너십 기반 특별 가격",
+    "heading": "Cor. 주식회사의 다른 서비스를 이용 중인 고객님께",
+    "description": "Cor. 주식회사의 다른 서비스를 이용 중인 고객에게는 장기 파트너십을 기반으로 특별 가격으로 제공합니다.",
+    "contactNote": "자세한 내용은 문의해 주세요.",
+    "benefits": {
+      "specialPrice": {
+        "title": "특별 가격 제공",
+        "description": "기존 고객 한정 우대 가격"
+      },
+      "prioritySupport": {
+        "title": "우선 지원",
+        "description": "전담 담당자에 의한 지원"
+      },
+      "customization": {
+        "title": "맞춤 대응",
+        "description": "고객 요구에 맞춘 조정"
+      },
+      "longTermPartnership": {
+        "title": "장기 파트너십",
+        "description": "지속적인 관계 구축"
+      }
+    },
+    "ctaButton": "문의",
+    "additionalInfo": "이 제도는 공식 웹사이트(cor-jp.com)의 내용을 기반으로 합니다"
+  },
+  "testimonials": {
+    "title": "고객의 소리",
+    "subtitle": "실제 이용하시는 분들의 소리",
+    "items": [
+      {
+        "name": "스즈키 씨",
+        "role": "웹 디자이너",
+        "message": "종이 명함 정리가 5분 만에 완료! 영어 프로필로 해외 프로젝트가 늘었습니다. AI 명함 촬영 정확도도 높고 VCard 변환도 원활합니다. 프리랜서에게 정말 편리한 서비스입니다.",
+        "tags": ["효율화", "해외 프로젝트", "AI 정확도"]
+      },
+      {
+        "name": "타나카 씨",
+        "role": "IT 컨설턴트",
+        "message": "앱 불필요로 간편합니다. 클라이언트에게 좋은 인상을 주고 있습니다. 다국어 지원으로 해외 클라이언트와의 커뮤니케이션도 원활해졌습니다. 가성비도 뛰어납니다.",
+        "tags": ["간편한 조작", "좋은 인상", "가성비"]
+      }
+    ],
+    "note": "이 소리들은 가상입니다. 조기 액세스 참가자 100명 중 5건의 실제 리뷰를 선발하여 교체할 예정입니다."
+  },
+  "faq": {
+    "title": "자주 묻는 질문",
+    "subtitle": "고객님으로부터 자주 받는 질문에 답변드립니다",
+    "items": [
+      {
+        "question": "어떤 스마트폰에서도 NFC를 사용할 수 있나요?",
+        "answer": "95%의 스마트폰과 호환됩니다. iPhone 7 이상, Android NFC 지원 모델에서 이용 가능합니다.\n구체적인 지원 모델은 각 스마트폰 제조사의 공식 웹사이트를 확인해 주세요."
+      },
+      {
+        "question": "명함 읽기 정확도는?",
+        "answer": "AI 명함 촬영 및 VCard 변환 정확도는 95%입니다. 지속적인 개선으로 더 높은 정확도를 목표로 합니다.\n인식에 실패한 경우 수동 수정도 가능합니다."
+      },
+      {
+        "question": "디자인 변경은 직접 할 수 있나요?",
+        "answer": "관리 화면에서 무제한으로 디자인 변경이 가능합니다.\n라이트 컬러(흰색, 라이트 블루, 베이지) 3종류에서 선택 가능하며, 텍스트와 연락처 정보도 쉽게 업데이트할 수 있습니다."
+      },
+      {
+        "question": "다국어 지원 사용법을 알려주세요",
+        "answer": "4개 언어(일본어, 영어, 중국어, 스페인어)로 직접 전환할 수 있습니다.\n프로필 화면에서 표시 언어를 선택할 수 있으므로, 상대방 스마트폰의 언어 설정과 관계없이 원하는 언어로 이용 가능합니다."
+      },
+      {
+        "question": "오프라인에서도 사용할 수 있나요?",
+        "answer": "현재 온라인 환경에서의 이용을 권장합니다.\n오프라인 기능은 향후 검토 중입니다. 앱 불필요의 장점을 살려 온라인 환경에서 안정적인 서비스 제공을 우선하고 있습니다."
+      }
+    ],
+    "additionalHelp": {
+      "title": "기타 질문은 언제든지 문의해 주세요",
+      "description": "전문 직원이 정성껏 답변해 드립니다",
+      "button": "문의"
+    }
+  },
+  "footer": {
+    "description": "NFC 디지털 명함으로 세계와 연결되세요. AI 기반 차세대 명함으로 비즈니스를 가속화하세요.",
+    "tagline": "미래의 개척자, 모든 이를 위한 스마트한 만남",
+    "quickLinks": {
+      "title": "빠른 링크",
+      "features": "특징",
+      "pricing": "가격",
+      "testimonials": "후기",
+      "faq": "자주 묻는 질문"
+    },
+    "contact": {
+      "title": "연락처",
+      "company": "Cor. Co., Ltd.",
+      "trial": "조기 액세스"
+    },
+    "copyright": "© 2025 TapForge by Cor. Co., Ltd. 모든 권리 보유.",
+    "legal": {
+      "privacy": "개인정보처리방침",
+      "terms": "서비스 약관"
+    }
+  }
+}

@@ -2,19 +2,8 @@
 import Layout from "../layouts/Default.astro";
 import { type Language } from "../lib/i18n";
 
-// Get language from URL query parameter during SSR
-const urlLang = Astro.url.searchParams.get("lang") as Language | null;
-const currentLang: Language = urlLang || "ja";
-
-// Set title based on language
-const pageTitle =
-  currentLang === "ja"
-    ? "TapForge - プライバシーポリシー"
-    : currentLang === "en"
-      ? "TapForge - Privacy Policy"
-      : currentLang === "zh"
-        ? "TapForge - 隐私政策"
-        : "TapForge - Política de Privacidad";
+const currentLang: Language = "ja";
+const pageTitle = "TapForge - プライバシーポリシー";
 ---
 
 <Layout title={pageTitle} lang={currentLang}>
@@ -27,7 +16,123 @@ const pageTitle =
     </p>
 
     <div id="privacy-content" class="space-y-8">
-      <!-- Content will be dynamically populated by JavaScript -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">1. はじめに</h2>
+        <p class="text-gray-700 leading-relaxed">
+          TapForge（Cor.株式会社が運営）は、お客様のプライバシーを尊重します。本プライバシーポリシーは、弊社がお客様の個人情報をどのように収集、使用、保護するかを説明します。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">2. 収集する情報</h2>
+        <p class="text-gray-700 leading-relaxed mb-2">弊社は以下の種類の情報を収集します：</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>氏名、メールアドレス、電話番号</li>
+          <li>会社情報および役職</li>
+          <li>作成した名刺情報</li>
+          <li>利用データおよびインタラクション履歴</li>
+          <li>デバイス情報およびIPアドレス</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">3. 情報の使用方法</h2>
+        <p class="text-gray-700 leading-relaxed mb-2">お客様の情報は以下の目的で使用します：</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>サービスの提供と改善</li>
+          <li>支払い処理とアカウント管理</li>
+          <li>サービス関連の通知の送信</li>
+          <li>カスタマーサポートの提供</li>
+          <li>ユーザー体験向上のための使用パターン分析</li>
+          <li>法的義務の遵守</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">4. データの共有</h2>
+        <p class="text-gray-700 leading-relaxed">
+          弊社はお客様の個人情報を販売しません。以下の場合にデータを共有することがあります：
+        </p>
+        <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-700">
+          <li>サービスプロバイダー（決済処理業者、クラウドホスティング）</li>
+          <li>法律で要求された場合の法執行機関</li>
+          <li>お客様の明示的な同意がある場合のビジネスパートナー</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">5. データセキュリティ</h2>
+        <p class="text-gray-700 leading-relaxed">
+          弊社は以下を含む業界標準のセキュリティ対策を実装しています：
+        </p>
+        <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-700">
+          <li>データ送信のためのSSL/TLS暗号化</li>
+          <li>機密情報の暗号化ストレージ</li>
+          <li>定期的なセキュリティ監査と更新</li>
+          <li>アクセス制御と認証</li>
+          <li>定期的なデータバックアップ</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">6. お客様の権利</h2>
+        <p class="text-gray-700 leading-relaxed mb-2">お客様には以下の権利があります：</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>個人データへのアクセス</li>
+          <li>不正確なデータの修正</li>
+          <li>データ削除の要求</li>
+          <li>データのエクスポート</li>
+          <li>マーケティング通信のオプトアウト</li>
+          <li>データ処理の制限</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">7. Cookie</h2>
+        <p class="text-gray-700 leading-relaxed">
+          弊社はお客様の体験を向上させるためにCookieを使用します。ブラウザの設定でCookieの設定を制御できます。必須Cookieはサービス機能に必要です。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">8. データ保持</h2>
+        <p class="text-gray-700 leading-relaxed">
+          アカウントがアクティブである限り、またはサービスを提供するために必要な期間、データを保持します。いつでもデータ削除を要求できます。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">9. 児童のプライバシー</h2>
+        <p class="text-gray-700 leading-relaxed">
+          弊社のサービスは18歳未満の児童を対象としていません。未成年者のデータを意図的に収集することはありません。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">10. 国際データ転送</h2>
+        <p class="text-gray-700 leading-relaxed">
+          お客様のデータは、お客様の居住国以外の国で処理される可能性があります。国際転送に対して適切な保護措置を確保します。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">11. ポリシーの更新</h2>
+        <p class="text-gray-700 leading-relaxed">
+          このポリシーは定期的に更新される可能性があります。重要な変更については、メールまたはサービスのお知らせで通知します。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">12. お問い合わせ</h2>
+        <p class="text-gray-700 leading-relaxed">
+          プライバシーに関するご質問は、以下までお問い合わせください：
+        </p>
+        <ul class="list-none mt-2 text-gray-700">
+          <li>会社名：Cor.株式会社</li>
+          <li>ウェブサイト：<a href="https://cor-jp.com/" class="text-blue-500 hover:underline">https://cor-jp.com/</a></li>
+          <li>お問い合わせ：<a href="https://cor-jp.com/contact/" class="text-blue-500 hover:underline">お問い合わせフォーム</a></li>
+        </ul>
+      </section>
     </div>
 
     <div class="mt-12 p-6 bg-gray-50 rounded-lg">
@@ -37,355 +142,3 @@ const pageTitle =
     </div>
   </main>
 </Layout>
-
-<script>
-  // Privacy Policy content in multiple languages
-  const privacyContent = {
-    ja: {
-      title: "プライバシーポリシー",
-      lastUpdated: "最終更新日: 2025年9月20日",
-      sections: [
-        {
-          title: "1. はじめに",
-          content:
-            "Cor.株式会社（以下「当社」）は、TapForgeサービス（以下「本サービス」）の提供にあたり、ユーザーの個人情報の保護を重要な責務と考え、以下のプライバシーポリシー（以下「本ポリシー」）を定めます。",
-        },
-        {
-          title: "2. 収集する情報",
-          content:
-            "当社は、以下の情報を収集する場合があります：\n\n【自動的に収集される情報】\n・IPアドレス\n・ブラウザの種類とバージョン\n・デバイス情報\n・アクセス日時\n・リファラー情報\n\n【ユーザーから提供される情報】\n・氏名\n・メールアドレス\n・電話番号\n・会社名・組織名\n・職種・役職\n・プロフィール情報\n・SNSアカウント情報",
-        },
-        {
-          title: "3. 情報の利用目的",
-          content:
-            "収集した情報は以下の目的で利用します：\n・本サービスの提供・運営\n・ユーザーサポート\n・サービスの改善・新機能の開発\n・利用統計の分析\n・セキュリティの維持・向上\n・マーケティング・広告配信（同意を得た場合のみ）\n・法的要求への対応",
-        },
-        {
-          title: "4. 情報の共有と開示",
-          content:
-            "当社は、以下の場合を除き、個人情報を第三者に販売、貸与、または共有することはありません：\n・ユーザーの同意がある場合\n・サービス提供に必要な業務委託先への提供\n・法的要求がある場合\n・ユーザーや公衆の安全を守る必要がある場合\n・事業承継の場合",
-        },
-        {
-          title: "5. データの保管とセキュリティ",
-          content:
-            "当社は、業界標準のセキュリティ対策を実施し、個人情報の不正アクセス、紛失、破壊、改ざん、漏洩を防ぐよう努めています。データは暗号化され、安全なサーバーに保管されます。",
-        },
-        {
-          title: "6. Cookie（クッキー）の使用",
-          content:
-            "本サービスでは、ユーザー体験の向上のためCookieを使用しています。Cookieは以下の目的で使用されます：\n・ログイン状態の維持\n・言語設定の保存\n・利用状況の分析\n・広告の効果測定\n\nブラウザの設定でCookieを無効にすることができますが、一部のサービス機能が利用できなくなる場合があります。",
-        },
-        {
-          title: "7. 第三者サービスとの連携",
-          content:
-            "本サービスは、Google Analytics等の第三者サービスを利用する場合があります。これらのサービスには、それぞれのプライバシーポリシーが適用されます。",
-        },
-        {
-          title: "8. 子どものプライバシー",
-          content:
-            "本サービスは13歳未満の子どもを対象としていません。13歳未満の方は、保護者の同意なく個人情報を提供しないでください。",
-        },
-        {
-          title: "9. ユーザーの権利",
-          content:
-            "ユーザーは自己の個人情報について以下の権利を有します：\n・アクセス権（開示請求）\n・訂正権\n・削除権\n・処理の制限を求める権利\n・データポータビリティの権利\n・異議申立権\n\nこれらの権利行使については、お問い合わせ窓口までご連絡ください。",
-        },
-        {
-          title: "10. データの保存期間",
-          content:
-            "個人情報は、サービス提供に必要な期間または法的要求により定められた期間保存されます。不要になった情報は適切に削除または匿名化されます。",
-        },
-        {
-          title: "11. 国際データ転送",
-          content:
-            "本サービスの提供にあたり、個人情報が日本国外のサーバーで処理される場合があります。その際も本ポリシーに従い適切に保護されます。",
-        },
-        {
-          title: "12. ポリシーの変更",
-          content:
-            "本ポリシーは必要に応じて変更されることがあります。重要な変更がある場合は、サービス上で通知します。",
-        },
-        {
-          title: "13. お問い合わせ",
-          content:
-            "本ポリシーに関するお問い合わせは、以下までご連絡ください：\n\nCor.株式会社\nプライバシー担当\nウェブサイト: https://cor-jp.com/\n\n個人情報保護管理者を設置し、適切な管理を行っています。",
-        },
-      ],
-    },
-    en: {
-      title: "Privacy Policy",
-      lastUpdated: "Last Updated: September 20, 2025",
-      sections: [
-        {
-          title: "1. Introduction",
-          content:
-            'Cor. Co., Ltd. ("Company") considers the protection of user personal information an important responsibility and establishes this Privacy Policy ("Policy") for the TapForge service ("Service").',
-        },
-        {
-          title: "2. Information We Collect",
-          content:
-            "We may collect the following information:\n\n【Automatically Collected Information】\n• IP address\n• Browser type and version\n• Device information\n• Access date and time\n• Referrer information\n\n【Information Provided by Users】\n• Name\n• Email address\n• Phone number\n• Company/Organization name\n• Job title/Position\n• Profile information\n• Social media account information",
-        },
-        {
-          title: "3. Use of Information",
-          content:
-            "We use collected information for:\n• Service provision and operation\n• User support\n• Service improvement and feature development\n• Usage statistics analysis\n• Security maintenance and enhancement\n• Marketing and advertising (only with consent)\n• Legal compliance",
-        },
-        {
-          title: "4. Information Sharing and Disclosure",
-          content:
-            "We do not sell, rent, or share personal information with third parties except:\n• With user consent\n• To service providers necessary for operations\n• When legally required\n• To protect user or public safety\n• In case of business succession",
-        },
-        {
-          title: "5. Data Storage and Security",
-          content:
-            "We implement industry-standard security measures to prevent unauthorized access, loss, destruction, alteration, or leakage of personal information. Data is encrypted and stored on secure servers.",
-        },
-        {
-          title: "6. Use of Cookies",
-          content:
-            "The Service uses cookies to improve user experience for:\n• Maintaining login status\n• Saving language preferences\n• Usage analysis\n• Advertising effectiveness measurement\n\nYou can disable cookies through browser settings, though some features may become unavailable.",
-        },
-        {
-          title: "7. Third-Party Services",
-          content:
-            "The Service may use third-party services like Google Analytics. These services are subject to their own privacy policies.",
-        },
-        {
-          title: "8. Children's Privacy",
-          content:
-            "The Service is not intended for children under 13. Children under 13 should not provide personal information without parental consent.",
-        },
-        {
-          title: "9. User Rights",
-          content:
-            "Users have the following rights regarding their personal information:\n• Right of access\n• Right to rectification\n• Right to erasure\n• Right to restrict processing\n• Right to data portability\n• Right to object\n\nTo exercise these rights, please contact us.",
-        },
-        {
-          title: "10. Data Retention",
-          content:
-            "Personal information is retained for the period necessary for service provision or as legally required. Unnecessary information is appropriately deleted or anonymized.",
-        },
-        {
-          title: "11. International Data Transfer",
-          content:
-            "Personal information may be processed on servers outside Japan. Such information will be protected according to this Policy.",
-        },
-        {
-          title: "12. Policy Changes",
-          content:
-            "This Policy may be updated as necessary. Significant changes will be notified through the Service.",
-        },
-        {
-          title: "13. Contact Us",
-          content:
-            "For inquiries about this Policy, please contact:\n\nCor. Co., Ltd.\nPrivacy Department\nWebsite: https://cor-jp.com/\n\nWe have appointed a personal information protection manager for appropriate management.",
-        },
-      ],
-    },
-    zh: {
-      title: "隐私政策",
-      lastUpdated: "最后更新：2025年9月20日",
-      sections: [
-        {
-          title: "1. 引言",
-          content:
-            'Cor.株式会社（"公司"）认为保护用户个人信息是重要责任，为TapForge服务（"服务"）制定本隐私政策（"政策"）。',
-        },
-        {
-          title: "2. 我们收集的信息",
-          content:
-            "我们可能收集以下信息：\n\n【自动收集的信息】\n• IP地址\n• 浏览器类型和版本\n• 设备信息\n• 访问日期和时间\n• 引荐来源信息\n\n【用户提供的信息】\n• 姓名\n• 电子邮件地址\n• 电话号码\n• 公司/组织名称\n• 职位/职务\n• 个人资料信息\n• 社交媒体账户信息",
-        },
-        {
-          title: "3. 信息使用",
-          content:
-            "我们将收集的信息用于：\n• 服务提供和运营\n• 用户支持\n• 服务改进和功能开发\n• 使用统计分析\n• 安全维护和增强\n• 营销和广告（仅在获得同意后）\n• 法律合规",
-        },
-        {
-          title: "4. 信息共享和披露",
-          content:
-            "除以下情况外，我们不会出售、出租或与第三方共享个人信息：\n• 获得用户同意\n• 向运营所需的服务提供商提供\n• 法律要求时\n• 保护用户或公众安全\n• 业务继承情况",
-        },
-        {
-          title: "5. 数据存储和安全",
-          content:
-            "我们实施行业标准安全措施，防止个人信息的未经授权访问、丢失、破坏、更改或泄露。数据经过加密并存储在安全服务器上。",
-        },
-        {
-          title: "6. Cookie使用",
-          content:
-            "服务使用Cookie改善用户体验，用于：\n• 维护登录状态\n• 保存语言偏好\n• 使用分析\n• 广告效果测量\n\n您可以通过浏览器设置禁用Cookie，但某些功能可能无法使用。",
-        },
-        {
-          title: "7. 第三方服务",
-          content:
-            "服务可能使用Google Analytics等第三方服务。这些服务受其自身隐私政策约束。",
-        },
-        {
-          title: "8. 儿童隐私",
-          content:
-            "服务不面向13岁以下儿童。13岁以下儿童未经父母同意不应提供个人信息。",
-        },
-        {
-          title: "9. 用户权利",
-          content:
-            "用户对其个人信息享有以下权利：\n• 访问权\n• 更正权\n• 删除权\n• 限制处理权\n• 数据可携带权\n• 反对权\n\n如需行使这些权利，请联系我们。",
-        },
-        {
-          title: "10. 数据保留",
-          content:
-            "个人信息将在服务提供所需期间或法律要求期间内保留。不必要的信息将被适当删除或匿名化。",
-        },
-        {
-          title: "11. 国际数据传输",
-          content:
-            "个人信息可能在日本境外的服务器上处理。此类信息将根据本政策受到保护。",
-        },
-        {
-          title: "12. 政策变更",
-          content: "本政策可能会根据需要更新。重大变更将通过服务通知。",
-        },
-        {
-          title: "13. 联系我们",
-          content:
-            "有关本政策的咨询，请联系：\n\nCor.株式会社\n隐私部门\n网站：https://cor-jp.com/\n\n我们已任命个人信息保护管理者进行适当管理。",
-        },
-      ],
-    },
-    es: {
-      title: "Política de Privacidad",
-      lastUpdated: "Última actualización: 20 de septiembre de 2025",
-      sections: [
-        {
-          title: "1. Introducción",
-          content:
-            'Cor. Co., Ltd. ("Compañía") considera la protección de la información personal del usuario una responsabilidad importante y establece esta Política de Privacidad ("Política") para el servicio TapForge ("Servicio").',
-        },
-        {
-          title: "2. Información que Recopilamos",
-          content:
-            "Podemos recopilar la siguiente información:\n\n【Información Recopilada Automáticamente】\n• Dirección IP\n• Tipo y versión del navegador\n• Información del dispositivo\n• Fecha y hora de acceso\n• Información de referencia\n\n【Información Proporcionada por los Usuarios】\n• Nombre\n• Dirección de correo electrónico\n• Número de teléfono\n• Nombre de la empresa/organización\n• Título/Posición laboral\n• Información del perfil\n• Información de cuentas de redes sociales",
-        },
-        {
-          title: "3. Uso de la Información",
-          content:
-            "Utilizamos la información recopilada para:\n• Provisión y operación del servicio\n• Soporte al usuario\n• Mejora del servicio y desarrollo de funciones\n• Análisis de estadísticas de uso\n• Mantenimiento y mejora de la seguridad\n• Marketing y publicidad (solo con consentimiento)\n• Cumplimiento legal",
-        },
-        {
-          title: "4. Compartir y Divulgar Información",
-          content:
-            "No vendemos, alquilamos ni compartimos información personal con terceros excepto:\n• Con el consentimiento del usuario\n• A proveedores de servicios necesarios para las operaciones\n• Cuando sea legalmente requerido\n• Para proteger la seguridad del usuario o del público\n• En caso de sucesión empresarial",
-        },
-        {
-          title: "5. Almacenamiento de Datos y Seguridad",
-          content:
-            "Implementamos medidas de seguridad estándar de la industria para prevenir el acceso no autorizado, pérdida, destrucción, alteración o fuga de información personal. Los datos están encriptados y almacenados en servidores seguros.",
-        },
-        {
-          title: "6. Uso de Cookies",
-          content:
-            "El Servicio utiliza cookies para mejorar la experiencia del usuario para:\n• Mantener el estado de inicio de sesión\n• Guardar preferencias de idioma\n• Análisis de uso\n• Medición de la efectividad publicitaria\n\nPuede desactivar las cookies a través de la configuración del navegador, aunque algunas funciones pueden no estar disponibles.",
-        },
-        {
-          title: "7. Servicios de Terceros",
-          content:
-            "El Servicio puede utilizar servicios de terceros como Google Analytics. Estos servicios están sujetos a sus propias políticas de privacidad.",
-        },
-        {
-          title: "8. Privacidad de los Niños",
-          content:
-            "El Servicio no está dirigido a niños menores de 13 años. Los niños menores de 13 años no deben proporcionar información personal sin el consentimiento de los padres.",
-        },
-        {
-          title: "9. Derechos del Usuario",
-          content:
-            "Los usuarios tienen los siguientes derechos sobre su información personal:\n• Derecho de acceso\n• Derecho de rectificación\n• Derecho de supresión\n• Derecho a restringir el procesamiento\n• Derecho a la portabilidad de datos\n• Derecho de oposición\n\nPara ejercer estos derechos, contáctenos.",
-        },
-        {
-          title: "10. Retención de Datos",
-          content:
-            "La información personal se retiene durante el período necesario para la prestación del servicio o según lo requiera la ley. La información innecesaria se elimina o anonimiza adecuadamente.",
-        },
-        {
-          title: "11. Transferencia Internacional de Datos",
-          content:
-            "La información personal puede procesarse en servidores fuera de Japón. Dicha información será protegida de acuerdo con esta Política.",
-        },
-        {
-          title: "12. Cambios en la Política",
-          content:
-            "Esta Política puede actualizarse según sea necesario. Los cambios significativos se notificarán a través del Servicio.",
-        },
-        {
-          title: "13. Contáctenos",
-          content:
-            "Para consultas sobre esta Política, contáctenos:\n\nCor. Co., Ltd.\nDepartamento de Privacidad\nSitio web: https://cor-jp.com/\n\nHemos designado un gerente de protección de información personal para una gestión adecuada.",
-        },
-      ],
-    },
-  };
-
-  // Function to load content based on language parameter
-  function loadPrivacyContent() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get("lang");
-    const storedLang = localStorage.getItem("preferred-language");
-    const lang = urlLang || storedLang || "ja";
-    const content = (privacyContent as any)[lang] || privacyContent.ja;
-
-    // Update page title
-    document.title =
-      lang === "ja"
-        ? "TapForge - プライバシーポリシー"
-        : `TapForge - ${content.title}`;
-
-    // Update content
-    const titleElement = document.getElementById("page-title");
-    if (titleElement) {
-      titleElement.textContent = content.title;
-    }
-
-    const lastUpdatedElement = document.getElementById("last-updated");
-    if (lastUpdatedElement) {
-      lastUpdatedElement.textContent = content.lastUpdated;
-    }
-
-    const contentContainer = document.getElementById("privacy-content");
-    if (contentContainer) {
-      contentContainer.innerHTML = "";
-      content.sections.forEach((section: any) => {
-        const sectionElement = document.createElement("section");
-        sectionElement.className =
-          "border-b border-gray-200 pb-6 last:border-0";
-
-        const titleElement = document.createElement("h2");
-        titleElement.className = "text-2xl font-semibold mb-3 text-gray-800";
-        titleElement.textContent = section.title;
-
-        const contentElement = document.createElement("div");
-        contentElement.className =
-          "text-gray-700 whitespace-pre-line leading-relaxed";
-        contentElement.textContent = section.content;
-
-        sectionElement.appendChild(titleElement);
-        sectionElement.appendChild(contentElement);
-        contentContainer.appendChild(sectionElement);
-      });
-    }
-  }
-
-  // Load content on DOMContentLoaded (for direct page access)
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", loadPrivacyContent);
-  } else {
-    // DOM is already loaded, execute immediately
-    loadPrivacyContent();
-  }
-
-  // Load content on page navigation (for SPA routing)
-  document.addEventListener("astro:after-swap", loadPrivacyContent);
-
-  // Also try to load content immediately for cases where the script runs after DOM is ready
-  setTimeout(loadPrivacyContent, 0);
-</script>

@@ -1,8 +1,26 @@
 ---
 // TapForge Logo Component
+import { type Language } from "../../lib/i18n";
+
+// Get current language from URL path
+const pathname = Astro.url.pathname;
+let currentLang: Language = "ja";
+
+// Detect language from URL path
+if (pathname.startsWith('/en/') || pathname === '/en') {
+  currentLang = "en";
+} else if (pathname.startsWith('/zh/') || pathname === '/zh') {
+  currentLang = "zh";
+} else if (pathname.startsWith('/ko/') || pathname === '/ko') {
+  currentLang = "ko";
+} else if (pathname.startsWith('/es/') || pathname === '/es') {
+  currentLang = "es";
+}
+
+const homeUrl = currentLang === "ja" ? "/" : `/${currentLang}/`;
 ---
 
-<a href="/" class="navbar-brand block">
+<a href={homeUrl} class="navbar-brand block">
   <div class="flex items-center space-x-3">
     <img
       src="/images/favicon.png"

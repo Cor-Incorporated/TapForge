@@ -1,0 +1,109 @@
+---
+import Layout from "../../layouts/Default.astro";
+import { type Language } from "../../lib/i18n";
+
+const currentLang: Language = "zh";
+const pageTitle = "TapForge - 服务条款";
+---
+
+<Layout title={pageTitle} lang={currentLang}>
+  <main class="container mx-auto px-4 py-16 max-w-4xl">
+    <h1 id="page-title" class="text-4xl font-bold mb-4 text-gray-900">
+      服务条款
+    </h1>
+    <p id="last-updated" class="text-gray-600 mb-8">
+      最后更新日期：2025年9月20日
+    </p>
+
+    <div id="terms-content" class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">1. 条款同意</h2>
+        <p class="text-gray-700 leading-relaxed">
+          使用TapForge服务即表示您同意这些服务条款。如果您不同意这些条款，请不要使用本服务。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">2. 服务概述</h2>
+        <p class="text-gray-700 leading-relaxed">
+          TapForge是一项AI驱动的NFC数字名片服务，无需应用程序即可提供以下功能：
+        </p>
+        <ul class="list-disc pl-6 mt-2">
+          <li>数字名片创建和管理</li>
+          <li>通过NFC即时共享名片信息</li>
+          <li>基于AI的名片管理</li>
+          <li>多语言自动翻译</li>
+          <li>与CRM系统集成</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">3. 用户注册</h2>
+        <p class="text-gray-700 leading-relaxed">
+          要使用本服务，您必须注册账户并提供准确的信息。您有责任维护账户信息的保密性。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">4. 服务费用</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>早期访问：500日元/月（永久费率，限100名用户）</li>
+          <li>常规计划：700日元/月起，逐步折扣</li>
+          <li>早期访问最少3个月合同</li>
+          <li>通过Stripe支付</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">5. 数据保护和隐私</h2>
+        <p class="text-gray-700 leading-relaxed">
+          我们根据隐私政策保护用户数据。个人信息经过加密，绝不会出售给第三方。我们使用行业标准的安全措施来保护您的数据。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">6. 禁止用途</h2>
+        <p class="text-gray-700 leading-relaxed">您不得：</p>
+        <ul class="list-disc pl-6 mt-2 text-gray-700">
+          <li>将服务用于非法目的</li>
+          <li>侵犯他人的隐私或知识产权</li>
+          <li>试图破坏或损害服务</li>
+          <li>分享虚假或误导性信息</li>
+          <li>未经许可转售或重新分发服务</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">7. 服务修改</h2>
+        <p class="text-gray-700 leading-relaxed">
+          我们保留随时修改或终止服务的权利。我们将通过电子邮件或服务公告通知用户重大变更。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">8. 责任限制</h2>
+        <p class="text-gray-700 leading-relaxed">
+          我们不对因您使用服务而产生的任何间接、附带或后果性损害负责。我们的责任限于过去12个月支付的服务费用。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">9. 联系信息</h2>
+        <p class="text-gray-700 leading-relaxed">
+          如果您对这些条款有任何疑问，请联系我们：
+        </p>
+        <ul class="list-none mt-2 text-gray-700">
+          <li>公司：Cor.株式会社</li>
+          <li>网站：<a href="https://cor-jp.com/" class="text-blue-500 hover:underline">https://cor-jp.com/</a></li>
+          <li>联系：<a href="https://cor-jp.com/contact/" class="text-blue-500 hover:underline">联系表单</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+      <p class="text-sm text-gray-600 text-center">
+        © 2025 TapForge by Cor.株式会社. 版权所有。
+      </p>
+    </div>
+  </main>
+</Layout>

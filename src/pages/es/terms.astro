@@ -1,0 +1,109 @@
+---
+import Layout from "../../layouts/Default.astro";
+import { type Language } from "../../lib/i18n";
+
+const currentLang: Language = "es";
+const pageTitle = "TapForge - Términos de Servicio";
+---
+
+<Layout title={pageTitle} lang={currentLang}>
+  <main class="container mx-auto px-4 py-16 max-w-4xl">
+    <h1 id="page-title" class="text-4xl font-bold mb-4 text-gray-900">
+      Términos de Servicio
+    </h1>
+    <p id="last-updated" class="text-gray-600 mb-8">
+      Última actualización: 20 de septiembre de 2025
+    </p>
+
+    <div id="terms-content" class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">1. Aceptación de los Términos</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Al usar el servicio TapForge, usted acepta estos Términos de Servicio. Si no está de acuerdo con estos términos, por favor no use el servicio.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">2. Descripción del Servicio</h2>
+        <p class="text-gray-700 leading-relaxed">
+          TapForge es un servicio de tarjetas de visita digitales NFC impulsado por IA que proporciona las siguientes funciones sin necesidad de aplicación:
+        </p>
+        <ul class="list-disc pl-6 mt-2">
+          <li>Creación y gestión de tarjetas de visita digitales</li>
+          <li>Compartir información de tarjetas instantáneamente vía NFC</li>
+          <li>Gestión de tarjetas basada en IA</li>
+          <li>Traducción automática multilingüe</li>
+          <li>Integración con sistemas CRM</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">3. Registro de Usuario</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Para usar el servicio, debe registrarse para obtener una cuenta y proporcionar información precisa. Usted es responsable de mantener la confidencialidad de su información de cuenta.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">4. Tarifas del Servicio</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>Acceso Anticipado: ¥500/mes (tarifa permanente, limitado a 100 usuarios)</li>
+          <li>Plan Regular: A partir de ¥700/mes con descuentos graduales</li>
+          <li>Contrato mínimo de 3 meses para acceso anticipado</li>
+          <li>Pago a través de Stripe</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">5. Protección de Datos y Privacidad</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Protegemos los datos del usuario de acuerdo con nuestra Política de Privacidad. La información personal está encriptada y nunca se venderá a terceros. Utilizamos medidas de seguridad estándar de la industria para proteger sus datos.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">6. Usos Prohibidos</h2>
+        <p class="text-gray-700 leading-relaxed">Usted no puede:</p>
+        <ul class="list-disc pl-6 mt-2 text-gray-700">
+          <li>Usar el servicio para propósitos ilegales</li>
+          <li>Violar la privacidad o los derechos de propiedad intelectual de otros</li>
+          <li>Intentar interrumpir o dañar el servicio</li>
+          <li>Compartir información falsa o engañosa</li>
+          <li>Revender o redistribuir el servicio sin permiso</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">7. Modificaciones del Servicio</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Nos reservamos el derecho de modificar o discontinuar el servicio en cualquier momento. Notificaremos a los usuarios sobre cambios significativos por correo electrónico o anuncios de servicio.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">8. Limitación de Responsabilidad</h2>
+        <p class="text-gray-700 leading-relaxed">
+          No somos responsables de ningún daño indirecto, incidental o consecuente que surja de su uso del servicio. Nuestra responsabilidad se limita al monto pagado por el servicio en los últimos 12 meses.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">9. Información de Contacto</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Si tiene alguna pregunta sobre estos términos, por favor contáctenos:
+        </p>
+        <ul class="list-none mt-2 text-gray-700">
+          <li>Empresa: Cor. Corporation</li>
+          <li>Sitio web: <a href="https://cor-jp.com/" class="text-blue-500 hover:underline">https://cor-jp.com/</a></li>
+          <li>Contacto: <a href="https://cor-jp.com/contact/" class="text-blue-500 hover:underline">Formulario de Contacto</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+      <p class="text-sm text-gray-600 text-center">
+        © 2025 TapForge by Cor. Corporation. Todos los derechos reservados.
+      </p>
+    </div>
+  </main>
+</Layout>
