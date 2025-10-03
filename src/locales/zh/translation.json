@@ -105,12 +105,12 @@
     },
     "tapforge": {
       "title": "TapForge",
-      "period": "¥700",
-      "monthlyCost": "月费：¥0",
+      "period": "¥6,000~",
+      "monthlyCost": "月费: ¥500~（6个月以上使用的情况）",
       "orgTime": "整理时间：5分钟",
       "envImpact": "环境影响：零",
       "badges": {
-        "cost": "¥700",
+        "cost": "¥6K~",
         "time": "5分钟",
         "impact": "零"
       }
