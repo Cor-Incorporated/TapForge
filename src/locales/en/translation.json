@@ -11,13 +11,13 @@
     "title": "Connect with the world with a tap.",
     "subtitle": "AI-powered next-generation business card",
     "description": "to accelerate your business",
-    "subDescription": "No app required, no initial cost. Share multilingual profiles with one NFC tap.\nSupporting freelancers in acquiring overseas projects.",
-    "cta": "Apply for Early Access",
-    "limited": "Limited to 100!",
+    "subDescription": "No app required. Share multilingual profiles with one NFC tap. Supporting overseas project acquisition.",
+    "cta": "Apply for Beta Testing",
+    "limited": "Limited until 10/18/2025!",
     "features": {
       "noApp": "No App Required",
-      "free": "No Initial Cost",
-      "multilingual": "4 Languages"
+      "free": "¥700 (shipping incl.)",
+      "multilingual": "2 Languages (5 planned)"
     }
   },
   "problems": {
@@ -27,7 +27,7 @@
       "title": "Freelancer Problems",
       "cost": {
         "title": "Cost of paper business cards",
-        "description": "About 5,000 yen for 500 cards per year"
+        "description": "About ¥5,000 for 500 cards per year"
       },
       "organization": {
         "title": "Organization hassle",
@@ -46,15 +46,15 @@
       "title": "TapForge Solutions",
       "cost": {
         "title": "Zero Cost",
-        "description": "Initial cost 0 yen, monthly 500 yen~"
+        "description": "Initial cost ¥0, monthly ¥500-700"
       },
       "time": {
         "title": "Complete in 5 minutes",
-        "description": "AI business card shooting to VCard conversion"
+        "description": "AI business card scanning to VCard conversion"
       },
       "language": {
-        "title": "4 Language Support",
-        "description": "Japanese, English, Chinese, Spanish for international business"
+        "title": "2 Languages (5 planned)",
+        "description": "Currently Japanese & English, 5 languages planned for international business"
       },
       "followup": {
         "title": "40% Follow-up Rate",
@@ -64,24 +64,24 @@
   },
   "cta": {
     "title": "Ready to get started?",
-    "description": "Experience the power of TapForge with our limited early access for 100 people (¥500/month)",
-    "trialButton": "Apply for Early Access",
+    "description": "Experience the power of TapForge with our limited beta testing until 10/18/2025",
+    "trialButton": "Apply for Beta Testing",
     "contactButton": "Contact (For Co-creation Partners)",
     "tapNow": "Tap Now!",
     "profileDisplay": "Profile Display",
     "features": {
       "noApp": "No App Required",
-      "free": "No Initial Cost",
-      "multilingual": "4 Languages",
+      "free": "¥700 (shipping incl.)",
+      "multilingual": "2 Languages (5 planned)",
       "aiScanning": "AI Business Card Scanning"
     }
   },
   "trialForm": {
-    "title": "Apply for Early Access",
-    "description": "We'll create one business card for you for free.",
-    "subDescription": "Unlimited design changes, AI business card scanning & VCard conversion available",
+    "title": "Apply for Beta Testing",
+    "description": "Original NFC business card you can use forever for ¥700 (shipping included)!",
+    "subDescription": "Unlimited link site design changes, AI business card scanning & VCard conversion available",
     "contactFormTitle": "Contact Form",
-    "contactFormDescription": "To apply for early access (¥500/month), please contact us through the button below.",
+    "contactFormDescription": "To apply for beta testing, please contact us through the button below.",
     "contactFormButton": "Go to Contact Form",
     "termsText": "By applying, you agree to our ",
     "termsLink": "Terms of Service",
@@ -92,32 +92,42 @@
   "costComparison": {
     "title": "Cost Comparison",
     "traditional": {
-      "title": "Traditional Paper Business Cards",
+      "title": "Traditional Paper Business Cards + Card Management App",
       "period": "500 cards per year",
       "printingCost": "Printing cost: ¥5,000",
       "orgTime": "Organization time: 30 minutes",
-      "envImpact": "Environmental impact: High"
+      "envImpact": "Environmental impact: High",
+      "badges": {
+        "cost": "¥11K",
+        "time": "30min",
+        "impact": "High"
+      }
     },
     "tapforge": {
       "title": "TapForge",
-      "period": "Monthly fee",
-      "monthlyCost": "Monthly fee: ¥500~",
+      "period": "¥700",
+      "monthlyCost": "Monthly fee: ¥0",
       "orgTime": "Organization time: 5 minutes",
-      "envImpact": "Environmental impact: Zero"
+      "envImpact": "Environmental impact: Zero",
+      "badges": {
+        "cost": "¥700",
+        "time": "5min",
+        "impact": "Zero"
+      }
     },
-    "targetAudience": "Perfect for freelancers who want to increase overseas projects"
+    "targetAudience": "Perfect for SMEs and freelancers"
   },
   "features": {
     "title": "TapForge Features",
     "subtitle": "Revolutionizing business card exchange with cutting-edge technology",
     "items": {
       "aiScan": {
-        "title": "AI Business Card Scanning & VCard Conversion",
-        "description": "Digitize paper business cards with AI (95% accuracy) and save as VCard to smartphones"
+        "title": "NFC Business Card with OCR Reading Function",
+        "description": "Integrates OCR function for free, normally a separate app feature. Digitize paper business cards with AI and save directly to device"
       },
       "multilingual": {
         "title": "Multilingual Support",
-        "description": "Automatically switches between 4 languages: Japanese, English, Chinese (Simplified), Spanish"
+        "description": "Currently supports 2 languages: Japanese & English. Chinese, Korean, and Spanish will be added for 5-language support"
       },
       "noApp": {
         "title": "No App Required",
@@ -130,29 +140,48 @@
     },
     "pricing": {
       "title": "Pricing (Tax Included)",
-      "plans": {
+      "betaTitle": "Beta Testing (Limited until 10/18/2025)",
+      "regularTitle": "Regular Pricing",
+      "beta": {
+        "initial": {
+          "title": "Initial Cost",
+          "price": "¥700",
+          "description": "Shipping included"
+        },
+        "monthly": {
+          "title": "Monthly",
+          "price": "¥0",
+          "description": "No monthly fee"
+        },
+        "additional": {
+          "title": "Additional Cards",
+          "price": "¥500",
+          "description": "2nd card onwards/shipping incl."
+        }
+      },
+      "regular": {
         "initial": {
           "title": "Initial Cost",
           "price": "¥0",
-          "description": "First card free"
+          "description": "Free initial cost"
+        },
+        "monthly": {
+          "title": "Monthly",
+          "price": "¥500~/account",
+          "description": "For 6+ months continuous use"
         },
         "additional": {
           "title": "Additional Cards",
           "price": "¥600",
-          "description": "2nd card onwards"
-        },
-        "monthly": {
-          "title": "Monthly Fee",
-          "price": "¥500~",
-          "description": "Monthly plan"
+          "description": "2nd card onwards/shipping incl.\n(¥500/card for bulk orders of 10+)"
         }
       },
-      "tagline": "Industry's lowest price for NFC cards with OCR function - Offering features normally costing 11,000 yen annually for 500 yen~/month"
+      "tagline": "Industry's lowest price for NFC cards with OCR function - Beta: ¥700 initial only, Regular: ¥0 initial + ¥500~/month"
     },
     "demo": {
       "title": "Demo Video",
       "description": "AI Business Card Scanning Demo Video",
-      "note": "(YouTube link coming soon)"
+      "note": ""
     }
   },
   "benefits": {
@@ -161,8 +190,8 @@
     "items": {
       "costReduction": {
         "title": "Cost Reduction",
-        "metric": "¥8,000",
-        "description": "Traditional paper cards 5,000 yen + OCR app 6,000 yen → TapForge 500 yen~/month"
+        "metric": "¥5,000",
+        "description": "¥11,000→¥6,000 (for 6+ months continuous use)"
       },
       "timeEfficiency": {
         "title": "Efficiency",
@@ -176,7 +205,7 @@
       },
       "environmental": {
         "title": "Environmental Consideration",
-        "metric": "500 cards",
+        "metric": "300 cards",
         "description": "Annual paper reduction contributes to SDGs"
       }
     },
@@ -184,42 +213,48 @@
       "title": "Detailed Comparison",
       "headers": {
         "item": "Item",
-        "traditional": "Traditional Paper Business Cards",
+        "traditional": "Traditional Paper Business Cards + OCR App",
         "tapforge": "TapForge"
       },
       "rows": {
         "annualCost": {
           "item": "Annual Cost",
           "traditional": "¥11,000",
+          "traditionalNote": "Paper business cards + OCR app",
           "tapforge": "¥6,000",
-          "tapforgeNote": "(500 yen~/month)"
+          "tapforgeNote": "(For 6+ months continuous use)"
         },
         "organizationTime": {
           "item": "Organization Time",
-          "traditional": "30 min/50 cards",
+          "traditional": "30 min",
+          "traditionalUnit": "/50 cards",
           "tapforge": "5 min",
-          "tapforgeNote": "/50 cards"
+          "tapforgeUnit": "/50 cards"
         },
         "followUpRate": {
           "item": "Follow-up Rate",
           "traditional": "15%",
-          "tapforge": "40%"
+          "tapforge": "40%",
+          "label": "Follow-up Rate"
         },
         "multilingual": {
           "item": "Multilingual Support",
           "traditional": "None",
-          "tapforge": "4 Languages",
-          "tapforgeNote": "Support"
+          "traditionalLabel": "Multilingual Support",
+          "tapforge": "2 Languages",
+          "tapforgeNote": "(5 planned)"
         },
         "environmentalImpact": {
           "item": "Environmental Impact",
-          "traditional": "High (Paper use)",
+          "traditional": "High",
+          "traditionalNote": "(Paper use)",
           "tapforge": "Zero",
           "tapforgeNote": "(Paperless)"
         },
         "updateEase": {
           "item": "Update Ease",
-          "traditional": "Re-printing required",
+          "traditional": "Re-printing",
+          "traditionalNote": "required",
           "tapforge": "Instant",
           "tapforgeNote": "Update possible"
         }
@@ -251,7 +286,7 @@
       "goal10": {
         "title": "Reduced Inequalities",
         "items": [
-          "4-language support",
+          "2 languages (5 planned)",
           "Elimination of inequality in international projects",
           "Elimination of language barriers"
         ]
@@ -285,7 +320,7 @@
     }
   },
   "partnerProgram": {
-    "title": "Co-creation Partner Program",
+    "title": "Co-creation Partner Preferential Program",
     "subtitle": "Special pricing based on long-term partnership",
     "heading": "To customers using other services of Cor. Co., Ltd.",
     "description": "For customers using other services of Cor. Co., Ltd., we provide special pricing based on long-term partnership.",
@@ -318,7 +353,7 @@
       {
         "name": "Mr. Suzuki",
         "role": "Web Designer",
-        "message": "Paper business card organization completed in 5 minutes! English profiles have increased overseas projects. AI business card shooting accuracy is high, and VCard conversion is smooth. It's really a convenient service for freelancers.",
+        "message": "Paper business card organization completed in 5 minutes! English profiles have increased overseas projects. AI business card scanning accuracy is high, and VCard conversion is smooth. It's really a convenient service for freelancers.",
         "tags": [
           "Efficiency",
           "Overseas Projects",
@@ -336,7 +371,11 @@
         ]
       }
     ],
-    "note": "These voices are hypothetical. We plan to select 5 actual reviews from 100 early access participants and replace them."
+    "note": "These voices are hypothetical. We plan to select 5 actual reviews from beta testing participants and replace them.",
+    "comingSoon": {
+      "heading": "Coming Soon...",
+      "message": "Real voices from beta test participants will be published soon"
+    }
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -348,19 +387,35 @@
       },
       {
         "question": "What is the accuracy of business card reading?",
-        "answer": "AI business card shooting and VCard conversion accuracy is 95%. We aim for further accuracy improvement through continuous improvement.\nIf recognition fails, manual correction is also possible."
+        "answer": "AI business card scanning and VCard conversion accuracy is 95%. We aim for further accuracy improvement through continuous improvement.\nIf recognition fails, manual correction is also possible."
       },
       {
-        "question": "Can I change the design myself?",
-        "answer": "Unlimited design changes are possible from the management screen.\nYou can choose from 3 types of light colors (white, light blue, beige), and text and contact information can be easily updated."
+        "question": "Can I change the link site design myself?",
+        "answer": "Unlimited design changes are possible from the management screen.\nText and contact information can be easily updated."
       },
       {
         "question": "Please tell me how to use multilingual support",
-        "answer": "You can switch to 4 languages (Japanese, English, Chinese, Spanish) yourself.\nYou can select the display language on the profile screen, so you can use it in your preferred language regardless of the other party's smartphone language settings."
+        "answer": "Currently supports 2 languages (Japanese & English) that you can switch between. Chinese, Korean, and Spanish will be added for 5-language support.\nYou can select the display language on the profile screen, so you can use it in your preferred language regardless of the other party's smartphone language settings."
       },
       {
         "question": "Can it be used offline?",
         "answer": "Currently, we recommend using it in an online environment.\nOffline functionality is under consideration for the future. We prioritize stable service provision in an online environment, taking advantage of the no-app benefit."
+      },
+      {
+        "question": "What is the subscription pricing plan?",
+        "answer": "It's a 3-month renewal system: ¥700 for months 1-3, ¥600 for months 4-6, and ¥500 from month 6 onwards. The longer you continue, the more affordable the plan becomes."
+      },
+      {
+        "question": "Is it possible to order with a one-time purchase?",
+        "answer": "Yes, it is possible. You can discuss pricing starting from ¥3,000 per account. For details, please contact us through the <a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">contact form</a>."
+      },
+      {
+        "question": "Can anyone apply for beta testing?",
+        "answer": "Beta testing is only available for customers in Japan. If you wish to order from overseas, please contact us individually through the <a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">contact form</a>."
+      },
+      {
+        "question": "What should I do if I want to change the design of my business card?",
+        "answer": "You can order additional cards (starting from ¥500/card). Please consult us through the <a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">contact form</a>."
       }
     ],
     "additionalHelp": {
@@ -382,7 +437,7 @@
     "contact": {
       "title": "Contact",
       "company": "Cor. Co., Ltd.",
-      "trial": "Early Access"
+      "trial": "Apply for Beta Testing"
     },
     "copyright": "© 2025 TapForge by Cor. Co., Ltd. All rights reserved.",
     "legal": {

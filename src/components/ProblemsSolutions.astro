@@ -331,7 +331,7 @@ const t = translations.problems;
                     <div
                       class="w-10 h-10 bg-white rounded-full border-2 border-red-500 flex items-center justify-center shadow-lg mr-3 flex-shrink-0"
                     >
-                      <span class="text-xs font-black text-red-600">¥11K</span>
+                      <span class="text-xs font-black text-red-600">{translations.costComparison?.traditional?.badges?.cost || ''}</span>
                     </div>
                     <span id="traditional-printing-cost"
                       >{translations.costComparison?.traditional?.printingCost || ''}</span
@@ -341,7 +341,7 @@ const t = translations.problems;
                     <div
                       class="w-10 h-10 bg-white rounded-full border-2 border-red-500 flex items-center justify-center shadow-lg mr-3 flex-shrink-0"
                     >
-                      <span class="text-xs font-black text-red-600">30分</span>
+                      <span class="text-xs font-black text-red-600">{translations.costComparison?.traditional?.badges?.time || ''}</span>
                     </div>
                     <span id="traditional-org-time">{translations.costComparison?.traditional?.orgTime || ''}</span>
                   </div>
@@ -349,7 +349,7 @@ const t = translations.problems;
                     <div
                       class="w-10 h-10 bg-white rounded-full border-2 border-red-500 flex items-center justify-center shadow-lg mr-3 flex-shrink-0"
                     >
-                      <span class="text-xs font-black text-red-600">高</span>
+                      <span class="text-xs font-black text-red-600">{translations.costComparison?.traditional?.badges?.impact || ''}</span>
                     </div>
                     <span id="traditional-env-impact">{translations.costComparison?.traditional?.envImpact || ''}</span>
                   </div>
@@ -399,7 +399,7 @@ const t = translations.problems;
                       class="text-sm text-gray-600 mb-6 font-medium"
                       id="tapforge-period"
                     >
-                      月額500円（早期アクセス）
+                      {translations.costComparison?.tapforge?.monthlyCost || ''}
                     </div>
                   </div>
                   <div class="space-y-4 text-sm text-gray-600">
@@ -412,7 +412,7 @@ const t = translations.problems;
                         <div
                           class="relative w-10 h-10 bg-white rounded-full border-2 border-red-500 flex items-center justify-center shadow-lg"
                         >
-                          <span class="text-xs font-black text-red-600">¥500</span
+                          <span class="text-xs font-black text-red-600">{translations.costComparison?.tapforge?.badges?.cost || ''}</span
                           >
                         </div>
                       </div>
@@ -431,7 +431,7 @@ const t = translations.problems;
                           class="relative w-10 h-10 bg-white rounded-full border-2 border-orange-500 flex items-center justify-center shadow-lg"
                         >
                           <span class="text-xs font-black text-orange-600"
-                            >5分</span
+                            >{translations.costComparison?.tapforge?.badges?.time || ''}</span
                           >
                         </div>
                       </div>
@@ -450,7 +450,7 @@ const t = translations.problems;
                           class="relative w-10 h-10 bg-white rounded-full border-2 border-green-500 flex items-center justify-center shadow-lg"
                         >
                           <span class="text-xs font-black text-green-600"
-                            >ゼロ</span
+                            >{translations.costComparison?.tapforge?.badges?.impact || ''}</span
                           >
                         </div>
                       </div>

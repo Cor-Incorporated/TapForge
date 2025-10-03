@@ -11,13 +11,13 @@
     "title": "Conecta con el mundo con un toque.",
     "subtitle": "Tarjeta de presentación de próxima generación",
     "description": "impulsada por IA para acelerar tu negocio",
-    "subDescription": "Sin aplicación requerida, sin costo inicial. Comparte perfiles multilingües con un toque NFC.\nApoyando a freelancers en la adquisición de proyectos en el extranjero.",
-    "cta": "Solicitar Acceso Anticipado",
-    "limited": "¡Limitado a 100!",
+    "subDescription": "Sin aplicación requerida. Comparte perfiles multilingües con un toque NFC. Apoyando la adquisición de proyectos en el extranjero.",
+    "cta": "Solicitar Prueba Beta",
+    "limited": "¡Limitado hasta 10/18/2025!",
     "features": {
       "noApp": "Sin App Requerida",
-      "free": "Sin Costo Inicial",
-      "multilingual": "4 Idiomas"
+      "free": "¥700 (envío incl.)",
+      "multilingual": "2 Idiomas (5 planificados)"
     }
   },
   "problems": {
@@ -27,7 +27,7 @@
       "title": "Problemas de Freelancers",
       "cost": {
         "title": "Costo de tarjetas de presentación de papel",
-        "description": "Aproximadamente 5,000 yenes por 500 tarjetas al año"
+        "description": "Aproximadamente ¥5,000 por 500 tarjetas al año"
       },
       "organization": {
         "title": "Molestia de organización",
@@ -46,15 +46,15 @@
       "title": "Soluciones TapForge",
       "cost": {
         "title": "Costo Cero",
-        "description": "Costo inicial 0 yenes, mensualidad 500 yenes~"
+        "description": "Costo inicial ¥0, mensualidad ¥500-700"
       },
       "time": {
         "title": "Completo en 5 minutos",
         "description": "Escaneo de tarjetas con IA a conversión VCard"
       },
       "language": {
-        "title": "Soporte de 4 idiomas",
-        "description": "Japonés, inglés, chino, español para negocios internacionales"
+        "title": "2 Idiomas (5 planificados)",
+        "description": "Actualmente japonés e inglés, 5 idiomas planificados para negocios internacionales"
       },
       "followup": {
         "title": "40% Tasa de seguimiento",
@@ -64,24 +64,24 @@
   },
   "cta": {
     "title": "¿Listo para comenzar?",
-    "description": "Experimenta el poder de TapForge con nuestro acceso anticipado limitado para 100 personas (500 yenes/mes)",
-    "trialButton": "Solicitar Acceso Anticipado",
+    "description": "Experimenta el poder de TapForge con nuestra prueba beta limitada hasta 10/18/2025",
+    "trialButton": "Solicitar Prueba Beta",
     "contactButton": "Contacto (Para Socios de Co-creación)",
     "tapNow": "¡Toca Ahora!",
     "profileDisplay": "Visualización de Perfil",
     "features": {
       "noApp": "Sin App Requerida",
-      "free": "Sin Costo Inicial",
-      "multilingual": "4 Idiomas",
+      "free": "¥700 (envío incl.)",
+      "multilingual": "2 Idiomas (5 planificados)",
       "aiScanning": "Escaneo de Tarjetas con IA"
     }
   },
   "trialForm": {
-    "title": "Solicitar Acceso Anticipado",
-    "description": "Crearemos una tarjeta de presentación para ti gratis.",
-    "subDescription": "Cambios de diseño ilimitados, escaneo de tarjetas con IA y conversión VCard disponibles",
+    "title": "Solicitar Prueba Beta",
+    "description": "¡Tarjeta de presentación NFC original que puedes usar para siempre por ¥700 (envío incluido)!",
+    "subDescription": "Cambios de diseño del sitio de enlace ilimitados, escaneo de tarjetas con IA y conversión VCard disponibles",
     "contactFormTitle": "Formulario de Contacto",
-    "contactFormDescription": "Para solicitar el acceso anticipado (500 yenes/mes), contáctanos a través del botón de abajo.",
+    "contactFormDescription": "Para solicitar la prueba beta, contáctanos a través del botón de abajo.",
     "contactFormButton": "Ir al Formulario de Contacto",
     "termsText": "Al solicitar, aceptas nuestros ",
     "termsLink": "Términos de Servicio",
@@ -92,20 +92,30 @@
   "costComparison": {
     "title": "Comparación de Costos",
     "traditional": {
-      "title": "Tarjetas de Papel Tradicionales",
+      "title": "Tarjetas de Papel Tradicionales + App de Gestión",
       "period": "500 tarjetas al año",
       "printingCost": "Costo de impresión: ¥5,000",
       "orgTime": "Tiempo de organización: 30 minutos",
-      "envImpact": "Impacto ambiental: Alto"
+      "envImpact": "Impacto ambiental: Alto",
+      "badges": {
+        "cost": "¥11K",
+        "time": "30min",
+        "impact": "Alto"
+      }
     },
     "tapforge": {
       "title": "TapForge",
-      "period": "Cuota mensual",
-      "monthlyCost": "Cuota mensual: ¥500~",
+      "period": "¥700",
+      "monthlyCost": "Cuota mensual: ¥0",
       "orgTime": "Tiempo de organización: 5 minutos",
-      "envImpact": "Impacto ambiental: Cero"
+      "envImpact": "Impacto ambiental: Cero",
+      "badges": {
+        "cost": "¥700",
+        "time": "5min",
+        "impact": "Cero"
+      }
     },
-    "targetAudience": "Perfecto para freelancers que quieren aumentar proyectos internacionales"
+    "targetAudience": "Perfecto para PYMEs y freelancers"
   },
   "features": {
     "title": "Características de TapForge",
@@ -113,11 +123,11 @@
     "items": {
       "aiScan": {
         "title": "Tarjeta NFC con función OCR de lectura de tarjetas",
-        "description": "Integra gratis la función OCR que normalmente cuesta 500 yenes al mes en una app separada. Digitaliza tarjetas de papel con IA (95% de precisión) y guarda como VCard directamente en smartphones"
+        "description": "Integra gratis la función OCR que normalmente es una aplicación separada. Digitaliza tarjetas de papel con IA y guarda directamente en el dispositivo"
       },
       "multilingual": {
         "title": "Soporte Multilingüe",
-        "description": "Cambia automáticamente entre 4 idiomas: japonés, inglés, chino (simplificado), español"
+        "description": "Actualmente soporta 2 idiomas: japonés e inglés. Se añadirán chino, coreano y español para soporte de 5 idiomas"
       },
       "noApp": {
         "title": "Sin App Requerida",
@@ -130,29 +140,48 @@
     },
     "pricing": {
       "title": "Sistema de Precios (Impuestos Incluidos)",
-      "plans": {
+      "betaTitle": "Prueba Beta (Limitado hasta 10/18/2025)",
+      "regularTitle": "Precios Regulares",
+      "beta": {
+        "initial": {
+          "title": "Costo Inicial",
+          "price": "¥700",
+          "description": "Envío incluido"
+        },
+        "monthly": {
+          "title": "Cuota Mensual",
+          "price": "¥0",
+          "description": "Sin cuota mensual"
+        },
+        "additional": {
+          "title": "Tarjetas Adicionales",
+          "price": "¥500",
+          "description": "Desde la segunda/envío incl."
+        }
+      },
+      "regular": {
         "initial": {
           "title": "Costo Inicial",
           "price": "¥0",
-          "description": "Primera tarjeta gratis"
+          "description": "Costo inicial gratis"
+        },
+        "monthly": {
+          "title": "Cuota Mensual",
+          "price": "¥500~/cuenta",
+          "description": "Para uso continuo de 6+ meses"
         },
         "additional": {
           "title": "Tarjetas Adicionales",
           "price": "¥600",
-          "description": "Desde la segunda"
-        },
-        "monthly": {
-          "title": "Cuota Mensual",
-          "price": "¥500~",
-          "description": "Plan mensual"
+          "description": "Desde la segunda/envío incl.\n(¥500/tarjeta para pedidos de 10+)"
         }
       },
-      "tagline": "El precio más bajo de la industria para tarjetas NFC con función OCR - Ofreciendo funciones que normalmente cuestan 11,000 yenes anuales por 500 yenes~/mes"
+      "tagline": "El precio más bajo de la industria para tarjetas NFC con función OCR - Beta: ¥700 inicial solamente, Regular: ¥0 inicial + ¥500~/mes"
     },
     "demo": {
       "title": "Video Demo",
       "description": "Video demo de escaneo de tarjetas con IA",
-      "note": "(Enlace de YouTube próximamente)"
+      "note": ""
     }
   },
   "benefits": {
@@ -161,8 +190,8 @@
     "items": {
       "costReduction": {
         "title": "Reducción de Costos",
-        "metric": "¥8,000",
-        "description": "Tarjetas de papel tradicionales 5,000 yenes + App OCR 6,000 yenes → TapForge 500 yenes~/mes"
+        "metric": "¥5,000",
+        "description": "¥11,000→¥6,000 (para uso continuo de 6+ meses)"
       },
       "timeEfficiency": {
         "title": "Eficiencia",
@@ -176,7 +205,7 @@
       },
       "environmental": {
         "title": "Consideración Ambiental",
-        "metric": "500 tarjetas",
+        "metric": "300 tarjetas",
         "description": "Reducción anual de papel contribuye a los ODS"
       }
     },
@@ -191,35 +220,41 @@
         "annualCost": {
           "item": "Costo Anual",
           "traditional": "¥11,000",
+          "traditionalNote": "Tarjetas de papel + App OCR",
           "tapforge": "¥6,000",
-          "tapforgeNote": "(500 yenes~/mes)"
+          "tapforgeNote": "(Para uso continuo de 6+ meses)"
         },
         "organizationTime": {
           "item": "Tiempo de Organización",
-          "traditional": "30 min/50 tarjetas",
+          "traditional": "30 min",
+          "traditionalUnit": "/50 tarjetas",
           "tapforge": "5 min",
-          "tapforgeNote": "/50 tarjetas"
+          "tapforgeUnit": "/50 tarjetas"
         },
         "followUpRate": {
           "item": "Tasa de Seguimiento",
           "traditional": "15%",
-          "tapforge": "40%"
+          "tapforge": "40%",
+          "label": "Tasa de Seguimiento"
         },
         "multilingual": {
           "item": "Soporte Multilingüe",
           "traditional": "Ninguno",
-          "tapforge": "4 Idiomas",
-          "tapforgeNote": "Soporte"
+          "traditionalLabel": "Soporte Multilingüe",
+          "tapforge": "2 Idiomas",
+          "tapforgeNote": "(5 planificados)"
         },
         "environmentalImpact": {
           "item": "Impacto Ambiental",
-          "traditional": "Alto (Uso de papel)",
+          "traditional": "Alto",
+          "traditionalNote": "(Uso de papel)",
           "tapforge": "Cero",
           "tapforgeNote": "(Sin papel)"
         },
         "updateEase": {
           "item": "Facilidad de Actualización",
-          "traditional": "Reimpresión requerida",
+          "traditional": "Reimpresión",
+          "traditionalNote": "requerida",
           "tapforge": "Instantáneo",
           "tapforgeNote": "Actualizable"
         }
@@ -242,15 +277,27 @@
     "goals": {
       "goal12": {
         "title": "Producción y Consumo Responsables",
-        "items": ["Sin papel", "500 hojas de papel reducidas anualmente", "Consumo sostenible"]
+        "items": [
+          "Sin papel",
+          "500 hojas de papel reducidas anualmente",
+          "Consumo sostenible"
+        ]
       },
       "goal10": {
         "title": "Reducción de las Desigualdades",
-        "items": ["Soporte de 4 idiomas", "Eliminación de desigualdad en proyectos internacionales", "Eliminación de barreras lingüísticas"]
+        "items": [
+          "2 idiomas (5 planificados)",
+          "Eliminación de desigualdad en proyectos internacionales",
+          "Eliminación de barreras lingüísticas"
+        ]
       },
       "goal17": {
         "title": "Alianzas para Lograr los Objetivos",
-        "items": ["Co-creación a través del intercambio de tarjetas", "Conexiones globales", "Compartir innovación tecnológica"]
+        "items": [
+          "Co-creación a través del intercambio de tarjetas",
+          "Conexiones globales",
+          "Compartir innovación tecnológica"
+        ]
       }
     },
     "environmental": {
@@ -273,7 +320,7 @@
     }
   },
   "partnerProgram": {
-    "title": "Programa de Socios de Co-creación",
+    "title": "Programa de Socios de Co-creación Preferencial",
     "subtitle": "Precios especiales basados en asociación a largo plazo",
     "heading": "Para clientes que usan otros servicios de Cor. Co., Ltd.",
     "description": "Para clientes que usan otros servicios de Cor. Co., Ltd., proporcionamos precios especiales basados en asociación a largo plazo.",
@@ -307,16 +354,28 @@
         "name": "Sr. Suzuki",
         "role": "Diseñador Web",
         "message": "¡Organización de tarjetas de papel completada en 5 minutos! Los perfiles en inglés han aumentado los proyectos internacionales. La precisión del escaneo de tarjetas con IA es alta, y la conversión VCard es fluida. Es realmente un servicio conveniente para freelancers.",
-        "tags": ["Eficiencia", "Proyectos Internacionales", "Precisión IA"]
+        "tags": [
+          "Eficiencia",
+          "Proyectos Internacionales",
+          "Precisión IA"
+        ]
       },
       {
         "name": "Sr. Tanaka",
         "role": "Consultor IT",
         "message": "Sin app requerida, simple. Causa buena impresión en los clientes. El soporte multilingüe ha hecho fluida la comunicación con clientes extranjeros. El rendimiento costo-beneficio también es excelente.",
-        "tags": ["Operación Fácil", "Buena Impresión", "Rendimiento Costo-Beneficio"]
+        "tags": [
+          "Operación Fácil",
+          "Buena Impresión",
+          "Rendimiento Costo-Beneficio"
+        ]
       }
     ],
-    "note": "Estas voces son hipotéticas. Planeamos seleccionar 5 reseñas reales de 100 participantes del acceso anticipado y reemplazarlas."
+    "note": "Estas voces son hipotéticas. Planeamos seleccionar 5 reseñas reales de participantes de la prueba beta y reemplazarlas.",
+    "comingSoon": {
+      "heading": "Próximamente...",
+      "message": "Se publicarán pronto las voces reales de los participantes de la prueba beta"
+    }
   },
   "faq": {
     "title": "Preguntas Frecuentes",
@@ -331,16 +390,32 @@
         "answer": "La precisión del escaneo de tarjetas con IA y conversión VCard es del 95%. Apuntamos a mejorar aún más la precisión a través de mejoras continuas.\nSi el reconocimiento falla, también es posible la corrección manual."
       },
       {
-        "question": "¿Puedo cambiar el diseño yo mismo?",
-        "answer": "Los cambios de diseño ilimitados son posibles desde la pantalla de administración.\nPuedes elegir entre 3 tipos de colores claros (blanco, azul claro, beige), y la información de texto y contacto se puede actualizar fácilmente."
+        "question": "¿Puedo cambiar el diseño del sitio de enlace yo mismo?",
+        "answer": "Los cambios de diseño ilimitados son posibles desde la pantalla de administración.\nLa información de texto y contacto se puede actualizar fácilmente."
       },
       {
         "question": "Por favor, dime cómo usar el soporte multilingüe",
-        "answer": "Puedes cambiar a 4 idiomas (japonés, inglés, chino, español) tú mismo.\nPuedes seleccionar el idioma de visualización en la pantalla de perfil, por lo que puedes usarlo en tu idioma preferido independientemente de la configuración de idioma del smartphone de la otra parte."
+        "answer": "Actualmente soporta 2 idiomas (japonés e inglés) entre los que puedes cambiar. Se añadirán chino, coreano y español para soporte de 5 idiomas.\nPuedes seleccionar el idioma de visualización en la pantalla de perfil, por lo que puedes usarlo en tu idioma preferido independientemente de la configuración de idioma del smartphone de la otra parte."
       },
       {
         "question": "¿Se puede usar sin conexión?",
         "answer": "Actualmente recomendamos usarlo en un entorno en línea.\nLa funcionalidad sin conexión está en consideración para el futuro. Priorizamos la provisión de servicio estable en un entorno en línea, aprovechando el beneficio de no necesitar app."
+      },
+      {
+        "question": "¿Cuál es el plan de precios de suscripción?",
+        "answer": "Es un sistema de renovación de 3 meses: ¥700 para los meses 1-3, ¥600 para los meses 4-6, y ¥500 desde el mes 6 en adelante. Cuanto más tiempo continúes, más asequible será el plan."
+      },
+      {
+        "question": "¿Es posible ordenar con una compra única?",
+        "answer": "Sí, es posible. Puede discutir precios desde ¥3,000 por cuenta. Para detalles, contáctenos a través del <a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">formulario de contacto</a>."
+      },
+      {
+        "question": "¿Cualquiera puede solicitar la prueba beta?",
+        "answer": "La prueba beta está disponible solo para clientes en Japón. Si desea realizar un pedido desde el extranjero, contáctenos individualmente a través del <a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">formulario de contacto</a>."
+      },
+      {
+        "question": "¿Qué debo hacer si quiero cambiar el diseño de mi tarjeta de presentación?",
+        "answer": "Puede pedir tarjetas adicionales (desde ¥500/tarjeta). Contáctenos a través del <a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">formulario de contacto</a>."
       }
     ],
     "additionalHelp": {
@@ -362,7 +437,7 @@
     "contact": {
       "title": "Contacto",
       "company": "Cor. Co., Ltd.",
-      "trial": "Acceso Anticipado"
+      "trial": "Solicitar Prueba Beta"
     },
     "copyright": "© 2025 TapForge por Cor. Co., Ltd. Todos los derechos reservados.",
     "legal": {

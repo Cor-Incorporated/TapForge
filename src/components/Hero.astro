@@ -29,17 +29,6 @@ const t = {
     multilingual: getT("hero.features.multilingual"),
   }
 };
-
-// Language-specific limited text
-const limitedText = {
-  ja: "100名限定!",
-  en: "Limited to 100!",
-  zh: "限100名！",
-  ko: "100명 한정!",
-  es: "¡Limitado a 100!"
-};
-
-const currentLimited = limitedText[lang] || limitedText.ja;
 ---
 
 <section
@@ -97,7 +86,9 @@ const currentLimited = limitedText[lang] || limitedText.ja;
         <!-- CTA Button -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#trial"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSd0dpyBUrMdn6at54hMMp_iglqNsHx7m4aI9-_DONCoZ06s2A/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
             class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center justify-center min-h-[48px]"
             id="hero-cta"
           >

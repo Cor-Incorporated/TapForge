@@ -59,3 +59,15 @@ export function getTranslation(translations: any, key: string): string {
 export function createTranslator(translations: any) {
   return (key: string) => getTranslation(translations, key);
 }
+
+// 言語に応じたお問い合わせフォームのURLを取得
+export function getContactUrl(locale: Language): string {
+  const baseUrl = "https://cor-jp.com";
+  
+  // 日本語の場合はプレフィックスなし、その他の言語はプレフィックス付き
+  if (locale === "ja") {
+    return `${baseUrl}/contact/`;
+  }
+  
+  return `${baseUrl}/${locale}/contact/`;
+}

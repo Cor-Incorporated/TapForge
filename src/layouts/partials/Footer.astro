@@ -1,12 +1,14 @@
 ---
-import { translations, type Language } from "../../lib/i18n";
+import { loadTranslation } from "../../utils/i18n";
+import type { Language } from "../../lib/i18n";
 
 interface Props {
   lang: Language;
 }
 
 const { lang = "ja" } = Astro.props;
-const t = translations[lang].footer;
+const translations = await loadTranslation(lang);
+const t = translations.footer;
 ---
 
 <footer class="bg-gray-900 text-white py-16">
@@ -79,14 +81,6 @@ const t = translations[lang].footer;
               class="text-gray-300 hover:text-white transition-colors"
             >
               {t.contact.company}
-            </a>
-          </li>
-          <li>
-            <a
-              href="#trial"
-              class="text-gray-300 hover:text-white transition-colors smooth-scroll"
-            >
-              {t.contact.trial}
             </a>
           </li>
           <li>

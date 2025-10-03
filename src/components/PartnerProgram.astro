@@ -1,6 +1,6 @@
 ---
-import { loadTranslation, getLocaleFromPathname } from '../utils/i18n';
 import type { Language } from '../lib/i18n';
+import { getContactUrl, getLocaleFromPathname, loadTranslation } from '../utils/i18n';
 
 interface Props {
   lang: Language;
@@ -10,6 +10,7 @@ const { lang } = Astro.props;
 const locale = lang || getLocaleFromPathname(Astro.url.pathname);
 const translations = await loadTranslation(locale);
 const t = translations.partnerProgram;
+const contactUrl = getContactUrl(locale);
 ---
 
 <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -191,7 +192,7 @@ const t = translations.partnerProgram;
         <!-- CTA Button -->
         <div class="text-center">
           <a
-            href="https://cor-jp.com/contact/"
+            href={contactUrl}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-h-[48px]"

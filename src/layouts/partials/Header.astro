@@ -2,38 +2,27 @@
 import Logo from "@/components/Logo.astro";
 import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
 import { IoSearch } from "react-icons/io5";
-import { getTranslation, type Language } from "../../lib/i18n";
+import { loadTranslation, getLocaleFromPathname, getContactUrl } from "../../utils/i18n";
+import type { Language } from "../../lib/i18n";
 
 // Get current language from URL path
 const pathname = Astro.url.pathname;
-let currentLang: Language = "ja";
+const currentLang = getLocaleFromPathname(pathname);
 
-// Detect language from URL path
-if (pathname.startsWith('/en/') || pathname === '/en') {
-  currentLang = "en";
-} else if (pathname.startsWith('/zh/') || pathname === '/zh') {
-  currentLang = "zh";
-} else if (pathname.startsWith('/ko/') || pathname === '/ko') {
-  currentLang = "ko";
-} else if (pathname.startsWith('/es/') || pathname === '/es') {
-  currentLang = "es";
-}
+// Load translations
+const translations = await loadTranslation(currentLang);
+const nav = translations.nav;
 
 // TapForge navigation menu with i18n
 const homeUrl = currentLang === "ja" ? "/" : `/${currentLang}/`;
+const contactUrl = getContactUrl(currentLang);
 const main = [
-  { name: currentLang === "ko" ? "홈" : getTranslation(currentLang, "nav.home"), url: homeUrl },
-  { name: currentLang === "ko" ? "특징" : getTranslation(currentLang, "nav.features"), url: "#features" },
-  { name: currentLang === "ko" ? "가격" : getTranslation(currentLang, "nav.pricing"), url: "#pricing" },
-  {
-    name: currentLang === "ko" ? "후기" : getTranslation(currentLang, "nav.testimonials"),
-    url: "#testimonials",
-  },
-  { name: currentLang === "ko" ? "FAQ" : getTranslation(currentLang, "nav.faq"), url: "#faq" },
-  {
-    name: currentLang === "ko" ? "문의" : getTranslation(currentLang, "nav.contact"),
-    url: "https://cor-jp.com/contact/",
-  },
+  { name: nav.home, url: homeUrl },
+  { name: nav.features, url: "#features" },
+  { name: nav.pricing, url: "#pricing" },
+  { name: nav.testimonials, url: "#testimonials" },
+  { name: nav.faq, url: "#faq" },
+  { name: nav.contact, url: contactUrl },
 ];
 ---
 

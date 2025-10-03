@@ -11,13 +11,13 @@
     "title": "タップで世界と繋がる。",
     "subtitle": "AI駆動の次世代名刺",
     "description": "であなたのビジネスを加速",
-    "subDescription": "アプリ不要、初期費用無料。NFCタップ一つで多言語プロフィールを共有。\nフリーランサーの海外案件獲得を支援します。",
-    "cta": "早期アクセス申し込み",
-    "limited": "100名限定!",
+    "subDescription": "アプリ不要、NFCタップ一つで多言語プロフィールを共有。海外案件獲得を支援します。",
+    "cta": "βテストユーザー申し込み",
+    "limited": "2025/10/18まで限定!",
     "features": {
       "noApp": "アプリ不要",
-      "free": "初期費用無料",
-      "multilingual": "4言語対応"
+      "free": "送料込み~¥700",
+      "multilingual": "2言語対応（今後5言語予定）"
     }
   },
   "problems": {
@@ -46,15 +46,15 @@
       "title": "TapForgeの解決策",
       "cost": {
         "title": "コストゼロ",
-        "description": "初期費用0円、月額500円〜"
+        "description": "初期費用0円、月額500〜700円"
       },
       "time": {
         "title": "5分で完了",
         "description": "AI名刺撮影でVCard変換"
       },
       "language": {
-        "title": "4言語対応",
-        "description": "日英中西で国際ビジネス支援"
+        "title": "2言語対応（今後5言語予定）",
+        "description": "現在日英対応、今後5言語で国際ビジネス支援"
       },
       "followup": {
         "title": "フォロー率40%",
@@ -64,24 +64,24 @@
   },
   "cta": {
     "title": "今すぐ始めませんか？",
-    "description": "100名限定の早期アクセス（月額500円）で、TapForgeの力を体験してください",
-    "trialButton": "早期アクセス申し込み",
+    "description": "2025/10/18まで限定のβテストで、TapForgeの力を体験してください",
+    "trialButton": "βテストユーザー申し込み",
     "contactButton": "お問い合わせ（共創パートナー向け）",
     "tapNow": "今すぐタップ!",
     "profileDisplay": "プロフィール表示",
     "features": {
       "noApp": "アプリ不要",
-      "free": "初期費用無料",
-      "multilingual": "4言語対応",
+      "free": "送料込み¥700",
+      "multilingual": "2言語対応（今後5言語予定）",
       "aiScanning": "AI名刺撮影"
     }
   },
   "trialForm": {
-    "title": "早期アクセス申し込み",
-    "description": "あなたの名刺を1枚無料で作成します。",
-    "subDescription": "デザイン変更無制限、AI名刺撮影・VCard変換利用可",
+    "title": "βテストユーザー申し込み",
+    "description": "ずっと使えるオリジナルNFC名刺を¥700(送料込み)で提供！",
+    "subDescription": "リンクサイトデザイン変更無制限、AI名刺撮影・VCard変換利用可",
     "contactFormTitle": "お問い合わせフォーム",
-    "contactFormDescription": "早期アクセス（月額500円）のお申し込みは、下記のボタンからお問い合わせください。",
+    "contactFormDescription": "βテストのお申し込みは、下記のボタンからお問い合わせください。",
     "contactFormButton": "お問い合わせフォームへ",
     "termsText": "申し込みにより、",
     "termsLink": "利用規約",
@@ -92,20 +92,30 @@
   "costComparison": {
     "title": "コスト比較",
     "traditional": {
-      "title": "従来の紙名刺",
+      "title": "従来の紙名刺+名刺管理アプリ",
       "period": "年間500枚",
       "printingCost": "印刷費: ¥5,000",
       "orgTime": "整理時間: 30分",
-      "envImpact": "環境負荷: 高"
+      "envImpact": "環境負荷: 高",
+      "badges": {
+        "cost": "¥11K",
+        "time": "30分",
+        "impact": "高"
+      }
     },
     "tapforge": {
       "title": "TapForge",
-      "period": "月額料金",
-      "monthlyCost": "月額料金: ¥500〜",
+      "period": "¥700",
+      "monthlyCost": "月額料金: ¥0",
       "orgTime": "整理時間: 5分",
-      "envImpact": "環境負荷: ゼロ"
+      "envImpact": "環境負荷: ゼロ",
+      "badges": {
+        "cost": "¥700",
+        "time": "5分",
+        "impact": "ゼロ"
+      }
     },
-    "targetAudience": "海外案件を増やしたいフリーランサーに最適"
+    "targetAudience": "中小企業・フリーランサーに最適"
   },
   "features": {
     "title": "TapForgeの特徴",
@@ -113,11 +123,11 @@
     "items": {
       "aiScan": {
         "title": "OCR名刺読み取り機能付きNFC名刺",
-        "description": "通常別アプリで月額500円のOCR機能を無料で統合。紙の名刺をAIでデータ化（精度95%）し、VCardとしてスマートフォンに直接保存"
+        "description": "通常別アプリのOCR機能を無料で統合。紙の名刺をAIでデータ化し、デバイスに直接保存"
       },
       "multilingual": {
         "title": "多言語対応",
-        "description": "日本語、英語、中国語（簡体字）、スペイン語の4言語に自動で切り替わり"
+        "description": "現在日英の2言語対応、今後さらに中韓スペインの3言語を追加予定（計5言語）"
       },
       "noApp": {
         "title": "アプリ不要",
@@ -130,21 +140,40 @@
     },
     "pricing": {
       "title": "料金体系（税込）",
-      "plans": {
+      "betaTitle": "βテスト（2025/10/18まで限定）",
+      "regularTitle": "通常料金",
+      "beta": {
+        "initial": {
+          "title": "初期費用",
+          "price": "¥700",
+          "description": "送料込み"
+        },
+        "monthly": {
+          "title": "月額",
+          "price": "¥0",
+          "description": "月額費用なし"
+        },
+        "additional": {
+          "title": "追加カード",
+          "price": "¥500",
+          "description": "2枚目以降/送料込み"
+        }
+      },
+      "regular": {
         "initial": {
           "title": "初期費用",
           "price": "¥0",
-          "description": "初回無料"
+          "description": "初期費用無料"
+        },
+        "monthly": {
+          "title": "月額",
+          "price": "¥500~/アカウント",
+          "description": "6ヶ月以上継続利用の場合"
         },
         "additional": {
           "title": "追加カード",
           "price": "¥600",
-          "description": "2枚目以降"
-        },
-        "monthly": {
-          "title": "月額料金",
-          "price": "¥500〜",
-          "description": "月額プラン"
+          "description": "2枚目以降/送料込み\n(10枚以上の一括注文で¥500/枚)"
         }
       },
       "tagline": "OCR機能付きNFC名刺の業界最安値 - 通常年間11,000円の機能を月額500円〜で提供"
@@ -152,7 +181,7 @@
     "demo": {
       "title": "デモ動画",
       "description": "AI名刺撮影デモ動画",
-      "note": "（YouTubeリンク予定）"
+      "note": ""
     }
   },
   "benefits": {
@@ -161,8 +190,8 @@
     "items": {
       "costReduction": {
         "title": "コスト削減",
-        "metric": "¥8,000",
-        "description": "従来の紙名刺5,000円+OCRアプリ6,000円→TapForge月額500円〜で実現"
+        "metric": "¥5,000",
+        "description": "¥11,000→¥6,000（6ヶ月以上継続利用）"
       },
       "timeEfficiency": {
         "title": "効率化",
@@ -176,7 +205,7 @@
       },
       "environmental": {
         "title": "環境配慮",
-        "metric": "500枚",
+        "metric": "300枚",
         "description": "年間の紙削減でSDGsに貢献"
       }
     },
@@ -184,42 +213,48 @@
       "title": "詳細比較",
       "headers": {
         "item": "項目",
-        "traditional": "従来の紙名刺+OCRアプリ",
+        "traditional": "従来の紙名刺＋管理アプリ",
         "tapforge": "TapForge"
       },
       "rows": {
         "annualCost": {
           "item": "年間コスト",
           "traditional": "¥11,000",
+          "traditionalNote": "紙名刺+管理アプリ",
           "tapforge": "¥6,000",
-          "tapforgeNote": "（月額500円〜）"
+          "tapforgeNote": "6ヶ月目以降（月額¥500×12）"
         },
         "organizationTime": {
           "item": "整理時間",
-          "traditional": "30分/50枚",
+          "traditional": "30分",
+          "traditionalUnit": "/50枚",
           "tapforge": "5分",
-          "tapforgeNote": "/50枚"
+          "tapforgeUnit": "/50枚"
         },
         "followUpRate": {
           "item": "フォロー率",
           "traditional": "15%",
-          "tapforge": "40%"
+          "tapforge": "40%",
+          "label": "フォロー率"
         },
         "multilingual": {
           "item": "多言語対応",
           "traditional": "なし",
-          "tapforge": "4言語",
-          "tapforgeNote": "対応"
+          "traditionalLabel": "多言語対応",
+          "tapforge": "2言語",
+          "tapforgeNote": "（3言語追加予定）"
         },
         "environmentalImpact": {
           "item": "環境負荷",
-          "traditional": "高（紙使用）",
+          "traditional": "高",
+          "traditionalNote": "（紙使用）",
           "tapforge": "ゼロ",
           "tapforgeNote": "（ペーパーレス）"
         },
         "updateEase": {
           "item": "更新の容易さ",
-          "traditional": "再印刷が必要",
+          "traditional": "再印刷",
+          "traditionalNote": "が必要",
           "tapforge": "即座",
           "tapforgeNote": "更新可能"
         }
@@ -251,7 +286,7 @@
       "goal10": {
         "title": "人や国の不平等をなくそう",
         "items": [
-          "4言語対応",
+          "2言語対応（今後5言語予定）",
           "国際案件での不平等解消",
           "言語バリアの解消"
         ]
@@ -336,7 +371,11 @@
         ]
       }
     ],
-    "note": "これらの声は仮想的なものです。早期アクセス参加者100名の中から5件の実際のレビューを選抜して差し替える予定です。"
+    "note": "これらの声は仮想的なものです。βテスト参加者の中から5件の実際のレビューを選抜して差し替える予定です。",
+    "comingSoon": {
+      "heading": "Coming Soon...",
+      "message": "βテスト参加者の実際の声を掲載予定です"
+    }
   },
   "faq": {
     "title": "よくある質問",
@@ -351,16 +390,32 @@
         "answer": "AI名刺撮影・VCard変換の精度は95%です。継続的な改善により、さらなる精度向上を目指しています。\n認識に失敗した場合は、手動での修正も可能です。"
       },
       {
-        "question": "デザイン変更は自分でできるのですか？",
-        "answer": "管理画面から無制限でデザイン変更が可能です。\nライトカラー（白・ライトブルー・ベージュ）の3種類から選択でき、テキストや連絡先情報も簡単に更新できます。"
+        "question": "リンクサイトのデザイン変更は自分でできるのですか？",
+        "answer": "管理画面から無制限でデザイン変更が可能です。\nテキストや連絡先情報も簡単に更新できます。"
       },
       {
         "question": "多言語対応の使い方を教えてください",
-        "answer": "4言語（日本語・英語・中国語・スペイン語）にご自身で切り替えることができます。\nプロフィール画面で表示言語を選択できるため、相手のスマートフォンの言語設定に関わらず、好きな言語でご利用いただけます。"
+        "answer": "現在2言語（日本語・英語）に対応しており、ご自身で切り替えることができます。今後中国語、韓国語、スペイン語を追加し5言語対応予定です。\nプロフィール画面で表示言語を選択できるため、相手のスマートフォンの言語設定に関わらず、好きな言語でご利用いただけます。"
       },
       {
         "question": "オフラインでも使えますか？",
         "answer": "現在はオンライン環境でのご利用を推奨しています。\nオフライン機能は今後検討中です。アプリ不要のメリットを活かし、オンライン環境での安定したサービス提供を優先しています。"
+      },
+      {
+        "question": "サブスクリプションの料金プランは？",
+        "answer": "3ヶ月ごとの更新制で1~3ヶ月目¥700、4~6ヶ月目¥600、6ヶ月目以降¥500になります。長く継続するほどお得なプランになっています。"
+      },
+      {
+        "question": "買い切り型で注文することは可能ですか？",
+        "answer": "はい、できます。1アカウント¥3000〜ご相談可能です。詳細については<a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">お問い合わせフォーム</a>からご連絡ください。"
+      },
+      {
+        "question": "βテストは誰でも申し込めますか？",
+        "answer": "βテストは日本国内のお客様のみを対象としています。海外からのご注文をご希望の場合は、<a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">お問い合わせフォーム</a>から個別にお問い合わせください。"
+      },
+      {
+        "question": "名刺のデザインを変えたくなった場合、どうしたらいいですか？",
+        "answer": "追加で名刺を注文することができます（¥500/枚～）。<a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">お問い合わせフォーム</a>からご相談ください。"
       }
     ],
     "additionalHelp": {
@@ -382,7 +437,7 @@
     "contact": {
       "title": "お問い合わせ",
       "company": "Cor.株式会社",
-      "trial": "早期アクセス"
+      "trial": "βテストユーザー申し込み"
     },
     "copyright": "© 2025 TapForge by Cor.株式会社. All rights reserved.",
     "legal": {

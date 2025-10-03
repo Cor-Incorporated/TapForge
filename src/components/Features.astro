@@ -1,7 +1,8 @@
 ---
-import { features, pricingPlans, regularPricingPlans } from "../config/features";
-import { loadTranslation, getLocaleFromPathname, createTranslator } from '../utils/i18n';
+import { featureIcons, pricingColors } from "../config/features";
+import { loadTranslation, getLocaleFromPathname } from '../utils/i18n';
 import type { Language } from '../lib/i18n';
+import Youtube from '../layouts/shortcodes/Youtube';
 
 interface Props {
   lang: Language;
@@ -11,6 +12,27 @@ const { lang } = Astro.props;
 const locale = lang || getLocaleFromPathname(Astro.url.pathname);
 const translations = await loadTranslation(locale);
 const t = translations.features;
+
+// Create feature array from translations
+const features = [
+  { id: 'aiScan', ...t.items.aiScan, icon: featureIcons.aiScan },
+  { id: 'multilingual', ...t.items.multilingual, icon: featureIcons.multilingual },
+  { id: 'noApp', ...t.items.noApp, icon: featureIcons.noApp },
+  { id: 'paperless', ...t.items.paperless, icon: featureIcons.paperless },
+];
+
+// Create pricing arrays from translations
+const betaPricing = [
+  { id: 'initial', ...t.pricing.beta.initial, priceColor: pricingColors.beta.initial },
+  { id: 'monthly', ...t.pricing.beta.monthly, priceColor: pricingColors.beta.monthly },
+  { id: 'additional', ...t.pricing.beta.additional, priceColor: pricingColors.beta.additional },
+];
+
+const regularPricing = [
+  { id: 'initial', ...t.pricing.regular.initial, priceColor: pricingColors.regular.initial },
+  { id: 'monthly', ...t.pricing.regular.monthly, priceColor: pricingColors.regular.monthly },
+  { id: 'additional', ...t.pricing.regular.additional, priceColor: pricingColors.regular.additional },
+];
 ---
 
 <section id="features" class="py-20 bg-white">
@@ -77,26 +99,19 @@ const t = translations.features;
       class="mt-16 bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8"
     >
       <div class="text-center">
-        <h3 class="text-2xl font-bold text-gray-900 mb-2" id="pricing-title">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6" id="pricing-title">
           {t.pricing.title}
         </h3>
 
-        <!-- Early Access Counter -->
-        <div class="mb-6 inline-block bg-red-100 rounded-full px-6 py-2">
-          <span class="text-red-600 font-bold text-lg">
-            {t.pricing.earlyAccess}<span id="remaining-slots">100</span>名
-          </span>
-        </div>
-
-        <!-- Early Access Pricing -->
+        <!-- Pricing -->
         <div class="mb-8">
-          <h4 class="text-xl font-bold text-red-600 mb-4">{t.pricing.earlyAccessTitle}</h4>
+          <h4 class="text-xl font-bold text-red-600 mb-4">{t.pricing.betaTitle}</h4>
           <div
             class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-            id="early-pricing-grid"
+            id="beta-pricing-grid"
           >
             {
-              pricingPlans.map((plan, index) => (
+              betaPricing.map((plan, index) => (
                 <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-200">
                   <h4
                     class="font-semibold text-gray-900 mb-2"
@@ -130,7 +145,7 @@ const t = translations.features;
             id="regular-pricing-grid"
           >
             {
-              regularPricingPlans.map((plan, index) => (
+              regularPricing.map((plan, index) => (
                 <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
                   <h4
                     class="font-semibold text-gray-700 mb-2 text-sm"
@@ -195,28 +210,17 @@ const t = translations.features;
       <h3 class="text-2xl font-bold text-gray-900 mb-8" id="demo-title">
         {t.demo.title}
       </h3>
-      <div class="bg-gray-100 rounded-2xl p-8 max-w-2xl mx-auto">
-        <div
-          class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center"
-        >
-          <div class="text-center">
-            <svg
-              class="w-16 h-16 text-gray-400 mx-auto mb-4"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"
-              ></path>
-            </svg>
-            <p class="text-gray-600" id="demo-description">
-              {t.demo.description}
-            </p>
-            <p class="text-sm text-gray-500" id="demo-note">
-              {t.demo.note}
-            </p>
-          </div>
+      <div class="bg-gray-100 rounded-2xl p-8 max-w-3xl mx-auto">
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          <Youtube 
+            client:load
+            id="v-Qxbm72nhk"
+            title="TapForge AI名刺撮影デモ - NFCデジタル名刺"
+          />
         </div>
+        <p class="text-sm text-gray-600 mt-4" id="demo-note">
+          {t.demo.note}
+        </p>
       </div>
     </div>
   </div>

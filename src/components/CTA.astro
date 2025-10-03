@@ -40,17 +40,18 @@ const t = createTranslator(translations);
             </h2>
             <p class="text-lg text-gray-600 mb-2">
               <span class="text-red-500 font-bold" id="trial-limited"
-                >100名限定! 残り<span id="trial-slots">100</span>名</span
+                >{t("hero.limited")}</span
               >
+              <br />
               <span id="trial-description"
-                >永続的に月額500円でご利用いただけます</span
+                >{t("trialForm.description")}</span
               >
             </p>
             <p class="text-sm text-gray-500" id="trial-sub-description">
-              初期費用無料、月額500円（初月NFCカード1枚含む）、最低3ヶ月契約
+              {t("trialForm.subDescription")}
             </p>
           </div>
-
+          <br />
           <!-- Trial Application -->
           <div class="bg-gray-50 rounded-lg p-6">
             <div class="text-center">
@@ -58,38 +59,40 @@ const t = createTranslator(translations);
                 class="text-xl font-semibold text-gray-800 mb-4"
                 id="trial-form-title"
               >
-                早期アクセスに申し込む
+                {t("trialForm.contactFormTitle")}
               </h3>
               <p class="text-gray-600 mb-6" id="trial-form-description">
-                今すぐ早期アクセスに申し込んで、特別価格を永続適用。
+                {t("trialForm.contactFormDescription")}
               </p>
               <a
-                href="#trial"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd0dpyBUrMdn6at54hMMp_iglqNsHx7m4aI9-_DONCoZ06s2A/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center justify-center min-h-[48px]"
                 id="trial-form-button"
               >
                 <span
                   class="text-red-500 font-bold mr-2"
-                  id="trial-form-limited">100名限定!</span
+                  id="trial-form-limited">{t("hero.limited")}</span
                 >
-                <span id="trial-form-button-text">早期アクセスに申し込む</span>
+                <span id="trial-form-button-text">{t("hero.cta")}</span>
               </a>
             </div>
           </div>
           <!-- Terms and Conditions -->
           <div class="mt-6 text-center">
             <p class="text-xs text-gray-500" id="terms-text">
-              <span id="terms-text-start">申し込みにより、</span><a
-                href="/terms"
+              <span id="terms-text-start">{t("trialForm.termsText")}</span><a
+                href={`${locale === 'ja' ? '' : `/${locale}`}/terms`}
                 class="text-blue-600 hover:underline"
                 id="terms-link"
-                data-link="terms">利用規約</a
-              ><span id="terms-and">および</span><a
-                href="/privacy"
+                data-link="terms">{t("trialForm.termsLink")}</a
+              ><span id="terms-and">{t("trialForm.andText")}</span><a
+                href={`${locale === 'ja' ? '' : `/${locale}`}/privacy`}
                 class="text-blue-600 hover:underline"
                 id="privacy-link"
-                data-link="privacy">プライバシーポリシー</a
-              ><span id="terms-text-end">に同意したものとみなされます。</span>
+                data-link="privacy">{t("trialForm.privacyLink")}</a
+              ><span id="terms-text-end">{t("trialForm.agreementText")}</span>
             </p>
           </div>
         </div>
@@ -111,7 +114,7 @@ const t = createTranslator(translations);
               d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
               clip-rule="evenodd"></path>
           </svg>
-          <span id="cta-feature-1">アプリ不要</span>
+          <span id="cta-feature-1">{t("cta.features.noApp")}</span>
         </div>
         <div class="flex items-center">
           <svg
@@ -124,7 +127,7 @@ const t = createTranslator(translations);
               d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
               clip-rule="evenodd"></path>
           </svg>
-          <span id="cta-feature-2">月額500円～</span>
+          <span id="cta-feature-2">{t("cta.features.free")}</span>
         </div>
         <div class="flex items-center">
           <svg
@@ -137,7 +140,7 @@ const t = createTranslator(translations);
               d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
               clip-rule="evenodd"></path>
           </svg>
-          <span id="cta-feature-3">4言語対応</span>
+          <span id="cta-feature-3">{t("cta.features.multilingual")}</span>
         </div>
         <div class="flex items-center">
           <svg
@@ -150,7 +153,7 @@ const t = createTranslator(translations);
               d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
               clip-rule="evenodd"></path>
           </svg>
-          <span id="cta-feature-4">AI名刺撮影</span>
+          <span id="cta-feature-4">{t("cta.features.aiScanning")}</span>
         </div>
       </div>
     </div>

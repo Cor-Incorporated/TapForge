@@ -11,13 +11,13 @@
     "title": "轻触连接世界。",
     "subtitle": "AI驱动的新一代名片",
     "description": "加速您的业务",
-    "subDescription": "无需应用，初始费用免费。一次NFC轻触即可分享多语言配置文件。\n支持自由职业者获取海外项目。",
-    "cta": "申请早期访问",
-    "limited": "限100名！",
+    "subDescription": "无需应用，一次NFC轻触即可分享多语言配置文件。支持海外项目获取。",
+    "cta": "申请β测试",
+    "limited": "限至2025/10/18！",
     "features": {
       "noApp": "无需应用",
-      "free": "初始费用免费",
-      "multilingual": "支持4种语言"
+      "free": "¥700（含运费）",
+      "multilingual": "2种语言（计划5种）"
     }
   },
   "problems": {
@@ -27,7 +27,7 @@
       "title": "自由职业者的烦恼",
       "cost": {
         "title": "纸质名片的成本",
-        "description": "每年500张约5,000日元的印刷费"
+        "description": "每年500张约¥5,000的印刷费"
       },
       "organization": {
         "title": "整理的麻烦",
@@ -46,15 +46,15 @@
       "title": "TapForge解决方案",
       "cost": {
         "title": "零成本",
-        "description": "初始费用0日元，月费500日元起"
+        "description": "初始费用¥0，月费¥500-700"
       },
       "time": {
         "title": "5分钟完成",
         "description": "AI名片拍摄转换为VCard"
       },
       "language": {
-        "title": "支持4种语言",
-        "description": "日英中西支持国际业务"
+        "title": "2种语言（计划5种）",
+        "description": "目前支持日英，计划5种语言支持国际业务"
       },
       "followup": {
         "title": "40%跟进率",
@@ -64,24 +64,24 @@
   },
   "cta": {
     "title": "准备开始了吗？",
-    "description": "通过我们限定100人的早期访问（每月500日元）体验TapForge的力量",
-    "trialButton": "申请早期访问",
+    "description": "通过我们限定至2025/10/18的β测试体验TapForge的力量",
+    "trialButton": "申请β测试",
     "contactButton": "联系我们（共创合作伙伴）",
     "tapNow": "立即轻触！",
     "profileDisplay": "配置文件显示",
     "features": {
       "noApp": "无需应用",
-      "free": "初始费用免费",
-      "multilingual": "4种语言",
+      "free": "¥700（含运费）",
+      "multilingual": "2种语言（计划5种）",
       "aiScanning": "AI名片扫描"
     }
   },
   "trialForm": {
-    "title": "申请早期访问",
-    "description": "我们将为您免费创建一张名片。",
-    "subDescription": "无限设计更改，AI名片扫描和VCard转换可用",
+    "title": "申请β测试",
+    "description": "以¥700（含运费）提供可永久使用的原创NFC名片！",
+    "subDescription": "无限链接网站设计更改，AI名片扫描和VCard转换可用",
     "contactFormTitle": "联系表单",
-    "contactFormDescription": "要申请早期访问（每月500日元），请通过下面的按钮联系我们。",
+    "contactFormDescription": "要申请β测试，请通过下面的按钮联系我们。",
     "contactFormButton": "前往联系表单",
     "termsText": "通过申请，您同意我们的",
     "termsLink": "服务条款",
@@ -92,20 +92,30 @@
   "costComparison": {
     "title": "成本比较",
     "traditional": {
-      "title": "传统纸质名片",
+      "title": "传统纸质名片 + 名片管理应用",
       "period": "每年500张",
       "printingCost": "印刷费：¥5,000",
       "orgTime": "整理时间：30分钟",
-      "envImpact": "环境影响：高"
+      "envImpact": "环境影响：高",
+      "badges": {
+        "cost": "¥11K",
+        "time": "30分钟",
+        "impact": "高"
+      }
     },
     "tapforge": {
       "title": "TapForge",
-      "period": "月费",
-      "monthlyCost": "月费：¥500起",
+      "period": "¥700",
+      "monthlyCost": "月费：¥0",
       "orgTime": "整理时间：5分钟",
-      "envImpact": "环境影响：零"
+      "envImpact": "环境影响：零",
+      "badges": {
+        "cost": "¥700",
+        "time": "5分钟",
+        "impact": "零"
+      }
     },
-    "targetAudience": "适合希望增加海外项目的自由职业者"
+    "targetAudience": "适合中小企业和自由职业者"
   },
   "features": {
     "title": "TapForge特点",
@@ -113,11 +123,11 @@
     "items": {
       "aiScan": {
         "title": "带OCR名片读取功能的NFC名片",
-        "description": "通常需要单独应用月费500日元的OCR功能免费集成。用AI将纸质名片数字化（准确率95%），直接保存为VCard到智能手机"
+        "description": "通常是单独应用的OCR功能免费集成。用AI将纸质名片数字化并直接保存到设备"
       },
       "multilingual": {
         "title": "多语言支持",
-        "description": "自动切换日语、英语、中文（简体）、西班牙语4种语言"
+        "description": "目前支持日语和英语2种语言。计划添加中文、韩语和西班牙语，实现5种语言支持"
       },
       "noApp": {
         "title": "无需应用",
@@ -130,29 +140,48 @@
     },
     "pricing": {
       "title": "价格体系（含税）",
-      "plans": {
+      "betaTitle": "β测试（限至2025/10/18）",
+      "regularTitle": "通常价格",
+      "beta": {
+        "initial": {
+          "title": "初始费用",
+          "price": "¥700",
+          "description": "含运费"
+        },
+        "monthly": {
+          "title": "月费",
+          "price": "¥0",
+          "description": "无月费"
+        },
+        "additional": {
+          "title": "追加卡片",
+          "price": "¥500",
+          "description": "第二张起/含运费"
+        }
+      },
+      "regular": {
         "initial": {
           "title": "初始费用",
           "price": "¥0",
-          "description": "首张免费"
+          "description": "初始费用免费"
+        },
+        "monthly": {
+          "title": "月费",
+          "price": "¥500起/账户",
+          "description": "6个月以上持续使用"
         },
         "additional": {
           "title": "追加卡片",
           "price": "¥600",
-          "description": "第二张起"
-        },
-        "monthly": {
-          "title": "月费",
-          "price": "¥500起",
-          "description": "月度计划"
+          "description": "第二张起/含运费\n(10张以上批量订购¥500/张)"
         }
       },
-      "tagline": "带OCR功能的NFC名片业界最低价 - 通常年费11,000日元的功能以月费500日元起提供"
+      "tagline": "带OCR功能的NFC名片业界最低价 - β测试:仅¥700初始费，通常:¥0初始费+月费¥500起"
     },
     "demo": {
       "title": "演示视频",
       "description": "AI名片扫描演示视频",
-      "note": "（YouTube链接即将推出）"
+      "note": ""
     }
   },
   "benefits": {
@@ -161,8 +190,8 @@
     "items": {
       "costReduction": {
         "title": "成本削减",
-        "metric": "¥8,000",
-        "description": "传统纸质名片5,000日元+OCR应用6,000日元→TapForge月费500日元起实现"
+        "metric": "¥5,000",
+        "description": "¥11,000→¥6,000（6个月以上持续使用）"
       },
       "timeEfficiency": {
         "title": "效率化",
@@ -176,7 +205,7 @@
       },
       "environmental": {
         "title": "环保",
-        "metric": "500张",
+        "metric": "300张",
         "description": "年度纸张削减为SDGs贡献"
       }
     },
@@ -191,35 +220,41 @@
         "annualCost": {
           "item": "年度成本",
           "traditional": "¥11,000",
+          "traditionalNote": "纸质名片+OCR应用",
           "tapforge": "¥6,000",
-          "tapforgeNote": "（月费500日元起）"
+          "tapforgeNote": "（6个月以上持续使用的情况）"
         },
         "organizationTime": {
           "item": "整理时间",
-          "traditional": "30分钟/50张",
+          "traditional": "30分钟",
+          "traditionalUnit": "/50张",
           "tapforge": "5分钟",
-          "tapforgeNote": "/50张"
+          "tapforgeUnit": "/50张"
         },
         "followUpRate": {
           "item": "跟进率",
           "traditional": "15%",
-          "tapforge": "40%"
+          "tapforge": "40%",
+          "label": "跟进率"
         },
         "multilingual": {
           "item": "多语言支持",
           "traditional": "无",
-          "tapforge": "4种语言",
-          "tapforgeNote": "支持"
+          "traditionalLabel": "多语言支持",
+          "tapforge": "2种语言",
+          "tapforgeNote": "（计划5种）"
         },
         "environmentalImpact": {
           "item": "环境影响",
-          "traditional": "高（使用纸张）",
+          "traditional": "高",
+          "traditionalNote": "（使用纸张）",
           "tapforge": "零",
           "tapforgeNote": "（无纸化）"
         },
         "updateEase": {
           "item": "更新便利性",
           "traditional": "需要重新印刷",
+          "traditionalNote": "",
           "tapforge": "即刻",
           "tapforgeNote": "可更新"
         }
@@ -242,15 +277,27 @@
     "goals": {
       "goal12": {
         "title": "负责任的生产和消费",
-        "items": ["无纸化", "年度削减500张纸", "可持续消费"]
+        "items": [
+          "无纸化",
+          "年度削减500张纸",
+          "可持续消费"
+        ]
       },
       "goal10": {
         "title": "减少不平等",
-        "items": ["4语言支持", "消除国际项目中的不平等", "消除语言障碍"]
+        "items": [
+          "2种语言（计划5种）",
+          "消除国际项目中的不平等",
+          "消除语言障碍"
+        ]
       },
       "goal17": {
         "title": "促进目标实现的伙伴关系",
-        "items": ["通过名片交换共创", "全球连接", "技术创新共享"]
+        "items": [
+          "通过名片交换共创",
+          "全球连接",
+          "技术创新共享"
+        ]
       }
     },
     "environmental": {
@@ -307,16 +354,28 @@
         "name": "铃木先生",
         "role": "网页设计师",
         "message": "纸质名片整理5分钟完成！英语配置文件增加了海外项目。AI名片扫描准确率高，VCard转换也很顺畅。对自由职业者来说真的是便利的服务。",
-        "tags": ["效率化", "海外项目", "AI准确性"]
+        "tags": [
+          "效率化",
+          "海外项目",
+          "AI准确性"
+        ]
       },
       {
         "name": "田中先生",
         "role": "IT顾问",
         "message": "无需应用，简单易用。给客户留下好印象。多语言支持使与海外客户的沟通变得顺畅。性价比也很出色。",
-        "tags": ["简单操作", "好印象", "性价比"]
+        "tags": [
+          "简单操作",
+          "好印象",
+          "性价比"
+        ]
       }
     ],
-    "note": "这些评价是虚拟的。计划从100名早期访问参与者中选择5个实际评价进行替换。"
+    "note": "这些评价是虚拟的。计划从β测试参与者中选择5个实际评价进行替换。",
+    "comingSoon": {
+      "heading": "即将推出...",
+      "message": "β测试参与者的真实评价即将发布"
+    }
   },
   "faq": {
     "title": "常见问题",
@@ -331,16 +390,32 @@
         "answer": "AI名片扫描和VCard转换准确率为95%。通过持续改进，我们致力于进一步提高准确率。\n如果识别失败，也可以手动修正。"
       },
       {
-        "question": "我可以自己更改设计吗？",
-        "answer": "可以从管理界面无限更改设计。\n可以从3种浅色（白色、浅蓝色、米色）中选择，文本和联系信息也可以轻松更新。"
+        "question": "我可以自己更改链接网站的设计吗？",
+        "answer": "可以从管理界面无限更改设计。\n文本和联系信息也可以轻松更新。"
       },
       {
         "question": "请告诉我如何使用多语言支持",
-        "answer": "您可以自行切换到4种语言（日语、英语、中文、西班牙语）。\n可以在配置文件屏幕上选择显示语言，因此无论对方智能手机的语言设置如何，都可以使用您喜欢的语言。"
+        "answer": "目前支持2种语言（日语和英语），您可以自行切换。计划添加中文、韩语和西班牙语，实现5种语言支持。\n可以在配置文件屏幕上选择显示语言，因此无论对方智能手机的语言设置如何，都可以使用您喜欢的语言。"
       },
       {
         "question": "可以离线使用吗？",
         "answer": "目前我们推荐在线环境使用。\n离线功能未来正在考虑中。利用无需应用的优点，我们优先在线环境中提供稳定的服务。"
+      },
+      {
+        "question": "订阅价格计划是什么？",
+        "answer": "采用3个月更新制：第1-3个月¥700，第4-6个月¥600，第6个月以后¥500。持续时间越长，价格越优惠。"
+      },
+      {
+        "question": "可以一次性购买吗？",
+        "answer": "是的，可以。1个账户¥3,000起可以商谈。详情请通过<a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">咨询表单</a>联系我们。"
+      },
+      {
+        "question": "任何人都可以申请β测试吗？",
+        "answer": "β测试仅限日本国内客户。如果您希望从海外订购，请通过<a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">咨询表单</a>单独联系我们。"
+      },
+      {
+        "question": "如果我想更改名片设计该怎么办？",
+        "answer": "您可以订购额外的名片（¥500/张起）。请通过<a href=\"https://cor-jp.com/contact/\" target=\"_blank\" rel=\"noopener\" style=\"color:#2563eb;\">咨询表单</a>联系我们。"
       }
     ],
     "additionalHelp": {
@@ -362,7 +437,7 @@
     "contact": {
       "title": "联系我们",
       "company": "Cor.株式会社",
-      "trial": "早期访问"
+      "trial": "申请β测试"
     },
     "copyright": "© 2025 TapForge by Cor.株式会社 保留所有权利。",
     "legal": {

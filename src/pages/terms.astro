@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Default.astro";
 import { type Language } from "../lib/i18n";
+import { getContactUrl } from "../utils/i18n";
 
 const currentLang: Language = "ja";
 const pageTitle = "TapForge - 利用規約";
+const contactUrl = getContactUrl(currentLang);
 ---
 
 <Layout title={pageTitle} lang={currentLang}>
@@ -95,7 +97,7 @@ const pageTitle = "TapForge - 利用規約";
         <ul class="list-none mt-2 text-gray-700">
           <li>会社名：Cor.株式会社</li>
           <li>ウェブサイト：<a href="https://cor-jp.com/" class="text-blue-500 hover:underline">https://cor-jp.com/</a></li>
-          <li>お問い合わせ：<a href="https://cor-jp.com/contact/" class="text-blue-500 hover:underline">お問い合わせフォーム</a></li>
+          <li>お問い合わせ：<a href={contactUrl} class="text-blue-500 hover:underline">お問い合わせフォーム</a></li>
         </ul>
       </section>
     </div>
